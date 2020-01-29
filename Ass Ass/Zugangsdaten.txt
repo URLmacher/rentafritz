@@ -1,0 +1,75 @@
+
+Hallo, 
+
+ 
+
+hier die Zugangsdaten für den Server.
+
+
+ins Backend kommt man über marsway.eu/wp-admin
+
+Benutzername: mw_admin
+
+Passwort: mw_hartberg
+
+FTP und MySQL Daten:
+
+ 
+
+Typ
+
+Name / Bezeichnung
+
+Login
+
+Passwort
+
+Host / Rufnummer
+
+Zusatzinfo
+
+Benutzerlogin
+
+WEB B-1500 marsway.eu
+
+marsway.eu
+
+zxG7tm4cz
+
+https://host22.xpirio.net/
+
+- - - - -
+
+FTP
+
+ftp@marsway.eu
+
+ftp@marsway.eu
+
+tsgvz6evgjxj
+
+host22.xpirio.net
+
+- - - - -
+
+MySQL
+
+772_dmlighteu
+
+772_dmlight
+
+x!m2Wf6jy
+
+localhost
+
+- - - - -
+
+MySQL
+
+772_marswayeu
+
+772_marsway
+
+qartrzr5w52b
+
+localhost

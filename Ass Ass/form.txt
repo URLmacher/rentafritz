@@ -1,0 +1,35 @@
+was:	dropdown-auswahl
+
+wann:	von:	input calendar
+		input uhrzeit
+	bis:	input calendar
+		input uhrzeit
+
+//Füllen sie die erforderlichen Felder aus
+
+*weiter button
+
+	mietdauer	
+	kosten		(bei geld pro stunde)
+	verfügbarkeit	(nächst verfügbarer zeitpunkt ab datum um uhrzeit)
+
+*weiter button( bei unverfügbarkeit anderen Zeitpunkt wählen)
+
+					input name
+wie wollen sie kontaktiert werden 	°input email
+					°input telefon
+
+//Füllen sie die erforderlichen Felder aus
+
+*reservieren button
+
+
+spuckt aus:
+Reservierungswunsch von name
+objekt
+zeitraum von-bis
+dauer in h
+kosten stundensatz
+name
+tel
+eamil

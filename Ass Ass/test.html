@@ -1,0 +1,613 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>RENTAFRITZ</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Verleih für Fahrzeuge und Geräte" />
+	<meta name="keywords" content="Transporter, Elektroheizgerät, Luftentfeuchter, Holzspalter, Temperaturmessgerät, Vertikutierer, Feuchtemessgerät, Helligkeitsmessgerät, Laserentfernungsmesser, mieten, leihen" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="scripts/jquery-2.1.4.min.js"></script>	
+	<script src="scripts/jquery.bxslider.min.js"></script>
+	<script src="scripts/jquery.selectbox.js" type="text/javascript"></script>
+	<script src="scripts/jquery.timepicker.js"></script>
+	<script src="scripts/bootstrap-datepicker.js" charset="UTF-8"></script>
+	<script src="scripts/bootstrap-datepicker.de.min.js"></script>
+	<script src="scripts/datepair.js"></script>
+	<script src="scripts/jquery.datepair.js"></script>
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="favicon-194x194.png" sizes="194x194">
+	<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="manifest.json">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#f4572a">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="mstile-144x144.png">
+	<meta name="theme-color" content="#f4572a">
+	
+	<link rel="stylesheet" type="text/css" href="content/toast.css">
+	<link rel="stylesheet" type="text/css" href="content/icon.css">
+	<link rel="stylesheet" href="content/jquery.selectbox.css"  type="text/css" />
+	<link rel="stylesheet" type="text/css" href="content/jquery.timepicker.css">
+	<link rel="stylesheet" type="text/css" href="content/bootstrap-datepicker.standalone.css">
+	<link rel="stylesheet" type="text/css" href="content/jquery.bxslider.css"  />
+	<link rel="stylesheet" type="text/css" href="content/site.css" title="default">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,900,900italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<noscript><h3>Um diese Webseite im vollen Umfang nutzen zu können, aktivieren Sie bitte Javasript in Ihrem Browser.</h3></noscript>
+	<div class="hide" id="construction">
+	<img src="img/dog.jpg" />
+		<h3>Wir führen derzeit Wartungsarbeiten an unserer Website durch, bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.</h3>
+	</div>
+	<div class="back">
+		<div class="title">
+		</div>
+	</div>
+	<div class="bar">
+		<div class="bar-kontakt">
+			<h1>KONTAKT: 0681/84 62 96 90</h1>
+			<h1>STANDORT: 8273 Ebersdorf 56/1</h1>
+		</div>
+		<h1 id="telnr" >KONTAKT: 0681/84 62 96 90</h1>
+		<h1 id="dahoam" >STANDORT: 8273 Ebersdorf 56/1</h1>
+	</div>
+	<div class="grid">
+		<div class="grid__col grid__col--1-of-3">
+			<div class="reserv-form ">
+				<div class="reserv-title">
+					<h1>RESERVIERUNG</h1>
+				</div>
+				<form id="reservierung"  >
+					<div class="form-inhalt ">
+						<div class="auswahl xtraspace">
+							<p class="erklaerung">Was möchten sie mieten?</p>
+							<select style="width:100%;" id="standard-dropdown" name="standard-dropdown" >
+								<option value="59" class="test-class-1">Transporter Opel Vivaro</option>
+								<option value="9" class="test-class-2" >Elektroheizgerät GÜDE GH9e</option>
+								<option value="16" class="test-class-3">Luftentfeuchter TTK 170 ECO</option>
+								<option value="28" class="test-class-4">Holzspalter Zipper HS 8 PT</option>
+								<option value="25" class="test-class-5">Vertikutierer Brill</option>
+								<option value="7" class="test-class-6">Temperaturmessgerät Voltcraft</option>
+								<option value="7" class="test-class-7">Feuchtemessgerät Brennenstuhl</option>
+								<option value="7" class="test-class-8">Laserentfernungsmesser Stabila</option>
+								<option value="7" class="test-class-9">Helligkeitsmessgerät Voltcraft</option>
+							</select>
+						</div>	
+						<div id="e">
+							<div class="auswahl xtraspace">
+								<p class="erklaerung">Von: (Datum/Uhrzeit)</p>
+								<input type="text" id ="date-start" class="date start " />
+								<div class="calendar"></div>
+							</div>
+							<div class="auswahl ">
+								<input type="text" id="time-start" class="time start " />
+								<div class="watch"></div>
+							</div>
+							
+							<div class="auswahl xtraspace">
+								<p class="erklaerung">Bis: (Datum/Uhrzeit)</p>
+								<input type="text" id ="date-end" class="date end" />
+								<div class="calendar"></div>
+							</div>
+							<div class="auswahl">
+								<input type="text" id="time-end" class="time end" />
+								<div class="watch"></div>
+							</div>
+						</div>
+					</div>
+					<div id="feld-leer" class="xtraspace hide">
+							<h3>Bitte füllen Sie alle Felder aus</h3>
+					</div>
+					<div class="submit">
+						<input type="submit" value="WEITER" id="button"  class="button-style"/>
+					</div>
+				</form>
+				<div class="kauf-info hide">
+					<h3>OBJEKT:</h3>
+					<p class="objekt">Objekttexthier</p>
+					<h3>LEIHDAUER:</h3>
+					<p id="leihdauer"></p>
+					<h3>PREIS:</h3>
+					<p id="kosten"><span>€</span></p>
+					<p>Zahlbar in bar vor Ort</p>
+					<div id="back-button">
+						<h3>AUSWAHL ÄNDERN</h3>
+					</div>
+				</div>
+				<div id="note"></div>
+				<div id="fields">
+					<form id="ajax-contact-form" class="hide" action="">
+						<div class="form-inhalt">
+							<div class="einwahl">
+								<input type="text" placeholder="Name" name="name" value="" />
+								<div class="user"></div>
+							</div>
+							<div class="einwahl">
+								<input type="text" placeholder="Email" name="email" value="" />
+								<div class="mail"></div>
+							</div>
+							<div class="einwahl">
+								<input type="text" min="1" max="40" placeholder="Telefonnummer" name="phone_number" value="" />
+								<div class="phone"></div>
+							</div>
+							<input type="hidden" id="objekt" value="" name="objekt" />
+							<input type="hidden" id="zeit-beginn" value="" name="zeit-beginn" />
+							<input type="hidden" id="datum-beginn" value="" name="datum-beginn" />
+							<input type="hidden" id="zeit-ende" value="" name="zeit-ende" />
+							<input type="hidden" id="datum-ende" value="" name="datum-ende" />
+							<input type="hidden" id="rate" value="" name="rate" />
+							<input type="hidden" id="bepreisung" value="" name="bepreisung" />
+						</div>
+						<div class="submit">
+							<div class="load hide">
+								<img src="img/bx_loader.gif" />
+							</div>
+							<input class=" button-style " id="button-weg" type="submit" name="submit" value="Abschicken" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Transporter</h1>
+				</div>
+				<div class="wenig-info" id="object-a-wenig-info">
+					<img class="object-img" src="img/auto.png">
+					<h3>€59,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-a-mehr-info">
+					<div class="slider-wrapper">
+						<div class="object-subtitle">
+							<h3>Opel Vivaro Hochdach L2H2 Diesel</h3>
+						</div>
+						<!-- 
+						<ul class="bxslider1" >
+							<li><img src="img/pic1.jpg" /></li>
+							<li><img src="img/pic2.jpg" /></li>
+							<li><img src="img/pic3.jpg" /></li>
+							<li><img src="img/pic4.jpg" /></li>
+							<li><img src="img/pic5.jpg" /></li>
+							<li><img src="img/pic6.jpg" /></li>
+							<li><img src="img/pic7.jpg" /></li>
+						</ul> -->
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Leistung: 101 PS</li>
+							<li>Sitzplätze: 3</li>
+							<li>Nutzlast: 955kg</li>
+							<li>Höchstzulässiges Gesamtgewicht: 2900kg</li>
+							<li>Max. Ladegutbreite und Höhe: 170cm/ 190cm</li>
+							<li>Ladevolumen: ca. 9m³</li>
+							<li>Türen: 3</li>
+							<li>Sitzplätze: 3</li>
+							<li>Verbrauch: ca. 8,3 l</li>
+						</ul>
+					</div>
+					<div class="sekundär-info">
+						<p>Ausstattung: Fensterheber elektrisch, Zentralverriegelung, Anhängerkupplung (maximale Stützlast 80kg/ max.Anhängelast 2000kg gebremst und 750kg ungebremst), Fahrerairbag, Jahresvignette 2016, Zurrgurtgarnitur, Abgasnorm EURO 3</p>
+					</div>
+					<h3>€59,- pro Tag</h3>
+					<div class="info-box">
+						<div class="info-icon"></div>
+						<p>200km frei, danach €0,36 für jeden weiteren Kilometer</p>
+						<p>Führerschein B</p>
+					</div>
+				</div>
+				<div class="object-link" id="object-a-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-a-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Elektro-Heizgerät</h1>
+				</div>
+				<div class="wenig-info" id="object-b-wenig-info">
+					<img class="object-img" src="img/heizgerät.png">
+					<h3>€9,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-b-mehr-info">
+					<div class="slider-wrapper">
+						<!--  
+						<ul class="bxslider2">
+							<li><img src="img/pac1.jpg" /></li>
+							<li><img src="img/pac2.jpg" /></li>
+							<li><img src="img/pac3.jpg" /></li>
+							<li><img src="img/pac4.jpg" /></li>
+							<li><img src="img/pac5.jpg" /></li>
+							<li><img src="img/pac6.jpg" /></li>
+						</ul>-->
+					</div> 
+					<div class="object-subtitle">
+						<h3>GÜDE GH9e</h3>
+					</div>
+					<div class="sekundär-info">
+						<p>Robustes Elektro-Heizgerät mit 2 Heizstufen (4,5 kw + 9 kw), Ventilator und Raumthermostat.</p>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Anschluss 400 Volt</li>
+							<li>Frequenz / Schutzart 50 Hz / IP 44</li>
+							<li>Max. Heizleistung 9 kW (7700kcal./h)</li>
+							<li>Heizstufen 4,5 kW/ 9kW/ Ventilator</li>
+							<li>Leistungsaufnahme 3x13,04A</li>
+							<li>Gebläseleistung 780 m3/h</li>
+							<li>Netzleitung 1,6m / H07RN-F 4x2,5mm²</li>
+							<li>Gewicht ca. 12,8kg</li>
+							<li>Maße L380mm x B470mm x H440mm</li>
+						</ul>
+					</div>
+					<h3>€9,- pro Tag</h3>
+				</div>
+				<div class="object-link" id="object-b-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-b-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid">
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Luftentfeuchter</h1>
+				</div>
+				<div class="wenig-info" id="object-c-wenig-info">
+					<img class="object-img" src="img/luftentfeuchter.png">
+					<h3>€16,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-c-mehr-info">
+					<div class="object-subtitle">
+						<h3>TTK 170 ECO</h3>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Anschluss eines Abflussschlauchs zur Permaentfeuchtung</li>
+							<li>Heißgasabtauung</li>
+							<li>Leicht zugänglicher Luftfilter</li>
+							<li>Hochmobil durch Transportrollen und Griff-Bügelstange</li>
+							<li>Betriebsstundenzähler</li>
+							<li>Integrierte Klinkenbuchse zum Anschluss eines externen Hygrostats</li>
+							<li>Entfeuchtungsleistung max.: 24h: 52 Liter</li>
+							<li>Geeignet für Raumgrößen bis 90m²/230m³</li>
+							<li>Arbeitsbereich Temperatur: 5°-32°</li>
+							<li>Arbeitsbereich Feuchtigkeit: 30 bis 90% r.F.</li>
+							<li>Luftleistung max.: 350m³/h</li>
+							<li>Abtauautomatik: Heißgas</li>
+							<li>Anschlussspannung: 230V (50 Hz)</li>
+							<li>Leistungsaufnahme max.:0,9kW</li>
+							<li>Wasserbehälter: 6,6 Liter</li>
+							<li>Schallpegel (Abstand 1m): 56dB</li>
+							<li>Gewicht:31 kg</li>
+							<li>Maße: L495mm x B455mm x H900mm</li>
+						</ul>
+					</div>
+					<h3>€16,- pro Tag</h3>
+					<div class="info-box">
+						<div class="info-icon"></div>
+						<p>Fragen Sie nach unseren günstigen Wochenpauschalen.</p>
+					</div>
+				</div>
+				<div class="object-link" id="object-c-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-c-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Holzspalter</h1>
+				</div>
+				<div class="wenig-info" id="object-d-wenig-info">
+					<img class="object-img" src="img/spalter.png"/>
+					<h3>€28,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-d-mehr-info">
+					<div class="object-subtitle">
+						<h3>Zipper HS 8 PT</h3>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Betriebsspannung: 400V / 50 Hz</li>
+							<li>Motorleistung: 3,5 kW/ IP54</li>
+							<li>Spaltkraft: 8 Tonnen</li>
+							<li>Max. Spalthub: 480 mm</li>
+							<li>Spaltgutdurchmesser: 120-320 mm</li>
+							<li>Spaltlängen (o. Zub.): 550 mm, 850 mm und max. 1250 mm</li>
+							<li>Hydraulikhub: 20,4 MPa</li>
+							<li>Vorlaufgeschwindigkeit: 5,4 cm/s</li>
+							<li>Rücklaufgeschwindigkeit: 19,2 cm/s</li>
+							<li>Vertikale Ausführung zum Spalten von Kurz- und Meterholz</li>
+							<li>Stabile verwindungssteife Stahlkonstruktion</li>
+							<li>Schnelles Arbeiten durch stufenlos einstellbaren Spalthub</li>
+							<li>Zwei-Hand-Sicherheitsbedienung</li>
+							<li>Spalttisch, schwenkbarer Sockel, Bodenplatte</li>
+							<li>inkl. Spaltkreuz</li>
+							<li>Bequemer Transport durch Fahreinrichtung</li>
+							<li>Gewicht: 155 kg</li>
+							<li>Maße: L830mm x B930mm x H1470mm</li>
+						</ul>
+					</div>
+					<h3>€28,- pro Tag</h3>
+				</div>
+				<div class="object-link" id="object-d-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-d-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Vertikutierer</h1>
+				</div>
+				<div class="wenig-info" id="object-i-wenig-info">
+					<img class="object-img" src="img/verti.png"/>
+					<h3>€25,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-i-mehr-info">
+					<div class="object-subtitle">
+						<h3>Brill 4 TB 40</h3>
+					</div>
+					<div class="sekundär-info">
+						
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Benzinantrieb</li>
+							<li>Leistungsstarker Briggs & Stratton Motor mit 127ccm³ Hubraum und 2kW Leistung</li>
+							<li>Arbeitsbreite 40cm</li>
+							<li>Tiefenverstellung</li>
+							<li>Einklappbarer Arbeitsbügel für leichten Transport</li>
+						</ul>
+					</div>
+					<h3>€25,- pro Tag</h3>
+				</div>
+				<div class="object-link" id="object-i-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-i-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="messgeräte">
+		<h3>Messgeräte</h3>
+	</div>
+	<div class="grid">
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Feuchtemessgerät</h1>
+				</div>
+				<div class="wenig-info" id="object-f-wenig-info">
+					<img class="object-img" src="img/feuchtemessgerät.png"/>
+					<h3>€7,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-f-mehr-info">
+					<div class="object-subtitle">
+						<h3>Brennenstuhl MD 1298680</h3>
+					</div>
+					<div class="sekundär-info">
+						<p>Ideal für Messungen des Feuchtigkeitsgehalts von Baustoffen, wie z.B. Beton, Ziegel, Estrich, Gipskarton, Holz usw.</p>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Auswahltaste für Holz oder Baustoff</li>
+							<li>Anzeige des Feuchtigkeitsniveaus in Symbolen und Prozent</li>
+							<li>Holdfunktion</li>
+							<li>Batteriezustandsanzeige</li>
+							<li>Messbereich: 5-50% für Holz, 1,5-33 % bei Baustoffen</li>
+						</ul>
+					</div>
+					<h3>€7,- pro Tag</h3>
+				</div>
+				<div class="object-link" id="object-f-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-f-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Laserentfernungsmesser</h1>
+				</div>
+				<div class="wenig-info" id="object-g-wenig-info">
+					<img class="object-img" src="img/Entferfnungsmesser.png">
+					<h3>€7,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-g-mehr-info">
+					<div class="object-subtitle">
+						<h3>LD300 Stabila</h3>
+					</div>
+					<div class="sekundär-info">
+						<p>Ideal für Messungen im Innenbereich.</p>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Messgenauigkeit: ± 2mm</li>
+							<li>Schutzklasse IP 40</li>
+							<li>Laser Klasse 2 unter 1 mW</li>
+							<li>Messdistanz von 0,1 - 30m</li>
+							<li>Betriebsdauer der Batterien bis zu 3.000 Stunden</li>
+							<li>Längenmessung</li>
+							<li>Flächenmessung</li>
+							<li>Volumenmessung</li>
+							<li>Dauermessung (Einer linearen Bewegung)</li>
+							<li>Phythagoras-Funktion (Bestimmung einer Strecke mit 2 Hilfsmessungen in unterschiedlichem Winkel)</li>
+						</ul>
+					</div>
+					<h3>€7,- pro Tag</h3>
+					<div class="info-box">
+						<div class="info-icon"></div>
+						<p>Mit Gürteltasche und 2 AAA Batterien</p>
+					</div>
+				</div>
+				<div class="object-link" id="object-g-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-g-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Temperaturmessgerät</h1>
+				</div>
+				<div class="wenig-info" id="object-e-wenig-info">
+					<img class="object-img" src="img/temperatur.png"/>
+					<h3>€7,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-e-mehr-info">
+					<div class="object-subtitle">
+						<h3>Voltcraft K201-200</h3>
+					</div>
+					<div class="sekundär-info">
+						<p>Das professionelle Temperaturmessgerät mit externem Sensor.</p>
+						<p>Ideal für Messungen im Heizungs- und Wohnungsbereich, zum Beispiel für das Aufspüren von Kältebrücken oder ähnliches.</p>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Temperaturbereich von -200°C - +1370°C</li>
+							<li>°C/°F Umschaltung</li>
+							<li>Holdfunktion</li>
+							<li>Min-/Max. Messfunktion</li>
+							<li>Auflösung 0,1°C</li>
+							<li>Grundgenauigkeit +/- 0,3% vom Messwert +1°C</li>
+						</ul>
+					</div>
+					<h3>€7,- pro Tag</h3>
+					<div class="info-box">
+						<div class="info-icon"></div>
+						<p>Inkl. Temperaturfühler</p>
+					</div>
+				</div>
+				<div class="object-link" id="object-e-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-e-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid">
+		<div class="grid__col grid__col--1-of-3">
+			<div class="object">
+				<div class="object-title">
+					<h1>Helligkeitsmessgerät</h1>
+				</div>
+				<div class="wenig-info" id="object-h-wenig-info">
+					<img class="object-img" src="img/Luxmeter.png"/>
+					<h3>€7,- pro Tag</h3>
+				</div>
+				<div class="mehr-info hide" id="object-h-mehr-info">
+					<div class="object-subtitle">
+						<h3>Voltcraft MS 1500</h3>
+					</div>
+					<div class="slider-wrapper">
+						<ul class="info-ul">
+							<li>Messbereich: 0 - 40 000 lx</li>
+							<li>Auflösung: 0.01 lx</li>
+							<li>Genauigkeit: ± 3%</li>
+							<li>Spannungsversorgung: 9V Block</li>
+							<li>Messrate: 2/s</li>
+						</ul>
+					</div>
+					<h3>€7,- pro Tag</h3>
+				</div>
+				<div class="object-link" id="object-h-open-box">
+					<h3>mehr Info</h3>
+				</div>
+				<div class="object-link close-box hide" id="object-h-close-box">
+					<h3>zurück</h3>
+				</div>
+			</div>
+		</div>
+		<div class="grid__col grid__col--1-of-3">
+			<div class="sortiment">
+				<div class="sortiment-text">
+					<h3>Unser Sortiment wächst ständig.</h3>
+					<h3>Besuchen Sie uns daher öfter!</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="zitat">
+		<ul class="comment-ul">
+			<li class="comment-li hide">
+				<div class="comment-text">
+					<h3>"Brauchte zum Siedeln einen Transporter, RENTAFRITZ konnte mir  schnell und günstig einen  zur Verfügung stellen. War sehr zufrieden."</h3>
+				</div>
+				<div class="comment-user">
+					<p>-Babsi aus Pischelsdorf</p>
+					<p>21.02.2016</p>
+				</div>
+			</li>
+			<li class="comment-li hide">
+				<div class="comment-text">
+					<h3>"Freundliche und kompetente Bedienung, werde beim nächsten Mal mich wieder an RENTAFRITZ wenden."</h3>
+				</div>
+				<div class="comment-user">
+					<p>-Erni aus Graz</p>
+					<p>22.02.2016</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="footer">
+		<div class="footlinks left">
+			<ul>
+				<li><a href="anfahrt.html">Anfahrt</a></li>
+				<li><a href="service.html">Service</a></li>
+				<li><a href="oeffnungszeiten.html">Öffnungszeiten</a></li>	
+				<li><a href="agb.html">AGB</a></li>
+				<li><a href="impressum.html">Impressum</a></li>
+			</ul>
+		</div>
+		<div class="footlinks right">
+			<ul>
+				<li>
+					<a href="http://www.facebook.com"><img src="img/face.png"></a>
+				<li>
+				<li>
+					<a href="http://www.google.com"><img src="img/google.png"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="scripts/codes.js"></script>
+</body>
+</html>
