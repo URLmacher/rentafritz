@@ -1,16 +1,16 @@
-﻿			<div class="object">
-				<div class="object-title" id="die-produkte">
+﻿			<div class="product">
+				<div class="product__title" id="die-produkte">
 					<h1>Transporter</h1>
 				</div>
 				<div class="wenig-info " id="object-a-wenig-info">
-				<div class="new-object"></div>
+					<div class="new-object"></div>
 					<img class="object-img" src="img/auto_neu_frei_klein.png">
 					<h3>€ 65,- pro Tag</h3>
 				</div>
 				<div class="mehr-info hide" id="object-a-mehr-info">
 					<div class="slider-wrapper">
 						<div class="object-subtitle">
-							<h3>VW Crafter</h3>
+							<h3>Ford Transit</h3>
 						</div>
 						<img class="object-img" id="masse" src="img/laderaum.png">
 					</div>

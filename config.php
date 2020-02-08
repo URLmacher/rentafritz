@@ -1,4 +1,4 @@
 <?php
-// Where will you get the forms' results?
-define("WEBMASTER_EMAIL", 'office@rentafritz.com');
+    define("WEBMASTER_EMAIL", 'office@rentafritz.com');
+    define("BASE_URL", 'http://rentafritz.loc/../');
 ?>

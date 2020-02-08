@@ -1,10 +1,9 @@
-﻿
-<div class="object">
+﻿<div class="object product">
 	<div class="object-title">
 		<h1>Palettenhubwagen</h1>
 	</div>
 	<div class="wenig-info" id="object-k-wenig-info">
-		<img class="object-img" src="img/hubwagen.png"/>
+		<img class="object-img" src="img/hubwagen.png" />
 		<h3>€ 10,- pro Tag</h3>
 	</div>
 	<div class="mehr-info hide" id="object-k-mehr-info">

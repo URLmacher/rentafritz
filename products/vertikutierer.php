@@ -1,9 +1,9 @@
-﻿<div class="object">
+﻿<div class="object product">
 	<div class="object-title">
 		<h1>Vertikutierer</h1>
 	</div>
 	<div class="wenig-info" id="object-i-wenig-info">
-		<img class="object-img" src="img/verti.png"/>
+		<img class="object-img" src="img/verti.png" />
 		<h3>€ 29,- pro Tag</h3>
 	</div>
 	<div class="mehr-info hide" id="object-i-mehr-info">
@@ -11,7 +11,7 @@
 			<h3>Brill 4 TB 40</h3>
 		</div>
 		<div class="sekundär-info">
-			
+
 		</div>
 		<div class="slider-wrapper">
 			<ul class="info-ul">

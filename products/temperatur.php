@@ -1,9 +1,9 @@
-﻿			<div class="object">
+﻿			<div class="object product">
 				<div class="object-title">
 					<h1>Temperaturmessgerät</h1>
 				</div>
 				<div class="wenig-info" id="object-e-wenig-info">
-					<img class="object-img" src="img/temperatur.png"/>
+					<img class="object-img" src="img/temperatur.png" />
 					<h3>€ 7,- pro Tag</h3>
 				</div>
 				<div class="mehr-info hide" id="object-e-mehr-info">
