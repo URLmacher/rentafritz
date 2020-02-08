@@ -6,7 +6,7 @@ include('templates/nav-top.php');
 ?>
 
 
-<!-- <?php include('templates/reservierung.php'); ?> -->
+<?php include('templates/reservierung.php'); ?>
 
 <div class="products-grid">
 	<?php
