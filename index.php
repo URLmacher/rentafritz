@@ -5,9 +5,6 @@ include('templates/header.php');
 include('templates/nav-top.php');
 ?>
 
-
-<?php include('templates/reservierung.php'); ?>
-
 <div class="products-grid">
 	<?php
 	include('products/products.php');

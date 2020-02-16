@@ -1,0 +1,134 @@
+:root {
+    --color-primary: #494848;
+    --color-secondary: #f4572a;
+    --color-secondary-100: #f86840;
+    --color-secondary-200: #f18365;
+    --color-secondary-300: #e0917b;
+    --color-secondary-semi-transparent: #f4562aa2;
+    --color-white: white;
+    --color-confirm: green;
+    --color-dismiss: red;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+ul {
+    list-style: none;
+}
+
+.open {
+    opacity: 1;
+}
+
+.active-slide {
+    display: block;
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+    height: min-content;
+}
+
+.active-slide {
+    opacity: 1;
+    visibility: visible;
+    height: min-content;
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* materialize overrides */
+.waves-effect.waves-secondary .waves-ripple {
+    background-color: var(--color-secondary-semi-transparent);
+}
+
+.dropdown-content li > span {
+    font-size: 16px;
+    color: var(--color-primary);
+}
+
+input:focus {
+    border-bottom: 1px solid var(--color-secondary) !important;
+    box-shadow: 0 1px 0 0 var(--color-secondary) !important;
+}
+
+.datepicker-date-display {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-white);
+}
+
+button:focus {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-primary);
+}
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: var(--color-primary);
+}
+.datepicker-table td.is-selected {
+    background-color: var(--color-secondary) !important;
+}
+.datepicker-controls .select-month input {
+    width: 79px;
+}
+.datepicker-table td.is-today {
+    color:  var(--color-secondary);
+}
+.timepicker-digital-display {
+    background-color: var(--color-secondary) !important;
+}
+.timepicker-close {
+    color: var(--color-primary);
+}
+.timepicker-tick:hover {
+    background-color: var(--color-secondary-semi-transparent);
+}
+.timepicker-canvas line {
+    stroke: var(--color-secondary);
+}
+.timepicker-canvas-bg {
+    fill: var(--color-secondary);
+}
+.timepicker-canvas-bearing {
+    fill: var(--color-secondary);
+}

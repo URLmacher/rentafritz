@@ -1,6 +1,7 @@
 <?php
 $products = [
     [
+        "id" => 1,
         "name" => "Transporter",
         "description" => "Ford Transit",
         "img_main" => "img/auto_neu_frei_klein.png",
@@ -26,6 +27,7 @@ $products = [
         ]
     ],
     [
+        "id" => 2,
         "name" => "Übersiedlungsservice",
         "description" => "2 Mann + Transporter",
         "img_main" => "img/umzug.png",
@@ -49,6 +51,7 @@ $products = [
         ]
     ],
     [
+        "id" => 3,
         "name" => "Planen Anhänger",
         "description" => "Planen Anhänger",
         "img_main" => "img/haenger.png",
@@ -70,6 +73,7 @@ $products = [
         ]
     ],
     [
+        "id" => 4,
         "name" => "Palettenhubwagen",
         "description" => "2,5 Tonnen",
         "img_main" => "img/hubwagen.png",
@@ -90,6 +94,7 @@ $products = [
         ]
     ],
     [
+        "id" => 5,
         "name" => "Luftentfeuchter / Bautrockner",
         "description" => "TTK 170 ECO",
         "img_main" => "img/luftentfeuchter.png",
@@ -122,6 +127,7 @@ $products = [
         ]
     ],
     [
+        "id" => 6,
         "name" => "Holzspalter",
         "description" => "Zipper HS 8 PT",
         "img_main" => "img/spalter.png",
@@ -152,6 +158,7 @@ $products = [
         ]
     ],
     [
+        "id" => 7,
         "name" => "Vertikutierer",
         "description" => "Brill 4 TB 40",
         "img_main" => "img/verti.png",
@@ -169,6 +176,7 @@ $products = [
         ]
     ],
     [
+        "id" => 8,
         "name" => "Elektro-Heizgerät",
         "description" => "GÜDE GH9e",
         "img_main" => "img/heizgerät.png",
@@ -192,6 +200,7 @@ $products = [
         ]
     ],
     [
+        "id" => 9,
         "name" => "Schmutzwasserpumpe",
         "description" => "Einhell",
         "img_main" => "img/pumpe.png",
@@ -221,6 +230,7 @@ $products = [
         ]
     ],
     [
+        "id" => 10,
         "name" => "Feuchtemessgerät",
         "description" => "Brennenstuhl MD 1298680",
         "img_main" => "img/feuchtemessgerät.png",
@@ -240,6 +250,7 @@ $products = [
         ]
     ],
     [
+        "id" => 11,
         "name" => "Helligkeitsmessgerät",
         "description" => "Voltcraft MS 1500",
         "img_main" => "img/Luxmeter.png",
@@ -257,6 +268,7 @@ $products = [
         ]
     ],
     [
+        "id" => 12,
         "name" => "Laserentfernungsmesser",
         "description" => "LD300 Stabila",
         "img_main" => "img/Entferfnungsmesser.png",
@@ -283,6 +295,7 @@ $products = [
         ]
     ],
     [
+        "id" => 13,
         "name" => "Temperaturmessgerät",
         "description" => "Voltcraft K201-200",
         "img_main" => "img/temperatur.png",

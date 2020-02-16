@@ -1,17 +1,40 @@
-.reservierung__wrapper {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1500;
-    background-color: white;
-    border: 1px solid black;
-    overflow: hidden;
+.rent-grid {
+    display: flex;
+    flex-direction: column;
 }
 
-.reservierung__page {
-    max-width: 80%;
+.rent__title {
+    font-size: 3rem;
+    margin-top: 16px;
+    margin-bottom: 40px;
+}
+
+.rent__form {
+    width: 80%;
     margin: auto;
+}
+
+.rent__row {
+    margin: 0px 16px 30px 16px;
+}
+
+.rent__error-text {
+    margin: 0;
+    color: var(--color-dismiss);
+}
+
+.rent__button{
+    margin-bottom: 40px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.rent__button:hover{
+   background-color: var(--color-secondary-300);
+}
+.rent__button:active{
+   background-color: var(--color-secondary-200);
+}
+.rent__button:focus{
+   background-color: var(--color-secondary-100);
 }

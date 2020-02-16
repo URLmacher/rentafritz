@@ -19,9 +19,10 @@
         </ul>
     </div>
 </div>
+
+<script src="scripts/materialize.min.js"></script>
 <script src="scripts/codes.js"></script>
 <script src="scripts/new.js"></script>
-
 </body>
 
 </html>
