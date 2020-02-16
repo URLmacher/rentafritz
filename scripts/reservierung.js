@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const timePickerStartDom = document.getElementById('rent-time-start');
     const datePickerEndDom = document.getElementById('rent-date-end');
     const timePickerEndDom = document.getElementById('rent-time-end');
+    const customerName = document.getElementById('rent-name');
     const datePickerStart = M.Datepicker.getInstance(datePickerStartDom);
     const datePickerEnd = M.Datepicker.getInstance(datePickerEndDom);
     const timePickerStart = M.Timepicker.getInstance(timePickerStartDom);
@@ -30,5 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(datePickerEnd.date);
         console.log(timePickerStart.time);
         console.log(timePickerEnd.time);
+        console.log(customerName.value);
     });
 });

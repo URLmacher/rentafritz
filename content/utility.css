@@ -85,11 +85,6 @@ ul {
     color: var(--color-primary);
 }
 
-input:focus {
-    border-bottom: 1px solid var(--color-secondary) !important;
-    box-shadow: 0 1px 0 0 var(--color-secondary) !important;
-}
-
 .datepicker-date-display {
     background-color: var(--color-secondary) !important;
     color: var(--color-white);
@@ -112,7 +107,7 @@ button:focus {
     width: 79px;
 }
 .datepicker-table td.is-today {
-    color:  var(--color-secondary);
+    color: var(--color-secondary);
 }
 .timepicker-digital-display {
     background-color: var(--color-secondary) !important;
@@ -131,4 +126,31 @@ button:focus {
 }
 .timepicker-canvas-bearing {
     fill: var(--color-secondary);
+}
+
+label {
+    color: var(--color-primary) !important;
+}
+/* label focus color */
+input[type='text']:focus + label {
+    color: var(--color-primary) !important;
+}
+/* label underline focus color */
+input[type='text']:focus {
+    border-bottom: 1px solid var(--color-secondary) !important;
+    box-shadow: 0 1px 0 0 var(--color-secondary) !important;
+}
+/* valid color */
+input[type='text'].valid {
+    border-bottom: 1px solid var(--color-secondary-200) !important;
+    box-shadow: 0 1px 0 0 var(--color-secondary-200) !important;
+}
+/* invalid color */
+input[type='text'].invalid {
+    border-bottom: 1px solid var(--color-dismiss) !important;
+    box-shadow: 0 1px 0 0 var(--color-dismiss) !important;
+}
+/* icon prefix focus color */
+.prefix.active {
+    color: var(--color-primary) !important;
 }

@@ -5,6 +5,7 @@ include('templates/header.php');
 include('templates/nav-top.php');
 include('products/products.php');
 ?>
+
 <div class="rent-grid">
     <form class="rent__form" id="rent-form">
         <h1 class="rent__title">Reservieren</h1>
@@ -23,22 +24,32 @@ include('products/products.php');
         <h3 class="rent__body-title">Von wann:</h3>
         <div class="rent__row">
             <input id="rent-date-start" type="text" class="datepicker" placeholder="VON:(Datum)">
-            <div class="rent__errors" id="error-product"></div>
+            <div class="rent__errors" id="error-date-start"></div>
             <input id="rent-time-start" type="text" class="timepicker" placeholder="VON:(Uhrzeit)">
-            <div class="rent__errors" id="error-product"></div>
+            <div class="rent__errors" id="error-time-start"></div>
         </div>
 
         <h3 class="rent__body-title">Bis wann:</h3>
         <div class="rent__row">
             <input id="rent-date-end" type="text" class="datepicker" placeholder="BIS:(Datum)">
-            <div class="rent__errors" id="error-product"></div>
+            <div class="rent__errors" id="error-date-end"></div>
             <input id="rent-time-end" type="text" class="timepicker" placeholder="BIS:(Uhrzeit)">
-            <div class="rent__errors" id="error-product"></div>
+            <div class="rent__errors" id="error-time-end"></div>
+        </div>
+
+        <div class="rent__seperator"></div>
+
+        <h3 class="rent__body-title">Name</h3>
+        <div class="rent__row">
+            <input placeholder="Name" id="rent-name" type="text" class="validate">
+            <div class="rent__errors" id="error-name"></div>
         </div>
 
         <button class="btn waves-effect waves-light waves-secondary rent__button" type="submit" name="action">Weiter</button>
     </form>
 </div>
+
+
 <script src="scripts/translation.js"></script>
 <script src="scripts/reservierung.js"></script>
 <?php

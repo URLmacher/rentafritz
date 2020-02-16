@@ -14,6 +14,10 @@
     margin: auto;
 }
 
+.rent__body-title {
+    margin-bottom: 4px;
+}
+
 .rent__row {
     margin: 0px 16px 30px 16px;
 }
@@ -23,18 +27,24 @@
     color: var(--color-dismiss);
 }
 
-.rent__button{
+.rent__seperator {
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-secondary);
+    margin-bottom: 40px;
+}
+
+.rent__button {
     margin-bottom: 40px;
     background-color: var(--color-secondary);
     color: var(--color-white);
 }
-
-.rent__button:hover{
-   background-color: var(--color-secondary-300);
+.rent__button:hover {
+    background-color: var(--color-secondary-300);
 }
-.rent__button:active{
-   background-color: var(--color-secondary-200);
+.rent__button:active {
+    background-color: var(--color-secondary-200);
 }
-.rent__button:focus{
-   background-color: var(--color-secondary-100);
+.rent__button:focus {
+    background-color: var(--color-secondary-100);
 }
