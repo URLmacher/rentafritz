@@ -45,7 +45,43 @@ include('products/products.php');
             <div class="rent__errors" id="error-name"></div>
         </div>
 
-        <button class="btn waves-effect waves-light waves-secondary rent__button" type="submit" name="action">Weiter</button>
+        <h3 class="rent__body-title">Straße</h3>
+        <div class="rent__row">
+            <input placeholder="Straße" id="rent-street" type="text" class="validate">
+            <div class="rent__errors" id="error-street"></div>
+        </div>
+
+        <h3 class="rent__body-title">Hausnummer</h3>
+        <div class="rent__row">
+            <input placeholder="Hausnummer" id="rent-hnr" type="text" class="validate">
+            <div class="rent__errors" id="error-hnr"></div>
+        </div>
+
+        <h3 class="rent__body-title">Postleitzahl</h3>
+        <div class="rent__row">
+            <input placeholder="Postleitzahl" id="rent-plz" type="number" class="validate">
+            <div class="rent__errors" id="error-plz"></div>
+        </div>
+
+        <h3 class="rent__body-title">Stadt</h3>
+        <div class="rent__row">
+            <input placeholder="Stadt" id="rent-city" type="text" class="validate">
+            <div class="rent__errors" id="error-city"></div>
+        </div>
+
+        <h3 class="rent__body-title">Ausweiskopie</h3>
+        <div class="file-field input-field rent__row rent__row--two">
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Max 4 MB">
+            </div>
+            <div class="btn btn__primary">
+                <span>Ausweiskopie</span>
+                <input id="rent-file" type="file">
+            </div>
+            <div class="rent__errors" id="error-file">Error</div>
+        </div>
+
+        <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Weiter</button>
     </form>
 </div>
 
