@@ -13,7 +13,7 @@ include('products/products.php');
         <div class="rent__row">
             <div class="rent__col">
                 <h3 class="rent__body-title">Was?</h3>
-                <select>
+                <select id="rent-select">
                     <option value="" disabled selected>Bitte auswählen</option>
                     <?php foreach ($products as $product) : ?>
                         <option value="<?= $product['id'] ?>"><?= $product['name'] ?></option>
