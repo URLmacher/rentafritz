@@ -1,3 +1,5 @@
+const baseUrl = `http://rentafritz.loc`;
+
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownSelectsDom = document.querySelectorAll('select');
     const dropdownSelects = M.FormSelect.init(dropdownSelectsDom, {});
@@ -42,12 +44,35 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(customerHnr.value);
         console.log(customerPlz.value);
         console.log(customerCity.value);
-        checkDateAndTime(datePickerStart.date, datePickerEnd.date, timePickerStart.time, timePickerEnd.time);
+        //check for errors, send formdata
+        if (
+            checkDateAndTime(
+                datePickerStart.date,
+                datePickerEnd.date,
+                timePickerStart.time,
+                timePickerEnd.time
+            )
+        ) {
+            const hours = getDiffInHours(
+                setTimeOfDate(datePickerStart.date, timePickerStart.time),
+                setTimeOfDate(datePickerEnd.date, timePickerEnd.time)
+            );
+            console.log(hours);
+            sendForm();
+        } else {
+            console.log('error!');
+        }
         // setTimeOfDate(datePickerStart.date, timePickerStart.time);
     });
 
     allInputs.forEach(input => input.addEventListener('focus', clearErrors));
 });
+
+function getDiffInHours(dateStart, dateEnd) {
+    const milliseconds = Math.abs(dateEnd - dateStart);
+    const hours = milliseconds / 36e5;
+    return Math.round(hours);
+}
 
 /**
  * set time of date
@@ -83,54 +108,84 @@ function printError(errorText, elementId) {
  */
 function checkDateAndTime(dateStart, dateEnd, timeStart, timeEnd) {
     const now = new Date();
+    now.setHours(0, 0, 0, 0);
     const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
-    let error = false;
+    let noError = true;
 
     if (!dateStart) {
-        error = true;
+        noError = false;
         printError('Bitte Datum auswählen', 'error-date-start');
     } else if (dateStart < now) {
-        error = true;
+        noError = false;
         printError('Datum ungültig', 'error-date-start');
     }
 
     if (!dateEnd) {
-        error = true;
+        noError = false;
         printError('Bitte Datum auswählen', 'error-date-end');
     } else if (dateEnd < now) {
-        error = true;
+        noError = false;
         printError('Datum ungültig', 'error-date-end');
     }
 
     if (!timeStart) {
-        error = true;
+        noError = false;
         printError('Bitte Uhrzeit auswählen', 'error-time-start');
     } else if (!timeRegex.test(timeStart)) {
-        error = true;
+        noError = false;
         printError('Uhrzeit ungültig', 'error-time-start');
     }
 
     if (!timeEnd) {
-        error = true;
+        noError = false;
         printError('Bitte Uhrzeit auswählen', 'error-time-end');
     } else if (!timeRegex.test(timeEnd)) {
-        error = true;
+        noError = false;
         printError('Uhrzeit ungültig', 'error-time-end');
     }
 
-    if (dateStart && dateStart > now && dateEnd && dateStart < dateEnd) {
-        error = true;
+    if (dateStart && dateStart > now && dateEnd && dateStart > dateEnd) {
+        noError = false;
         printError('Datum ungültig', 'error-date-end');
     }
 
-    return error;
+    return noError;
 }
 
 /**
  * clears errors from a inputs error-field
- * @param {FocusEvent} event 
+ * @param {FocusEvent} event
  */
 function clearErrors(event) {
     if (event.target.nextElementSibling.classList.contains('rent__errors'))
         event.target.nextElementSibling.innerHTML = '';
+}
+
+/**
+ * send form data to backend
+ */
+async function sendForm() {
+    let postData = {
+        test: 'tesr'
+    };
+
+    try {
+        const answer = await fetch(`${baseUrl}/backend/getprice.php`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            method: 'post',
+            body: JSON.stringify(postData)
+        });
+
+        const data = await answer.json();
+        if (data.success) {
+            console.log(data.sentData);
+        } else {
+            console.log('gay');
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }

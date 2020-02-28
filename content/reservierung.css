@@ -14,22 +14,38 @@
     margin: auto;
 }
 
+.rent__row {
+    display: flex;
+    margin: 0px 16px 30px 0px;
+}
+
+.rent__col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 16px;
+}
+
+.rent__col--small {
+    width: 50%;
+}
+
 .rent__body-title {
     margin-bottom: 4px;
 }
 
-.rent__row {
-    margin: 0px 16px 30px 16px;
-}
-
-.rent__row--two {
-    display: grid;
-    grid-template-columns: 1fr 130px;
+.rent__input {
 }
 
 .rent__error-text {
     margin: 0;
     color: var(--color-dismiss);
+}
+
+.rent__body-button {
+    margin: auto;
+    margin-left: 0;
+    width: 100%;
 }
 
 .rent__seperator {

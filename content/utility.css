@@ -137,6 +137,9 @@ button:focus {
 .datepicker-controls .select-month input {
     width: 79px;
 }
+.datepicker-day-button {
+    color: var(--color-primary);
+}
 .datepicker-table td.is-today {
     color: var(--color-secondary);
 }
