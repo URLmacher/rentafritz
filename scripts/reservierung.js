@@ -48,29 +48,37 @@ document.addEventListener('DOMContentLoaded', function() {
         // console.log(customerPlz.value);
         // console.log(customerCity.value);
         //check for errors, send formdata
+
         if (
-            checkDateAndTime(
+            preCalcCheck(
                 datePickerStart.date,
                 datePickerEnd.date,
                 timePickerStart.time,
-                timePickerEnd.time
+                timePickerEnd.time,
+                dropdownSelectDom.value
             )
         ) {
             const hours = getDiffInHours(
                 setTimeOfDate(datePickerStart.date, timePickerStart.time),
                 setTimeOfDate(datePickerEnd.date, timePickerEnd.time)
             );
-            console.log(hours);
-            sendForm();
+            const productId = parseInt(dropdownSelectDom.value, 10);
+            console.log(hours, dropdownSelectDom.value);
+            getPrice(hours, productId);
         } else {
             console.log('error!');
         }
-        // setTimeOfDate(datePickerStart.date, timePickerStart.time);
     });
-
     allInputs.forEach(input => input.addEventListener('focus', clearErrors));
+    dropdownSelectDom.addEventListener('change', clearErrors);
 });
 
+/**
+ * difference between start and end in hours
+ * @param {Date} dateStart
+ * @param {Date} dateEnd
+ * @return {number}
+ */
 function getDiffInHours(dateStart, dateEnd) {
     const milliseconds = Math.abs(dateEnd - dateStart);
     const hours = milliseconds / 36e5;
@@ -102,6 +110,7 @@ function printError(errorText, elementId) {
 
 /**
  * checks if dates and times are set and valid
+ * and product is selected
  * prints errors
  * @param {date} dateStart
  * @param {date} dateEnd
@@ -109,7 +118,7 @@ function printError(errorText, elementId) {
  * @param {string} timeEnd
  * @returns {boolean}
  */
-function checkDateAndTime(dateStart, dateEnd, timeStart, timeEnd) {
+function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
     const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -152,6 +161,11 @@ function checkDateAndTime(dateStart, dateEnd, timeStart, timeEnd) {
         printError('Datum ungültig', 'error-date-end');
     }
 
+    if (!itemId) {
+        noError = false;
+        printError('Bitte Produkt auswählen', 'error-product');
+    }
+
     return noError;
 }
 
@@ -160,16 +174,26 @@ function checkDateAndTime(dateStart, dateEnd, timeStart, timeEnd) {
  * @param {FocusEvent} event
  */
 function clearErrors(event) {
-    if (event.target.nextElementSibling.classList.contains('rent__errors'))
+    if (
+        event.target.nextElementSibling &&
+        event.target.nextElementSibling.classList.contains('rent__errors')
+    ) {
         event.target.nextElementSibling.innerHTML = '';
+    } else if (
+        event.target.parentElement &&
+        event.target.parentElement.nextElementSibling.classList.contains('rent__errors')
+    ) {
+        event.target.parentElement.nextElementSibling.innerHTML = '';
+    }
 }
 
 /**
  * send form data to backend
  */
-async function sendForm() {
+async function getPrice(hours, productId) {
     let postData = {
-        test: 'tesr'
+        hours: hours,
+        productId: productId
     };
 
     try {
