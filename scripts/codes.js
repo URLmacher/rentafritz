@@ -53,70 +53,70 @@
 //         var price = (Math.round((hours * hourlyRate + 0.00001) * 100) / 100).toFixed(2);
 //         var pricePerDay = days * hourlyRate;
 
-//         if (isNaN(price)) {
-//             $('#feld-leer').removeClass('hide');
-//         } else if (price < 0) {
-//             $('#vergangenheit').removeClass('hide');
-//         } else {
-//             $('#reservierung').addClass('hide');
-//             $('.kauf-info').removeClass('hide');
-//             $('#ajax-contact-form').removeClass('hide');
-//             $('#back-button').click(function() {
-//                 location.reload(true);
-//             });
-//             if (
-//                 (hours == 1) &
-//                 !(selectedText == 'Palettenhubwagen' || selectedText == 'Schmutzwasserpumpe')
-//             ) {
-//                 $('#leihdauer').html(hours + ' Stunde');
-//                 $('#kosten').html(hourlyRate + '€');
-//                 $('#bepreisung').val(hourlyRate);
-//             } else if (hours == 24) {
-//                 $('#leihdauer').html(days + ' Tag');
-//                 $('#kosten').html(hourlyRate + '€');
-//                 $('#bepreisung').val(hourlyRate);
-//             } else if ((selectedText == 'Übersiedlungsservice') & (hours > 1)) {
-//                 $('#leihdauer').html(hours + ' Stunden');
-//                 $('#kosten').html(price + '€');
-//                 $('#bepreisung').val(hourlyRate);
-//             } else if ((selectedText == 'Palettenhubwagen') & (hours <= 4)) {
-//                 $('#leihdauer').html('4 Stunden');
-//                 $('#kosten').html(8 + '€');
-//                 $('#bepreisung').val(8);
-//             } else if ((selectedText == 'Schmutzwasserpumpe') & (hours <= 4)) {
-//                 $('#leihdauer').html('4 Stunden');
-//                 $('#kosten').html(10 + '€');
-//                 $('#bepreisung').val(10);
-//             } else if ((selectedText == 'Palettenhubwagen') & (weeks == 1)) {
-//                 $('#leihdauer').html('1 Woche');
-//                 $('#kosten').html(30 + '€');
-//                 $('#bepreisung').val(30);
-//             } else if ((selectedText == 'Schmutzwasserpumpe') & (weeks == 1)) {
-//                 $('#leihdauer').html('1 Woche');
-//                 $('#kosten').html(32 + '€');
-//                 $('#bepreisung').val(32);
-//             } else if ((selectedText == 'Palettenhubwagen') & (weeks > 1)) {
-//                 $('#leihdauer').html(weeks + ' Wochen');
-//                 $('#kosten').html(30 * weeks + '€');
-//                 $('#bepreisung').val(30);
-//             } else if ((selectedText == 'Schmutzwasserpumpe') & (weeks > 1)) {
-//                 $('#leihdauer').html(weeks + ' Wochen');
-//                 $('#kosten').html(32 * weeks + '€');
-//                 $('#bepreisung').val(32);
-//             } else {
-//                 $('#leihdauer').html(days + ' Tage');
-//                 $('#kosten').html(pricePerDay + '€');
-//                 $('#bepreisung').val(pricePerDay);
-//             }
-//             $('.objekt').html(selectedText);
-//             $('#objekt').val(selectedText);
-//             $('#zeit-beginn').val(zeitBeginn);
-//             $('#datum-beginn').val(datumBeginn);
-//             $('#zeit-ende').val(zeitEnde);
-//             $('#datum-ende').val(datumEnde);
-//             $('#rate').val(hourlyRate);
-//         }
-//     });
+    //     if (isNaN(price)) {
+    //         $('#feld-leer').removeClass('hide');
+    //     } else if (price < 0) {
+    //         $('#vergangenheit').removeClass('hide');
+    //     } else {
+    //         $('#reservierung').addClass('hide');
+    //         $('.kauf-info').removeClass('hide');
+    //         $('#ajax-contact-form').removeClass('hide');
+    //         $('#back-button').click(function() {
+    //             location.reload(true);
+    //         });
+    //         if (
+    //             (hours == 1) &
+    //             !(selectedText == 'Palettenhubwagen' || selectedText == 'Schmutzwasserpumpe')
+    //         ) {
+    //             $('#leihdauer').html(hours + ' Stunde');
+    //             $('#kosten').html(hourlyRate + '€');
+    //             $('#bepreisung').val(hourlyRate);
+    //         } else if (hours == 24) {
+    //             $('#leihdauer').html(days + ' Tag');
+    //             $('#kosten').html(hourlyRate + '€');
+    //             $('#bepreisung').val(hourlyRate);
+    //         } else if ((selectedText == 'Übersiedlungsservice') & (hours > 1)) {
+    //             $('#leihdauer').html(hours + ' Stunden');
+    //             $('#kosten').html(price + '€');
+    //             $('#bepreisung').val(hourlyRate);
+    //         } else if ((selectedText == 'Palettenhubwagen') & (hours <= 4)) {
+    //             $('#leihdauer').html('4 Stunden');
+    //             $('#kosten').html(8 + '€');
+    //             $('#bepreisung').val(8);
+    //         } else if ((selectedText == 'Schmutzwasserpumpe') & (hours <= 4)) {
+    //             $('#leihdauer').html('4 Stunden');
+    //             $('#kosten').html(10 + '€');
+    //             $('#bepreisung').val(10);
+    //         } else if ((selectedText == 'Palettenhubwagen') & (weeks == 1)) {
+    //             $('#leihdauer').html('1 Woche');
+    //             $('#kosten').html(30 + '€');
+    //             $('#bepreisung').val(30);
+    //         } else if ((selectedText == 'Schmutzwasserpumpe') & (weeks == 1)) {
+    //             $('#leihdauer').html('1 Woche');
+    //             $('#kosten').html(32 + '€');
+    //             $('#bepreisung').val(32);
+    //         } else if ((selectedText == 'Palettenhubwagen') & (weeks > 1)) {
+    //             $('#leihdauer').html(weeks + ' Wochen');
+    //             $('#kosten').html(30 * weeks + '€');
+    //             $('#bepreisung').val(30);
+    //         } else if ((selectedText == 'Schmutzwasserpumpe') & (weeks > 1)) {
+    //             $('#leihdauer').html(weeks + ' Wochen');
+    //             $('#kosten').html(32 * weeks + '€');
+    //             $('#bepreisung').val(32);
+    //         } else {
+    //             $('#leihdauer').html(days + ' Tage');
+    //             $('#kosten').html(pricePerDay + '€');
+    //             $('#bepreisung').val(pricePerDay);
+    //         }
+    //         $('.objekt').html(selectedText);
+    //         $('#objekt').val(selectedText);
+    //         $('#zeit-beginn').val(zeitBeginn);
+    //         $('#datum-beginn').val(datumBeginn);
+    //         $('#zeit-ende').val(zeitEnde);
+    //         $('#datum-ende').val(datumEnde);
+    //         $('#rate').val(hourlyRate);
+    //     }
+    // });
 
 //     $('#ajax-contact-form').submit(function() {
 //         var str = $(this).serialize();

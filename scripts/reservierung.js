@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeOfDate(datePickerEnd.date, timePickerEnd.time)
             );
             const productId = parseInt(dropdownSelectDom.value, 10);
-            console.log(hours, dropdownSelectDom.value);
+            console.log(hours, productId);
             getPrice(hours, productId);
         } else {
             console.log('error!');
@@ -208,11 +208,14 @@ async function getPrice(hours, productId) {
 
         const data = await answer.json();
         if (data.success) {
-            console.log(data.sentData);
+            console.log(data);
         } else {
-            console.log('gay');
+            console.error(data.error);
+            console.log(data);
         }
+
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
+
