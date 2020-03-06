@@ -23,6 +23,7 @@
 <script src="scripts/materialize.min.js"></script>
 <script src="scripts/codes.js"></script>
 <script src="scripts/new.js"></script>
+<script src="scripts/reservierung.js"></script>
 </body>
 
 </html>

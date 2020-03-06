@@ -1,6 +1,6 @@
 const baseUrl = `http://rentafritz.loc`;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const allInputs = document.querySelectorAll('input');
     const dropdownSelectDom = document.getElementById('rent-select');
     const rentForm = document.getElementById('rent-form');
@@ -8,12 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const timePickerStartDom = document.getElementById('rent-time-start');
     const datePickerEndDom = document.getElementById('rent-date-end');
     const timePickerEndDom = document.getElementById('rent-time-end');
-    const customerName = document.getElementById('rent-name');
+    const customerFirstName = document.getElementById('rent-first-name');
+    const customerLastName = document.getElementById('rent-last-name');
+    const customerPhone = document.getElementById('rent-phone');
+    const customerEmail = document.getElementById('rent-email');
     const customerStreet = document.getElementById('rent-street');
     const customerHnr = document.getElementById('rent-hnr');
     const customerPlz = document.getElementById('rent-plz');
     const customerCity = document.getElementById('rent-city');
-    const customerFile = document.getElementById('rent-file').files[0];
+    const customerFile = document.getElementById('rent-file');
 
     M.FormSelect.init(dropdownSelectDom, {});
 
@@ -37,17 +40,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     rentForm.addEventListener('submit', event => {
         event.preventDefault();
-        console.log(dropdownSelectDom.value);
-        // console.log(datePickerStart.date);
-        // console.log(datePickerEnd.date);
-        // console.log(timePickerStart.time);
-        // console.log(timePickerEnd.time);
-        // console.log(customerName.value);
-        // console.log(customerStreet.value);
-        // console.log(customerHnr.value);
-        // console.log(customerPlz.value);
-        // console.log(customerCity.value);
-        //check for errors, send formdata
+        preSendCheck(
+            customerFirstName.value,
+            customerLastName.value,
+            customerPhone.value,
+            customerEmail.value,
+            customerStreet.value,
+            customerHnr.value,
+            customerPlz.value,
+            customerCity.value,
+            customerFile.files[0]
+        );
 
         if (
             preCalcCheck(
@@ -63,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeOfDate(datePickerEnd.date, timePickerEnd.time)
             );
             const productId = parseInt(dropdownSelectDom.value, 10);
-            console.log(hours, productId);
             getPrice(hours, productId);
         } else {
             console.log('error!');
@@ -72,6 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
     allInputs.forEach(input => input.addEventListener('focus', clearErrors));
     dropdownSelectDom.addEventListener('change', clearErrors);
 });
+
+function preSendCheck(firstName, lastName, phone, email, street, hnr, plz, city, file) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(phone);
+    console.log(email);
+    console.log(street);
+    console.log(hnr);
+    console.log(plz);
+    console.log(city);
+    console.log(file);
+}
 
 /**
  * difference between start and end in hours
@@ -163,7 +177,7 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
 
     if (!itemId) {
         noError = false;
-        printError('Bitte Produkt auswählen', 'error-product');
+        printError('Bitte Produkt auswählen', 'error-select');
     }
 
     return noError;
@@ -174,16 +188,11 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
  * @param {FocusEvent} event
  */
 function clearErrors(event) {
-    if (
-        event.target.nextElementSibling &&
-        event.target.nextElementSibling.classList.contains('rent__errors')
-    ) {
-        event.target.nextElementSibling.innerHTML = '';
-    } else if (
-        event.target.parentElement &&
-        event.target.parentElement.nextElementSibling.classList.contains('rent__errors')
-    ) {
-        event.target.parentElement.nextElementSibling.innerHTML = '';
+    const errorId = event.target.id.replace('rent', 'error');
+    const errorField = document.getElementById(errorId);
+
+    if (errorField && errorField.classList.contains('rent__errors')) {
+        errorField.innerHTML = '';
     }
 }
 
@@ -213,9 +222,7 @@ async function getPrice(hours, productId) {
             console.error(data.error);
             console.log(data);
         }
-
     } catch (error) {
         console.error(error);
     }
 }
-
