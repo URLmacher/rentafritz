@@ -122,7 +122,7 @@ include('products/products.php');
                 <div class="rent__errors" id="error-agb"></div>
             </div>
             <div class="rent__col">
-
+                <a class="rent__link rent__link--right" href="/datenschutz.php">Datenschutzerklärung</a>
             </div>
         </div>
 

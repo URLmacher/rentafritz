@@ -34,11 +34,16 @@
     margin-bottom: 4px;
 }
 
-.rent__link{
+.rent__link {
     color: var(--color-secondary);
 }
 
-.rent__link:hover{
+.rent__link--right {
+    align-self: flex-end;
+    margin-top: 3px;
+}
+
+.rent__link:hover {
     color: var(--color-secondary-200);
 }
 
