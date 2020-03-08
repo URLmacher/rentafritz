@@ -3,8 +3,11 @@ const baseUrl = `http://rentafritz.loc`;
 document.addEventListener('DOMContentLoaded', () => {
     // get all DOMelements
     const allInputs = document.querySelectorAll('input');
+    const rentPaginationPage = document.getElementById('rent-pagination-page');
+    const rentBackButton = document.getElementById('rent-back-button');
     const dropdownSelectDom = document.getElementById('rent-select');
-    const rentForm = document.getElementById('rent-form');
+    const rentFormPageOne = document.getElementById('rent-form-1');
+    const rentFormPageTwo = document.getElementById('rent-form-2');
     const datePickerStartDom = document.getElementById('rent-date-start');
     const timePickerStartDom = document.getElementById('rent-time-start');
     const datePickerEndDom = document.getElementById('rent-date-end');
@@ -39,21 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const timePickerStart = M.Timepicker.getInstance(timePickerStartDom);
     const timePickerEnd = M.Timepicker.getInstance(timePickerEndDom);
 
-    // handle form
-    rentForm.addEventListener('submit', event => {
+    // handle form page 1
+    rentFormPageOne.addEventListener('submit', event => {
         event.preventDefault();
-        preSendCheck(
-            customerFirstName.value,
-            customerLastName.value,
-            customerPhone.value,
-            customerEmail.value,
-            customerStreet.value,
-            customerHnr.value,
-            customerPlz.value,
-            customerCity.value,
-            customerFile.files[0],
-            customerAgb.checked
-        );
+        rentFormPageOne.classList.add('rent__hidden');
+        rentFormPageTwo.classList.remove('rent__hidden');
+        rentPaginationPage.innerHTML = 2;
 
         if (
             preCalcCheck(
@@ -74,6 +68,39 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('error!');
         }
     });
+
+    // handle form page 2
+    rentFormPageTwo.addEventListener('submit', event => {
+        event.preventDefault();
+
+        if (
+            preSendCheck(
+                customerFirstName.value,
+                customerLastName.value,
+                customerPhone.value,
+                customerEmail.value,
+                customerStreet.value,
+                customerHnr.value,
+                customerPlz.value,
+                customerCity.value,
+                customerFile.files[0],
+                customerAgb.checked
+            )
+        ) {
+            console.log('form schickt');
+        } else {
+            console.log('error!');
+        }
+    });
+
+    //handle back button
+    rentBackButton.addEventListener('click', () => {
+        rentFormPageOne.classList.remove('rent__hidden');
+        rentFormPageTwo.classList.add('rent__hidden');
+        rentPaginationPage.innerHTML = 1;
+    });
+
+    // handle error clearing
     allInputs.forEach(input => input.addEventListener('focus', clearErrors));
     dropdownSelectDom.addEventListener('change', clearErrors);
 });

@@ -7,8 +7,11 @@ include('products/products.php');
 ?>
 
 <div class="rent-grid">
-    <form class="rent__form" id="rent-form">
+    <header class="rent__header">
         <h1 class="rent__title">Reservieren</h1>
+        <p class="rent__pagination">Seite <span id="rent-pagination-page">1</span> / 2</p>
+    </header>
+    <form class="rent__form" id="rent-form-1">
         <!-- Reservieren -->
         <div class="rent__row">
             <div class="rent__col">
@@ -43,7 +46,10 @@ include('products/products.php');
             </div>
         </div>
 
-        <div class="rent__seperator"></div>
+        <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Weiter</button>
+    </form>
+
+    <form class="rent__form rent__hidden" id="rent-form-2">
         <!-- Kundendaten -->
         <div class="rent__row">
             <div class="rent__col">
@@ -125,11 +131,12 @@ include('products/products.php');
                 <a class="rent__link rent__link--right" href="/datenschutz.php">Datenschutzerklärung</a>
             </div>
         </div>
-
-        <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Weiter</button>
+        <div class="rent__btn-box">
+            <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Absenden</button>
+            <button class="btn-flat rent__button rent__button--back" id="rent-back-button">Zurück</button>
+        </div>
     </form>
 </div>
-
 
 <script src="scripts/translation.js"></script>
 <?php

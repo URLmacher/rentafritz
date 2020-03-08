@@ -3,10 +3,25 @@
     flex-direction: column;
 }
 
+.rent__header {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
 .rent__title {
     font-size: 3rem;
     margin-top: 16px;
     margin-bottom: 40px;
+}
+
+.rent__pagination {
+    align-self: center;
+    padding-right: 16px;
+    margin-right: 16px;
+    font-weight: 500;
+    color: var(--color-primary-semi-transparent);
 }
 
 .rent__form {
@@ -32,10 +47,9 @@
 
 .rent__body-title {
     margin: 0;
-    margin-bottom: 4px;
     padding: 0;
+    margin-bottom: 4px;
     font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
     font-weight: 600;
 }
 
@@ -70,6 +84,21 @@
     margin-bottom: 40px;
 }
 
+.rent__btn-box{
+    display: flex;
+}
+
 .rent__button {
     margin-bottom: 40px;
+}
+
+.rent__button--back {
+    margin-left: 20px;
+}
+
+.rent__hidden {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
