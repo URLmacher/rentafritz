@@ -10,7 +10,17 @@ include('products/products.php');
     <header class="rent__header">
         <h1 class="rent__title">Reservieren</h1>
         <p class="rent__pagination">Seite <span id="rent-pagination-page">1</span> / 2</p>
+        <div id="rent-info" class="rent__info rent__hidden">
+            <div id="rent-info-loading" class="progress rent__loading">
+                <div class="indeterminate"></div>
+            </div>
+            <p class="rent__info-text">Ausgewählt: <span id="rent-info-selected-product" class="rent__info-text-selection">-</span></p>
+            <p class="rent__info-text">Leihdauer: <span id="rent-info-time" class="rent__info-text-selection">-</span></p>
+            <p class="rent__info-text">Vorraussichtliche Kosten: <span id="rent-info-price" class="rent__info-text-selection">-</span></p>
+            <i class="material-icons rent__info-icon">info_outline</i>
+        </div>
     </header>
+
     <form class="rent__form" id="rent-form-1">
         <!-- Reservieren -->
         <div class="rent__row">
@@ -127,7 +137,7 @@ include('products/products.php');
                 </label>
                 <div class="rent__errors" id="error-agb"></div>
             </div>
-            <div class="rent__col">
+            <div class="rent__col rent__col--small">
                 <a class="rent__link rent__link--right" href="/datenschutz.php">Datenschutzerklärung</a>
             </div>
         </div>

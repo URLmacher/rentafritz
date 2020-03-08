@@ -3,6 +3,11 @@ const baseUrl = `http://rentafritz.loc`;
 document.addEventListener('DOMContentLoaded', () => {
     // get all DOMelements
     const allInputs = document.querySelectorAll('input');
+    const infoBox = document.getElementById('rent-info');
+    const infoLoading = document.getElementById('rent-info-loading');
+    const infoProduct = document.getElementById('rent-info-selected-product');
+    const infoTime = document.getElementById('rent-info-time');
+    const infoPrice = document.getElementById('rent-info-price');
     const rentPaginationPage = document.getElementById('rent-pagination-page');
     const rentBackButton = document.getElementById('rent-back-button');
     const dropdownSelectDom = document.getElementById('rent-select');
@@ -43,11 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const timePickerEnd = M.Timepicker.getInstance(timePickerEndDom);
 
     // handle form page 1
-    rentFormPageOne.addEventListener('submit', event => {
+    rentFormPageOne.addEventListener('submit', async event => {
         event.preventDefault();
-        rentFormPageOne.classList.add('rent__hidden');
-        rentFormPageTwo.classList.remove('rent__hidden');
-        rentPaginationPage.innerHTML = 2;
 
         if (
             preCalcCheck(
@@ -58,12 +60,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 dropdownSelectDom.value
             )
         ) {
+            rentFormPageOne.classList.add('rent__hidden');
+            rentFormPageTwo.classList.remove('rent__hidden');
+            rentPaginationPage.innerHTML = 2;
             const hours = getDiffInHours(
                 setTimeOfDate(datePickerStart.date, timePickerStart.time),
                 setTimeOfDate(datePickerEnd.date, timePickerEnd.time)
             );
             const productId = parseInt(dropdownSelectDom.value, 10);
-            getPrice(hours, productId);
+            infoBox.classList.remove('rent__hidden');
+            const data = await getPrice(hours, productId);
+            if (data.success) {
+                infoLoading.classList.add('hide');
+                infoProduct.innerHTML = data.product;
+                infoTime.innerHTML = formatTime(data.time);
+                infoPrice.innerHTML = `${data.price} Euro`;
+            } else {
+                console.error(data.error);
+                console.log(data);
+            }
         } else {
             console.log('error!');
         }
@@ -97,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rentBackButton.addEventListener('click', () => {
         rentFormPageOne.classList.remove('rent__hidden');
         rentFormPageTwo.classList.add('rent__hidden');
+        infoBox.classList.add('rent__hidden');
         rentPaginationPage.innerHTML = 1;
     });
 
@@ -104,6 +120,24 @@ document.addEventListener('DOMContentLoaded', () => {
     allInputs.forEach(input => input.addEventListener('focus', clearErrors));
     dropdownSelectDom.addEventListener('change', clearErrors);
 });
+
+/**
+ * formats time into readable string
+ * @param {number} time
+ */
+function formatTime(time) {
+    let formattedTime = time === 1 ? `${time} Stunde` : `${time} Stunden`;
+
+    if (time > 24) {
+        const days = Math.floor(time / 24);
+        const hours = time - 24 * days;
+        const dayString = days === 1 ? `${days} Tag` : `${days} Tage`;
+        const hourString = hours === 1 ? `${hours} Stunde` : `${hours} Stunden`;
+        formattedTime = `${dayString} ${hourString}`;
+    }
+
+    return formattedTime;
+}
 
 /**
  * difference between start and end in hours
@@ -162,26 +196,16 @@ async function getPrice(hours, productId) {
         productId: productId
     };
 
-    try {
-        const answer = await fetch(`${baseUrl}/backend/getprice.php`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: 'cors',
-            method: 'post',
-            body: JSON.stringify(postData)
-        });
+    const answer = await fetch(`${baseUrl}/backend/getprice.php`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'cors',
+        method: 'post',
+        body: JSON.stringify(postData)
+    });
 
-        const data = await answer.json();
-        if (data.success) {
-            console.log(data);
-        } else {
-            console.error(data.error);
-            console.log(data);
-        }
-    } catch (error) {
-        console.error(error);
-    }
+    return await answer.json();
 }
 
 /**

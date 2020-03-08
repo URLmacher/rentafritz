@@ -12,6 +12,7 @@
     --color-white: white;
     --color-confirm: green;
     --color-dismiss: red;
+    --border-radius-small: 8px;
 }
 
 html {
@@ -203,8 +204,15 @@ input.invalid {
     align-self: center;
 }
 
-[type="checkbox"]:checked+span:not(.lever):before {
-
+[type='checkbox']:checked + span:not(.lever):before {
     border-right: 2px solid var(--color-secondary-200);
     border-bottom: 2px solid var(--color-secondary-200);
+}
+
+.progress .indeterminate {
+    background-color: var(--color-secondary);
+}
+
+.progress {
+    background-color: var(--color-primary-semi-transparent);
 }

@@ -18,6 +18,8 @@ if (isset($jsondata) && isset($jsondata->productId) && isset($jsondata->hours)) 
         foreach ($products as $product) {
             if ($product['id'] === $productId) {
                 $answer->price = getPrice($product, $hours);
+                $answer->product = $product['name'];
+                $answer->time = $hours;
                 $product_found = true;
             }
         }
@@ -35,6 +37,7 @@ if (isset($jsondata) && isset($jsondata->productId) && isset($jsondata->hours)) 
     $answer->success = false;
 }
 
+sleep(4);
 echo json_encode($answer);
 
 /**
