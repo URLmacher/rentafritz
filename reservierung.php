@@ -91,8 +91,8 @@ include('products/products.php');
                 <div class="rent__errors" id="error-plz"></div>
             </div>
             <div class="rent__col">
-                <h3 class="rent__body-title">Stadt</h3>
-                <input class="rent__input" placeholder="Stadt" id="rent-city" type="text">
+                <h3 class="rent__body-title">Wohnort</h3>
+                <input class="rent__input" placeholder="Wohnort" id="rent-city" type="text">
                 <div class="rent__errors" id="error-city"></div>
             </div>
         </div>
@@ -108,7 +108,7 @@ include('products/products.php');
             <div class="rent__col rent__col--small">
                 <div class="btn btn__primary rent__body-button">
                     <span>Ausweiskopie</span>
-                    <input id="rent-file" type="file">
+                    <input id="rent-file" type="file" accept=".jpg, .jpeg, .png, .pdf">
                 </div>
             </div>
         </div>

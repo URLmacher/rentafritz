@@ -75,18 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownSelectDom.addEventListener('change', clearErrors);
 });
 
-function preSendCheck(firstName, lastName, phone, email, street, hnr, plz, city, file) {
-    console.log(firstName);
-    console.log(lastName);
-    console.log(phone);
-    console.log(email);
-    console.log(street);
-    console.log(hnr);
-    console.log(plz);
-    console.log(city);
-    console.log(file);
-}
-
 /**
  * difference between start and end in hours
  * @param {Date} dateStart
@@ -120,6 +108,50 @@ function setTimeOfDate(date, time) {
 function printError(errorText, elementId) {
     const errorElement = document.getElementById(elementId);
     errorElement.innerHTML = `<p class="rent__error-text">${errorText}</p>`;
+}
+
+/**
+ * clears errors from a inputs error-field
+ * @param {FocusEvent} event
+ */
+function clearErrors(event) {
+    const errorId = event.target.id.replace('rent', 'error');
+    const errorField = document.getElementById(errorId);
+
+    if (errorField && errorField.classList.contains('rent__errors')) {
+        errorField.innerHTML = '';
+    }
+}
+
+/**
+ * send form data to backend
+ */
+async function getPrice(hours, productId) {
+    let postData = {
+        hours: hours,
+        productId: productId
+    };
+
+    try {
+        const answer = await fetch(`${baseUrl}/backend/getprice.php`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            method: 'post',
+            body: JSON.stringify(postData)
+        });
+
+        const data = await answer.json();
+        if (data.success) {
+            console.log(data);
+        } else {
+            console.error(data.error);
+            console.log(data);
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 /**
@@ -184,45 +216,60 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
 }
 
 /**
- * clears errors from a inputs error-field
- * @param {FocusEvent} event
+ * check customer data, return errors
+ * @param {string} firstName
+ * @param {string} lastName
+ * @param {string} phone
+ * @param {string} email
+ * @param {string} street
+ * @param {string} hnr
+ * @param {string} plz
+ * @param {string} city
+ * @param {File} file
+ * @return {boolean}
  */
-function clearErrors(event) {
-    const errorId = event.target.id.replace('rent', 'error');
-    const errorField = document.getElementById(errorId);
+function preSendCheck(firstName, lastName, phone, email, street, hnr, plz, city, file) {
+    let noError = true;
 
-    if (errorField && errorField.classList.contains('rent__errors')) {
-        errorField.innerHTML = '';
+    if (firstName === '') {
+        noError = false;
+        printError('Bitte Vorname eingeben', 'error-first-name');
     }
-}
-
-/**
- * send form data to backend
- */
-async function getPrice(hours, productId) {
-    let postData = {
-        hours: hours,
-        productId: productId
-    };
-
-    try {
-        const answer = await fetch(`${baseUrl}/backend/getprice.php`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: 'cors',
-            method: 'post',
-            body: JSON.stringify(postData)
-        });
-
-        const data = await answer.json();
-        if (data.success) {
-            console.log(data);
-        } else {
-            console.error(data.error);
-            console.log(data);
-        }
-    } catch (error) {
-        console.error(error);
+    if (lastName === '') {
+        noError = false;
+        printError('Bitte Nachname eingeben', 'error-last-name');
     }
+    if (phone === '') {
+        noError = false;
+        printError('Bitte Telefonnummer eingeben', 'error-phone');
+    }
+    if (email === '') {
+        noError = false;
+        printError('Bitte Telefonnummer eingeben', 'error-email');
+    }
+    if (street === '') {
+        noError = false;
+        printError('Bitte Straße eingeben', 'error-street');
+    }
+    if (hnr === '') {
+        noError = false;
+        printError('Bitte Hausnummer eingeben', 'error-hnr');
+    }
+    if (plz === '') {
+        noError = false;
+        printError('Bitte Postleitzahl eingeben', 'error-plz');
+    }
+    if (city === '') {
+        noError = false;
+        printError('Bitte Wohnort eingeben', 'error-city');
+    }
+    if (!file) {
+        noError = false;
+        printError('Bitte Ausweiskopie hochladen', 'error-file');
+    }
+    if (file && file.size > 4e6) {
+        noError = false;
+        printError('Die Datei ist zu groß. Max. 4MB erlaubt.', 'error-file');
+    }
+    return noError;
 }
