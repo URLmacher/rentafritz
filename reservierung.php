@@ -12,7 +12,7 @@ include('products/products.php');
         <!-- Reservieren -->
         <div class="rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">Was?</h3>
+                <label for="rent-select" class="rent__body-title">Was?</label>
                 <select id="rent-select">
                     <option value="" disabled selected>Bitte auswählen</option>
                     <?php foreach ($products as $product) : ?>
@@ -25,7 +25,7 @@ include('products/products.php');
 
         <div class="rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">Von wann:</h3>
+                <label for="rent-date-start" class="rent__body-title">Von wann:</label>
                 <input id="rent-date-start" type="text" class="datepicker" placeholder="VON:(Datum)">
                 <div class="rent__errors" id="error-date-start"></div>
                 <input id="rent-time-start" type="text" class="timepicker" placeholder="VON:(Uhrzeit)">
@@ -35,7 +35,7 @@ include('products/products.php');
 
         <div class="rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">Bis wann:</h3>
+                <label for="rent-date-end" class="rent__body-title">Bis wann:</label>
                 <input id="rent-date-end" type="text" class="datepicker" placeholder="BIS:(Datum)">
                 <div class="rent__errors" id="error-date-end"></div>
                 <input id="rent-time-end" type="text" class="timepicker" placeholder="BIS:(Uhrzeit)">
@@ -47,12 +47,12 @@ include('products/products.php');
         <!-- Kundendaten -->
         <div class="rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">Vorname</h3>
+                <label for="rent-first-name" class="rent__body-title">Vorname</label>
                 <input class="rent__input" placeholder="Vorname" id="rent-first-name" type="text">
                 <div class="rent__errors" id="error-first-name"></div>
             </div>
             <div class="rent__col">
-                <h3 class="rent__body-title">Nachname</h3>
+                <label for="rent-last-name" class="rent__body-title">Nachname</label>
                 <input class="rent__input" placeholder="Nachname" id="rent-last-name" type="text">
                 <div class="rent__errors" id="error-last-name"></div>
             </div>
@@ -60,12 +60,12 @@ include('products/products.php');
 
         <div class="rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">E-Mail-Adresse</h3>
+                <label for="rent-email" class="rent__body-title">E-Mail-Adresse</label>
                 <input class="rent__input" placeholder="E-Mail-Adresse" id="rent-email" type="text">
                 <div class="rent__errors" id="error-email"></div>
             </div>
             <div class="rent__col">
-                <h3 class="rent__body-title">Telefonnummer</h3>
+                <label for="rent-phone" class="rent__body-title">Telefonnummer</label>
                 <input class="rent__input" placeholder="Telefonnummer" id="rent-phone" type="text">
                 <div class="rent__errors" id="error-phone"></div>
             </div>
@@ -73,12 +73,12 @@ include('products/products.php');
 
         <div class="rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">Straße</h3>
+                <label for="rent-street" class="rent__body-title">Straße</label>
                 <input class="rent__input" placeholder="Straße" id="rent-street" type="text">
                 <div class="rent__errors" id="error-street"></div>
             </div>
             <div class="rent__col rent__col--small">
-                <h3 class="rent__body-title">Hausnummer</h3>
+                <label for="rent-hnr" class="rent__body-title">Hausnummer</label>
                 <input class="rent__input" placeholder="Hausnummer" id="rent-hnr" type="text">
                 <div class="rent__errors" id="error-hnr"></div>
             </div>
@@ -86,12 +86,12 @@ include('products/products.php');
 
         <div class="rent__row">
             <div class="rent__col rent__col--small">
-                <h3 class="rent__body-title">Postleitzahl</h3>
+                <label for="rent-plz" class="rent__body-title">Postleitzahl</label>
                 <input class="rent__input" placeholder="Postleitzahl" id="rent-plz" type="text">
                 <div class="rent__errors" id="error-plz"></div>
             </div>
             <div class="rent__col">
-                <h3 class="rent__body-title">Wohnort</h3>
+                <label for="rent-city" class="rent__body-title">Wohnort</label>
                 <input class="rent__input" placeholder="Wohnort" id="rent-city" type="text">
                 <div class="rent__errors" id="error-city"></div>
             </div>
@@ -99,7 +99,7 @@ include('products/products.php');
 
         <div class="file-field input-field rent__row">
             <div class="rent__col">
-                <h3 class="rent__body-title">Ausweiskopie</h3>
+                <label for="rent-file" class="rent__body-title">Ausweiskopie</label>
                 <div class="file-path-wrapper">
                     <input class="file-path" type="text" placeholder="Max 4 MB">
                 </div>
