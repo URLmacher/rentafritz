@@ -202,3 +202,9 @@ input.invalid {
     line-height: 36px;
     align-self: center;
 }
+
+[type="checkbox"]:checked+span:not(.lever):before {
+
+    border-right: 2px solid var(--color-secondary-200);
+    border-bottom: 2px solid var(--color-secondary-200);
+}

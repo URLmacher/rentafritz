@@ -1,6 +1,7 @@
 const baseUrl = `http://rentafritz.loc`;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // get all DOMelements
     const allInputs = document.querySelectorAll('input');
     const dropdownSelectDom = document.getElementById('rent-select');
     const rentForm = document.getElementById('rent-form');
@@ -17,27 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const customerPlz = document.getElementById('rent-plz');
     const customerCity = document.getElementById('rent-city');
     const customerFile = document.getElementById('rent-file');
+    const customerAgb = document.getElementById('rent-agb');
 
+    // initialize materialize selects/inputs
     M.FormSelect.init(dropdownSelectDom, {});
-
     const datePickersDom = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePickersDom, {
         i18n: translations,
         format: 'dd.mm.yyyy',
         firstDay: 1
     });
-
     const timePickersDom = document.querySelectorAll('.timepicker');
     M.Timepicker.init(timePickersDom, {
         i18n: translations,
         twelveHour: false
     });
-
+    // get materialize instances
     const datePickerStart = M.Datepicker.getInstance(datePickerStartDom);
     const datePickerEnd = M.Datepicker.getInstance(datePickerEndDom);
     const timePickerStart = M.Timepicker.getInstance(timePickerStartDom);
     const timePickerEnd = M.Timepicker.getInstance(timePickerEndDom);
 
+    // handle form
     rentForm.addEventListener('submit', event => {
         event.preventDefault();
         preSendCheck(
@@ -49,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             customerHnr.value,
             customerPlz.value,
             customerCity.value,
-            customerFile.files[0]
+            customerFile.files[0],
+            customerAgb.checked
         );
 
         if (
@@ -226,9 +229,10 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
  * @param {string} plz
  * @param {string} city
  * @param {File} file
+ * @param {boolean} agb
  * @return {boolean}
  */
-function preSendCheck(firstName, lastName, phone, email, street, hnr, plz, city, file) {
+function preSendCheck(firstName, lastName, phone, email, street, hnr, plz, city, file, agb) {
     let noError = true;
 
     if (firstName === '') {
@@ -270,6 +274,10 @@ function preSendCheck(firstName, lastName, phone, email, street, hnr, plz, city,
     if (file && file.size > 4e6) {
         noError = false;
         printError('Die Datei ist zu groß. Max. 4MB erlaubt.', 'error-file');
+    }
+    if (!agb) {
+        noError = false;
+        printError('Bitte akzeptieren Sie unsere Geschäftsbedingungen.', 'error-agb');
     }
     return noError;
 }

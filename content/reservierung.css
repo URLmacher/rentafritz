@@ -34,7 +34,12 @@
     margin-bottom: 4px;
 }
 
-.rent__input {
+.rent__link{
+    color: var(--color-secondary);
+}
+
+.rent__link:hover{
+    color: var(--color-secondary-200);
 }
 
 .rent__error-text {

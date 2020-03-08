@@ -113,6 +113,19 @@ include('products/products.php');
             </div>
         </div>
 
+        <div class="file-field input-field rent__row">
+            <div class="rent__col">
+                <label for="rent-agb" class="rent__body-title">
+                    <input type="checkbox" id="rent-agb" />
+                    <span><a class="rent__link" href="/agb.php">AGB</a> gelesen und einverstanden</span>
+                </label>
+                <div class="rent__errors" id="error-agb"></div>
+            </div>
+            <div class="rent__col">
+
+            </div>
+        </div>
+
         <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Weiter</button>
     </form>
 </div>
