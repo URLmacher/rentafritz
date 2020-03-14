@@ -34,8 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let rentDuration = '';
     let totalPrice = '';
 
-    //reset values
-
     // initialize materialize selects/inputs
     M.FormSelect.init(dropdownSelectDom, {});
     const datePickersDom = document.querySelectorAll('.datepicker');

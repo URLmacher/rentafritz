@@ -39,9 +39,9 @@ include('products/products.php');
         <div class="rent__row">
             <div class="rent__col">
                 <label for="rent-date-start" class="rent__body-title">Von wann:</label>
-                <input id="rent-date-start" type="text" class="datepicker" placeholder="VON:(Datum)">
+                <input autocomplete="off" id="rent-date-start" type="text" class="datepicker" placeholder="VON:(Datum)">
                 <div class="rent__errors" id="error-date-start"></div>
-                <input id="rent-time-start" type="text" class="timepicker" placeholder="VON:(Uhrzeit)">
+                <input autocomplete="off" id="rent-time-start" type="text" class="timepicker" placeholder="VON:(Uhrzeit)">
                 <div class="rent__errors" id="error-time-start"></div>
             </div>
         </div>
@@ -49,9 +49,9 @@ include('products/products.php');
         <div class="rent__row">
             <div class="rent__col">
                 <label for="rent-date-end" class="rent__body-title">Bis wann:</label>
-                <input id="rent-date-end" type="text" class="datepicker" placeholder="BIS:(Datum)">
+                <input autocomplete="off" id="rent-date-end" type="text" class="datepicker" placeholder="BIS:(Datum)">
                 <div class="rent__errors" id="error-date-end"></div>
-                <input id="rent-time-end" type="text" class="timepicker" placeholder="BIS:(Uhrzeit)">
+                <input autocomplete="off" id="rent-time-end" type="text" class="timepicker" placeholder="BIS:(Uhrzeit)">
                 <div class="rent__errors" id="error-time-end"></div>
             </div>
         </div>
@@ -117,7 +117,7 @@ include('products/products.php');
             <div class="rent__col">
                 <label for="rent-file" class="rent__body-title">Ausweiskopie</label>
                 <div class="file-path-wrapper">
-                    <input class="file-path" type="text" placeholder="Max 4 MB">
+                    <input autocomplete="off" class="file-path" type="text" placeholder="Max 4 MB">
                 </div>
                 <div class="rent__errors" id="error-file"></div>
             </div>
