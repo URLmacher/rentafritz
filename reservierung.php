@@ -5,8 +5,8 @@ include('templates/header.php');
 include('templates/nav-top.php');
 include('products/products.php');
 ?>
-
 <div class="rent-grid rentafritz-container">
+
     <header class="rent__header">
         <h1 class="rent__title">Reservieren</h1>
         <p class="rent__pagination">Seite <span id="rent-pagination-page">1</span> / 2</p>

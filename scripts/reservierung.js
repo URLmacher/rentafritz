@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const customerCity = document.getElementById('rent-city');
     const customerFile = document.getElementById('rent-file');
     const customerAgb = document.getElementById('rent-agb');
+    let productName = '';
+    let rentDuration = '';
+    let totalPrice = '';
+
+    //reset values
 
     // initialize materialize selects/inputs
     M.FormSelect.init(dropdownSelectDom, {});
@@ -74,10 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
             infoBox.classList.remove('rent__hidden');
             const data = await getPrice(hours, productId);
             if (data.success) {
+                productName = data.product;
+                rentDuration = formatTime(data.time);
+                totalPrice = `${data.price} Euro`;
+
                 infoLoading.classList.add('hide');
-                infoProduct.innerHTML = data.product;
-                infoTime.innerHTML = formatTime(data.time);
-                infoPrice.innerHTML = `${data.price} Euro`;
+                infoProduct.innerHTML = productName;
+                infoTime.innerHTML = rentDuration;
+                infoPrice.innerHTML = totalPrice;
             } else {
                 console.error(data.error);
                 console.log(data);
@@ -115,7 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 customerHnr.value,
                 customerPlz.value,
                 customerCity.value,
-                customerFile.files[0]
+                customerFile.files[0],
+                productName,
+                totalPrice,
+                rentDuration
             );
             if (data.success) {
                 console.log(data);
@@ -128,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data);
             }
         } else {
+            fullLoading.classList.add('rent__hidden');
             console.log('error!');
         }
     });
@@ -217,6 +230,19 @@ function clearErrors(event) {
 
 /**
  * send form data to backend to send mail
+ * @param {string} customerFirstName
+ * @param {string} customerLastName
+ * @param {string} customerPhone
+ * @param {string} customerEmail
+ * @param {string} customerStreet
+ * @param {string} customerHnr
+ * @param {string} customerPlz
+ * @param {string} customerCity
+ * @param {File} customerFile
+ * @param {string} product
+ * @param {string} price
+ * @param {string} rentDuration
+ * @returns {Promise}
  */
 async function handleForm(
     customerFirstName,
@@ -227,27 +253,28 @@ async function handleForm(
     customerHnr,
     customerPlz,
     customerCity,
-    customerFile
+    customerFile,
+    product,
+    price,
+    rentDuration
 ) {
-    let postData = {
-        firstName: customerFirstName,
-        lastName: customerLastName,
-        phone: customerPhone,
-        email: customerEmail,
-        street: customerStreet,
-        hnr: customerHnr,
-        plz: customerPlz,
-        city: customerCity,
-        file: customerFile
-    };
+    const formData = new FormData();
+    formData.append('firstName', customerFirstName);
+    formData.append('lastName', customerLastName);
+    formData.append('phone', customerPhone);
+    formData.append('email', customerEmail);
+    formData.append('street', customerStreet);
+    formData.append('hnr', customerHnr);
+    formData.append('plz', customerPlz);
+    formData.append('city', customerCity);
+    formData.append('file', customerFile);
+    formData.append('product', product);
+    formData.append('price', price);
+    formData.append('duration', rentDuration);
 
     const answer = await fetch(`${baseUrl}/backend/handleform.php`, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        mode: 'cors',
         method: 'post',
-        body: JSON.stringify(postData)
+        body: formData
     });
 
     return await answer.json();
