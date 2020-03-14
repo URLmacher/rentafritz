@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // get all DOMelements
     const allInputs = document.querySelectorAll('input');
     const infoBox = document.getElementById('rent-info');
+    const successMsg = document.getElementById('rent-succes');
     const infoLoading = document.getElementById('rent-info-loading');
+    const fullLoading = document.getElementById('rent-full-loading');
     const infoProduct = document.getElementById('rent-info-selected-product');
     const infoTime = document.getElementById('rent-info-time');
     const infoPrice = document.getElementById('rent-info-price');
     const rentPaginationPage = document.getElementById('rent-pagination-page');
     const rentBackButton = document.getElementById('rent-back-button');
+    const rentBackHomeButton = document.getElementById('rent-back-home-btn');
     const dropdownSelectDom = document.getElementById('rent-select');
     const rentFormPageOne = document.getElementById('rent-form-1');
     const rentFormPageTwo = document.getElementById('rent-form-2');
@@ -85,8 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // handle form page 2
-    rentFormPageTwo.addEventListener('submit', event => {
+    rentFormPageTwo.addEventListener('submit', async event => {
         event.preventDefault();
+        fullLoading.classList.remove('rent__hidden');
 
         if (
             preSendCheck(
@@ -102,7 +106,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 customerAgb.checked
             )
         ) {
-            console.log('form schickt');
+            const data = await handleForm(
+                customerFirstName.value,
+                customerLastName.value,
+                customerPhone.value,
+                customerEmail.value,
+                customerStreet.value,
+                customerHnr.value,
+                customerPlz.value,
+                customerCity.value,
+                customerFile.files[0]
+            );
+            if (data.success) {
+                console.log(data);
+                fullLoading.classList.add('rent__hidden');
+                rentFormPageTwo.classList.add('rent__hidden');
+                successMsg.classList.remove('rent__hidden');
+            } else {
+                fullLoading.classList.add('rent__hidden');
+                console.error(data.error);
+                console.log(data);
+            }
         } else {
             console.log('error!');
         }
@@ -114,6 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
         rentFormPageTwo.classList.add('rent__hidden');
         infoBox.classList.add('rent__hidden');
         rentPaginationPage.innerHTML = 1;
+    });
+
+    rentBackHomeButton.addEventListener('click', () => {
+        window.location.href = `${baseUrl}`;
     });
 
     // handle error clearing
@@ -188,7 +216,45 @@ function clearErrors(event) {
 }
 
 /**
- * send form data to backend
+ * send form data to backend to send mail
+ */
+async function handleForm(
+    customerFirstName,
+    customerLastName,
+    customerPhone,
+    customerEmail,
+    customerStreet,
+    customerHnr,
+    customerPlz,
+    customerCity,
+    customerFile
+) {
+    let postData = {
+        firstName: customerFirstName,
+        lastName: customerLastName,
+        phone: customerPhone,
+        email: customerEmail,
+        street: customerStreet,
+        hnr: customerHnr,
+        plz: customerPlz,
+        city: customerCity,
+        file: customerFile
+    };
+
+    const answer = await fetch(`${baseUrl}/backend/handleform.php`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'cors',
+        method: 'post',
+        body: JSON.stringify(postData)
+    });
+
+    return await answer.json();
+}
+
+/**
+ * send form data to backend to calculate price
  */
 async function getPrice(hours, productId) {
     let postData = {

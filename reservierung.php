@@ -6,7 +6,7 @@ include('templates/nav-top.php');
 include('products/products.php');
 ?>
 
-<div class="rent-grid">
+<div class="rent-grid rentafritz-container">
     <header class="rent__header">
         <h1 class="rent__title">Reservieren</h1>
         <p class="rent__pagination">Seite <span id="rent-pagination-page">1</span> / 2</p>
@@ -146,8 +146,28 @@ include('products/products.php');
             <button class="btn-flat rent__button rent__button--back" id="rent-back-button">Zurück</button>
         </div>
     </form>
+
+    <div id="rent-succes" class="rent__success rent__hidden">
+        <h5 class="rent__success-title">Reservierung erfolgreich <span><i class="material-icons rent__success-icon">done</i></span></h5>
+        <p class="rent__success-text">Sie erhalten Ihre persönliche Bestätigung in Kürze</p>
+        <button id="rent-back-home-btn" class="btn waves-effect waves-light waves-secondary btn__secondary rent__button">Zurück zur Startseite</button>
+    </div>
 </div>
 
+
+
+<div id="rent-full-loading" class="rent__loading-overlay rent__hidden">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 <script src="scripts/translation.js"></script>
 <?php
 include('templates/footer.php');

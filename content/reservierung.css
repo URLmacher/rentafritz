@@ -4,12 +4,9 @@
 }
 
 .rent__header {
-    width: 80%;
-    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 40px;
-    padding-right: 32px;
 }
 
 .rent__title {
@@ -64,8 +61,6 @@
 }
 
 .rent__form {
-    width: 80%;
-    margin: auto;
 }
 
 .rent__row {
@@ -138,6 +133,42 @@
 
 .rent__button--back {
     margin-left: 20px;
+}
+
+.rent__success {
+    position: relative;
+}
+
+.rent__success-title {
+    margin: 0;
+    margin-bottom: 16px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.rent__success-text {
+    margin-bottom: 30px;
+}
+
+.rent__success-icon {
+    vertical-align: middle;
+    margin-right: 16px;
+    font-size: 30px;
+    color: var(--color-secondary);
+}
+
+.rent__loading-overlay {
+    background-color: var(--color-white-semi-transparent);
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .rent__hidden {
