@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let productName = '';
     let rentDuration = '';
     let totalPrice = '';
+    let rentStart = '';
+    let rentEnd = '';
 
     // initialize materialize selects/inputs
     M.FormSelect.init(dropdownSelectDom, {});
@@ -68,13 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
             rentFormPageOne.classList.add('rent__hidden');
             rentFormPageTwo.classList.remove('rent__hidden');
-            rentPaginationPage.innerHTML = 2;
-            const hours = getDiffInHours(
-                setTimeOfDate(datePickerStart.date, timePickerStart.time),
-                setTimeOfDate(datePickerEnd.date, timePickerEnd.time)
-            );
-            const productId = parseInt(dropdownSelectDom.value, 10);
             infoBox.classList.remove('rent__hidden');
+            rentPaginationPage.innerHTML = 2;
+
+            rentStart = setTimeOfDate(datePickerStart.date, timePickerStart.time);
+            rentEnd = setTimeOfDate(datePickerEnd.date, timePickerEnd.time);
+
+            const hours = getDiffInHours(rentStart, rentEnd);
+            const productId = parseInt(dropdownSelectDom.value, 10);
             const data = await getPrice(hours, productId);
             if (data.success) {
                 productName = data.product;
@@ -125,7 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 customerFile.files[0],
                 productName,
                 totalPrice,
-                rentDuration
+                rentDuration,
+                rentStart,
+                rentEnd
             );
             if (data.success) {
                 console.log(data);
@@ -240,6 +245,8 @@ function clearErrors(event) {
  * @param {string} product
  * @param {string} price
  * @param {string} rentDuration
+ * @param {Date} rentStart
+ * @param {Date} rentEnd
  * @returns {Promise}
  */
 async function handleForm(
@@ -254,8 +261,19 @@ async function handleForm(
     customerFile,
     product,
     price,
-    rentDuration
+    rentDuration,
+    rentStart,
+    rentEnd
 ) {
+    const dateFormatOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+
     const formData = new FormData();
     formData.append('firstName', customerFirstName);
     formData.append('lastName', customerLastName);
@@ -269,6 +287,8 @@ async function handleForm(
     formData.append('product', product);
     formData.append('price', price);
     formData.append('duration', rentDuration);
+    formData.append('rentStart', rentStart.toLocaleDateString('de-DE', dateFormatOptions));
+    formData.append('rentEnd', rentEnd.toLocaleDateString('de-DE', dateFormatOptions));
 
     const answer = await fetch(`${baseUrl}/backend/handleform.php`, {
         method: 'post',

@@ -1,4 +1,9 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
 $answer = new stdClass();
 $answer->success = true;
 
@@ -13,10 +18,13 @@ if (
     && isset($_POST['street'])
     && isset($_POST['hnr'])
     && isset($_POST['plz'])
-    && isset($_FILES['file'])
+    && isset($_POST['city'])
     && isset($_POST['product'])
     && isset($_POST['price'])
     && isset($_POST['duration'])
+    && isset($_POST['rentStart'])
+    && isset($_POST['rentEnd'])
+    && isset($_FILES['file'])
 ) {
     $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
     $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
@@ -25,10 +33,12 @@ if (
     $street = filter_var($_POST['street'], FILTER_SANITIZE_STRING);
     $hnr = filter_var($_POST['hnr'], FILTER_SANITIZE_STRING);
     $plz = filter_var($_POST['plz'], FILTER_SANITIZE_STRING);
+    $city = filter_var($_POST['city'], FILTER_SANITIZE_STRING);
     $product = filter_var($_POST['product'], FILTER_SANITIZE_STRING);
     $price = filter_var($_POST['price'], FILTER_SANITIZE_STRING);
     $duration = filter_var($_POST['duration'], FILTER_SANITIZE_STRING);
-    $file = checkFile($_FILES);
+    $rentEnd = filter_var($_POST['rentEnd'], FILTER_SANITIZE_STRING);
+    $rentStart = filter_var($_POST['rentStart'], FILTER_SANITIZE_STRING);
 
     $answer->sentData = [
         'firstName' => $firstName,
@@ -38,11 +48,25 @@ if (
         'street' => $street,
         'hnr' => $hnr,
         'plz' => $plz,
+        'city' => $city,
         'product' => $product,
         'price' => $price,
         'duration' => $duration,
+        'rentStart' => $rentStart,
+        'rentEnd' => $rentEnd,
         'file' => $_FILES['file'],
     ];
+
+    if (checkFile($_FILES)) {
+        $answer->fileOk = true;
+        if (sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $price, $duration, $rentStart, $rentEnd, $_FILES['file'])) {
+            $answer->sendMailSucces = true;
+        } else {
+            $answer->sendMailSucces = false;
+        }
+    } else {
+        $answer->fileOk = false;
+    }
 } else {
     $answer->error = 'Keine passenden Daten übermittelt';
     $answer->success = false;
@@ -103,4 +127,69 @@ function checkFile($file)
     }
 
     return $fileOk;
+}
+
+/**
+ * send all data as email
+ *
+ * @param string $firstName
+ * @param string $lastName
+ * @param string $phone
+ * @param string $email
+ * @param string $street
+ * @param string $hnr
+ * @param string $plz
+ * @param string $city
+ * @param string $product
+ * @param string $price
+ * @param string $duration
+ * @param string $rentStart
+ * @param string $rentEnd
+ * @param File $file
+ * @return boolean
+ */
+function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $price, $duration, $rentStart, $rentEnd, $file)
+{
+
+    $sendSuccess = true;
+    $mail = new PHPMailer(true);
+    $config = include_once('CONFIG.php');
+    $name = $firstName . ' ' . $lastName;
+    $subject = 'Reservierungsanfrage von ' . $name;
+    $bodyHeadline = "<b>Mietanfrage für $product</b>\r\n";
+    $bodyRent = "<b>Von: </b>$rentStart\r\n<b>Bis: </b>$rentEnd\r\n<b>Dauer: </b>$duration\r\n<b>Preis: </b>$price\r\n";
+    $bodyCustomer = "<b>Anfrage von: </b>\r\n$firstName $lastName\r\nTel: $phone\r\nEmail: $email\r\n$street $hnr\r\n$plz $city";
+    $body = nl2br("$bodyHeadline \r\n$bodyRent \r\n$bodyCustomer");
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $config['email-adress']; //Login      
+        $mail->Password = $config['email-password']; //Passwort
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom($email, $name);
+        $mail->addAddress($config['email-adress']); //Empfänger
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AltBody = $body;
+        // Attachments
+        $mail->AddAttachment(
+            $file['tmp_name'],
+            $file['name']
+        );
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+
+        $mail->send();
+    } catch (Exception $e) {
+        $sendSuccess = false;
+    }
+
+    return $sendSuccess;
 }
