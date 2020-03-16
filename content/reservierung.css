@@ -65,14 +65,21 @@
 
 .rent__row {
     display: flex;
-    margin: 0px 16px 30px 0px;
+    margin: 0px 0px 30px 0px;
 }
 
 .rent__col {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.rent__col:first-child {
     padding-right: 16px;
+}
+
+.rent__col:last-child {
+    padding-right: 0;
 }
 
 .rent__col--small {
