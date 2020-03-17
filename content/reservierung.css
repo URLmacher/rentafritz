@@ -1,187 +1,201 @@
 .rent-grid {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .rent__header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 40px;
 }
 
 .rent__title {
-    font-size: 3rem;
-    margin-top: 16px;
+  font-size: 3rem;
+  margin-top: 16px;
 }
 
 .rent__pagination {
-    font-weight: 500;
-    align-self: flex-end;
-    margin-bottom: 4px;
-    color: var(--color-primary-semi-transparent);
-    justify-self: end;
+  font-weight: 500;
+  align-self: flex-end;
+  margin-bottom: 4px;
+  color: var(--color-primary-semi-transparent);
+  justify-self: end;
 }
 
 .rent__info {
-    position: relative;
-    width: 100%;
-    margin-top: 8px;
-    background-color: var(--color-secondary-semi-transparent);
-    border-radius: var(--border-radius-small);
-    padding: 16px;
-    grid-column: 1 / 3;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  background-color: var(--color-secondary-semi-transparent);
+  border-radius: var(--border-radius-small);
+  padding: 16px;
+  grid-column: 1 / 3;
+  overflow: hidden;
 }
 
 .rent__info-text {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .rent__info-icon {
-    position: absolute;
-    right: 16px;
-    height: 40px;
-    width: 40px;
-    font-size: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-primary);
+  position: absolute;
+  right: 16px;
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-primary);
 }
 
 .rent__info-text-selection {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .rent__loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
 }
 
 .rent__form {
 }
 
 .rent__row {
-    display: flex;
-    margin: 0px 0px 30px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 30px 0px;
 }
 
 .rent__col {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .rent__col:first-child {
-    padding-right: 16px;
+  margin-bottom: 30px;
 }
 
 .rent__col:last-child {
-    padding-right: 0;
+  margin-bottom: 0;
 }
 
 .rent__col--small {
-    width: 50%;
+  width: 50%;
 }
 
 .rent__body-title {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 4px;
-    font-size: 1rem;
-    font-weight: 600;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .rent__input {
-    margin-bottom: 3px !important;
+  margin-bottom: 3px !important;
+  height: 2.5rem !important;
 }
 
 .rent__link {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 .rent__link--right {
-    align-self: flex-end;
-    margin-top: 3px;
+  align-self: flex-end;
+  margin-top: 3px;
 }
 
 .rent__link:hover {
-    color: var(--color-secondary-200);
+  color: var(--color-secondary-200);
 }
 
 .rent__error-text {
-    margin: 0;
-    color: var(--color-dismiss);
-    font-size: 10px;
+  margin: 0;
+  color: var(--color-dismiss);
+  font-size: 10px;
 }
 
 .rent__body-button {
-    margin: auto;
-    margin-left: 0;
-    width: 100%;
-}
-
-.rent__seperator {
-    height: 1px;
-    width: 100%;
-    background-color: var(--color-secondary);
-    margin-bottom: 40px;
+  margin: auto;
+  margin-left: 0;
+  width: 100%;
 }
 
 .rent__btn-box {
-    display: flex;
+  display: flex;
 }
 
 .rent__button {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .rent__button--back {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .rent__success {
-    position: relative;
+  position: relative;
 }
 
 .rent__success-title {
-    margin: 0;
-    margin-bottom: 16px;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--color-primary);
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .rent__success-text {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .rent__success-icon {
-    vertical-align: middle;
-    margin-right: 16px;
-    font-size: 30px;
-    color: var(--color-secondary);
+  vertical-align: middle;
+  margin-right: 16px;
+  font-size: 30px;
+  color: var(--color-secondary);
 }
 
 .rent__loading-overlay {
-    background-color: var(--color-white-semi-transparent);
-    position: absolute;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: var(--color-white-semi-transparent);
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .rent__hidden {
-    visibility: hidden;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    padding: 0;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+@media (min-width: 700px) {
+  .rent__row {
+    flex-direction: row;
+  }
+
+  .rent__col:first-child {
+    padding-right: 16px;
+  }
+
+  .rent__col:last-child {
+    padding-right: 0;
+  }
+}
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1280px) {
 }

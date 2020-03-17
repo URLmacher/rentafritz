@@ -59,7 +59,8 @@ include('products/products.php');
         <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Weiter</button>
     </form>
 
-    <form class="rent__form rent__hidden" id="rent-form-2">
+    <!-- <form class="rent__form rent__hidden" id="rent-form-2"> -->
+    <form class="rent__form" id="rent-form-2">
         <!-- Kundendaten -->
         <div class="rent__row">
             <div class="rent__col">
