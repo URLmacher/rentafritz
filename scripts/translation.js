@@ -1,3 +1,4 @@
+// translation for materialize dateimepickers
 const translations = {
     done:'OK',
     cancel: 'Zurück',

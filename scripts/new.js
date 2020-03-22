@@ -5,12 +5,11 @@ productsButtons.forEach(button => {
         const productContainer = event.target.parentElement;
         const productMainImg = productContainer.querySelector('.product__img');
         const productDetails = productContainer.querySelector('.product__details');
-        const buttonText = productContainer.querySelector('.product__button-text');
-        
+
         productContainer.classList.toggle('product--open');
-        productMainImg.classList.toggle('hide');
-        productDetails.classList.toggle('show');
-        buttonText.innerText = buttonText.innerText === `MEHR INFO` ? `ZURÜCK` : `MEHR INFO`;
+        productMainImg.classList.toggle('product__hidden');
+        productDetails.classList.toggle('product__hidden');
+        button.innerText = button.innerText === `MEHR INFO` ? `ZURÜCK` : `MEHR INFO`;
         productContainer.scrollIntoView(true);
     });
 });

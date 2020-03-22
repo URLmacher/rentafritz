@@ -1,39 +1,58 @@
 <?php
-$request = $_SERVER['REQUEST_URI'];
+require 'vendor/autoload.php';
+$router = new AltoRouter();
 
-switch ($request) {
-  case '/':
-    require __DIR__ . '/pages/index.php';
-    break;
-  case '':
-    require __DIR__ . '/pages/index.php';
-    break;
-  case '/agb':
-    require __DIR__ . '/pages/agb.php';
-    break;
-  case '/anfahrt':
-    require __DIR__ . '/pages/anfahrt.php';
-    break;
-  case '/impressum':
-    require __DIR__ . '/pages/impressum.php';
-    break;
-  case '/oeffnungszeiten':
-    require __DIR__ . '/pages/oeffnungszeiten.php';
-    break;
-  case '/reservierung':
-    require __DIR__ . '/pages/reservierung.php';
-    break;
-  case '/service':
-    require __DIR__ . '/pages/service.php';
-    break;
-  case '/siedlservice':
-    require __DIR__ . '/pages/übersiedlungsservice.php';
-    break;
-  case '/datenschutz':
-    require __DIR__ . '/pages/datenschutz.php';
-    break;
-  default:
-    http_response_code(404);
-    require __DIR__ . '/views/404.php';
-    break;
+
+$router->map('GET', '/', function () {
+  require __DIR__ . '/pages/index.php';
+});
+
+$router->map('GET', '', function () {
+  require __DIR__ . '/pages/index.php';
+});
+
+$router->map('GET','/agb', function () {
+  require __DIR__ . '/pages/agb.php';
+});
+
+$router->map('GET','/anfahrt', function () {
+  require __DIR__ . '/pages/anfahrt.php';
+});
+
+$router->map('GET','/impressum', function () {
+  require __DIR__ . '/pages/impressum.php';
+});
+
+$router->map('GET','/oeffnungszeiten', function () {
+  require __DIR__ . '/pages/oeffnungszeiten.php';
+});
+
+$router->map('GET','/reservierung', function () {
+  require __DIR__ . '/pages/reservierung.php';
+});
+
+$router->map('GET','/reservierung/[i:id]', function () {
+  require __DIR__ . '/pages/reservierung.php';
+});
+
+$router->map('GET','/service', function () {
+  require __DIR__ . '/pages/service.php';
+});
+
+$router->map('GET','/siedlservice', function () {
+  require __DIR__ . '/pages/übersiedlungsservice.php';
+});
+
+$router->map('GET','/datenschutz', function () {
+  require __DIR__ . '/pages/datenschutz.php';
+});
+
+
+$match = $router->match();
+
+if (is_array($match) && is_callable($match['target'])) {
+  call_user_func_array($match['target'], $match['params']);
+} else {
+  header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
+?>
