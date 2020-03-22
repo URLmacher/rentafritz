@@ -6,6 +6,7 @@
             <li><a href="/oeffnungszeiten#link-oeffnung">Öffnungszeiten</a></li>
             <li><a href="/agb#link-agb">AGB</a></li>
             <li><a href="/impressum#impress-link">Impressum</a></li>
+            <li><a href="/datenschutz">Datenschutz</a></li>
         </ul>
     </div>
     <div class="footlinks right">

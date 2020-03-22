@@ -29,6 +29,9 @@ switch ($request) {
   case '/siedlservice':
     require __DIR__ . '/pages/übersiedlungsservice.php';
     break;
+  case '/datenschutz':
+    require __DIR__ . '/pages/datenschutz.php';
+    break;
   default:
     http_response_code(404);
     require __DIR__ . '/views/404.php';

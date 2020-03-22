@@ -17,6 +17,8 @@ include('products/products.php');
             <p class="rent__info-text">Ausgewählt: <span id="rent-info-selected-product" class="rent__info-text-selection">-</span></p>
             <p class="rent__info-text">Leihdauer: <span id="rent-info-time" class="rent__info-text-selection">-</span></p>
             <p class="rent__info-text">Vorraussichtliche Kosten: <span id="rent-info-price" class="rent__info-text-selection">-</span></p>
+            <p class="rent__info-text">Zahlbar in bar vor Ort</p>
+            <p class="rent__info-text">Alle Preise inkl. 20% Mehrwertsteuer</p>
             <i class="material-icons rent__info-icon">info_outline</i>
         </div>
     </header>
