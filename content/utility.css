@@ -14,6 +14,7 @@
   --color-confirm: green;
   --color-dismiss: red;
   --border-radius-small: 8px;
+  --font-text:var(--font-text);
   --breakpoint-small: 576px;
   --breakpoint-medium: 1024px;
   --breakpoint-large: 1280px;
@@ -36,7 +37,7 @@ h3 {
   padding: 0;
   margin: 0;
   font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-text);
   font-weight: 600;
   color: var(--color-primary);
 }

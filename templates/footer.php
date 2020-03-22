@@ -1,11 +1,11 @@
 <div class="footer">
     <div class="footlinks left">
         <ul>
-            <li><a href="anfahrt.php#anfahrt">Anfahrt</a></li>
-            <li><a href="service.php#service">Service</a></li>
-            <li><a href="oeffnungszeiten.php#link-oeffnung">Öffnungszeiten</a></li>
-            <li><a href="agb.php#link-agb">AGB</a></li>
-            <li><a href="impressum.php#impress-link">Impressum</a></li>
+            <li><a href="/anfahrt#anfahrt">Anfahrt</a></li>
+            <li><a href="/service#service">Service</a></li>
+            <li><a href="/oeffnungszeiten#link-oeffnung">Öffnungszeiten</a></li>
+            <li><a href="/agb#link-agb">AGB</a></li>
+            <li><a href="/impressum#impress-link">Impressum</a></li>
         </ul>
     </div>
     <div class="footlinks right">

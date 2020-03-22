@@ -40,22 +40,23 @@ if (
     $rentEnd = filter_var($_POST['rentEnd'], FILTER_SANITIZE_STRING);
     $rentStart = filter_var($_POST['rentStart'], FILTER_SANITIZE_STRING);
 
-    $answer->sentData = [
-        'firstName' => $firstName,
-        'lastName' => $lastName,
-        'phone' => $phone,
-        'email' => $email,
-        'street' => $street,
-        'hnr' => $hnr,
-        'plz' => $plz,
-        'city' => $city,
-        'product' => $product,
-        'price' => $price,
-        'duration' => $duration,
-        'rentStart' => $rentStart,
-        'rentEnd' => $rentEnd,
-        'file' => $_FILES['file'],
-    ];
+    // DEBUG
+    // $answer->sentData = [
+    //     'firstName' => $firstName,
+    //     'lastName' => $lastName,
+    //     'phone' => $phone,
+    //     'email' => $email,
+    //     'street' => $street,
+    //     'hnr' => $hnr,
+    //     'plz' => $plz,
+    //     'city' => $city,
+    //     'product' => $product,
+    //     'price' => $price,
+    //     'duration' => $duration,
+    //     'rentStart' => $rentStart,
+    //     'rentEnd' => $rentEnd,
+    //     'file' => $_FILES['file'],
+    // ];
 
     if (checkFile($_FILES)) {
         $answer->fileOk = true;
@@ -72,7 +73,6 @@ if (
     $answer->success = false;
 }
 
-sleep(2);
 echo json_encode($answer);
 
 /**
@@ -165,7 +165,7 @@ function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $c
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = $config['email-adress']; //Login      
+        $mail->Username = $config['email-adress']; //Login
         $mail->Password = $config['email-password']; //Passwort
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;

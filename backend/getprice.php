@@ -37,7 +37,6 @@ if (isset($jsondata) && isset($jsondata->productId) && isset($jsondata->hours)) 
     $answer->success = false;
 }
 
-sleep(4);
 echo json_encode($answer);
 
 /**

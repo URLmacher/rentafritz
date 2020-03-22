@@ -60,7 +60,7 @@ include('products/products.php');
     </form>
 
     <!-- <form class="rent__form rent__hidden" id="rent-form-2"> -->
-    <form class="rent__form" id="rent-form-2">
+    <form class="rent__form rent__hidden" id="rent-form-2">
         <!-- Kundendaten -->
         <div class="rent__row">
             <div class="rent__col">
@@ -134,12 +134,12 @@ include('products/products.php');
             <div class="rent__col">
                 <label for="rent-agb" class="rent__body-title">
                     <input type="checkbox" id="rent-agb" />
-                    <span><a class="rent__link" href="/agb.php">AGB</a> gelesen und einverstanden</span>
+                    <span><a class="rent__link" id="rent-agb-link" href="/agb">AGB</a> gelesen und einverstanden</span>
                 </label>
                 <div class="rent__errors" id="error-agb"></div>
             </div>
             <div class="rent__col rent__col--small">
-                <a class="rent__link rent__link--right" href="/datenschutz.php">Datenschutzerklärung</a>
+                <a class="rent__link rent__link--right" href="/datenschutz">Datenschutzerklärung</a>
             </div>
         </div>
         <div class="rent__btn-box">
