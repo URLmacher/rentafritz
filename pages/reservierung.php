@@ -10,7 +10,6 @@ $product_id = null;
 preg_match('/\/reservierung\/(\d+)$/', $_SERVER['REQUEST_URI'], $matches);
 if (!empty($matches[1]) && is_numeric($matches[1])) {
   $product_id = $matches[1];
-  echo 'yeah  '.$product_id;
 }
 ?>
 <div class="rent-grid rentafritz-container">
@@ -39,7 +38,7 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
         <select id="rent-select">
           <option value="" disabled selected>Bitte auswählen</option>
           <?php foreach ($products as $product) : ?>
-            <option value="<?= $product['id'] ?>"><?= $product['name'] ?></option>
+            <option value="<?= $product['id'] ?>" <?= ($product['id'] == $product_id) ? 'selected' : '' ?>><?= $product['name'] ?></option>
           <?php endforeach; ?>
         </select>
         <div class="rent__errors" id="error-select"></div>
