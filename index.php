@@ -4,11 +4,11 @@ $router = new AltoRouter();
 
 
 $router->map('GET', '/', function () {
-  require __DIR__ . '/pages/index.php';
+  require __DIR__ . '/pages/home.php';
 });
 
 $router->map('GET', '', function () {
-  require __DIR__ . '/pages/index.php';
+  require __DIR__ . '/pages/home.php';
 });
 
 $router->map('GET','/agb', function () {

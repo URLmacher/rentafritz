@@ -14,7 +14,7 @@
   --color-confirm: green;
   --color-dismiss: red;
   --border-radius-small: 8px;
-  --font-text:var(--font-text);
+  --font-text: 'Roboto', sans-serif;
   --breakpoint-small: 576px;
   --breakpoint-medium: 1024px;
   --breakpoint-large: 1280px;

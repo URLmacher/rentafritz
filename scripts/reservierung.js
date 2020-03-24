@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let rentStart = '';
   let rentEnd = '';
 
+  if (!rentFormPageOne) return;
+
   // initialize materialize selects/inputs
   M.FormSelect.init(dropdownSelectDom, {});
   const datePickersDom = document.querySelectorAll('.datepicker');

@@ -1,8 +1,6 @@
 <section class="products-grid">
   <?php
   include('products/products.php');
-  require 'vendor/autoload.php';
-  $router = new AltoRouter();
 
   foreach ($products as $product) : ?>
     <?php $rate = ($product['rate'] == 'd') ? 'pro Tag' : 'pro Stunde' ?>
