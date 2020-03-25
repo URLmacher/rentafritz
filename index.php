@@ -11,6 +11,10 @@ $router->map('GET', '', function () {
   require __DIR__ . '/pages/home.php';
 });
 
+$router->map('GET','/product/[i:id]', function () {
+  require __DIR__ . '/pages/product.php';
+});
+
 $router->map('GET','/agb', function () {
   require __DIR__ . '/pages/agb.php';
 });
