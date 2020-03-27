@@ -231,6 +231,45 @@ input.invalid {
   margin: 0;
 }
 
+.sidenav li > a {
+  color: var(--color-secondary);
+  font-family: var(--font-text);
+  font-weight: 600;
+  position: relative;
+  height: auto;
+  line-height: normal;
+  display: inline-block;
+}
+
+.sidenav li > a:hover {
+  background-color: transparent;
+}
+
+.sidenav li > a:before {
+  left: 32px;
+  right: 32px;
+  top: 20px;
+}
+
+nav .sidenav-trigger {
+  float: right;
+  margin-right: 0;
+}
+
+nav i,
+nav [class^='mdi-'],
+nav [class*='mdi-'],
+nav i.material-icons {
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    left: 24px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
 /* Loading circle */
 .lds-roller {
   display: inline-block;

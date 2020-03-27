@@ -43,7 +43,7 @@ $router->map('GET','/service', function () {
   require __DIR__ . '/pages/service.php';
 });
 
-$router->map('GET','/siedlservice', function () {
+$router->map('GET','/umzug', function () {
   require __DIR__ . '/pages/übersiedlungsservice.php';
 });
 

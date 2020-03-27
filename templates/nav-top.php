@@ -1,12 +1,26 @@
-<!---->
-<div class="navigation" id="navitesti">
-    <a class="nav-link" href="/">HOME</a>
-    <a class="nav-link" href="/#die-produkte">PRODUKTE</a>
-    <a class="nav-link" href="/siedlservice">ÜBERSIEDLUNG</a>
-    <a class="nav-link" href="/reservierung">RESERVIEREN</a>
-    <a class="nav-link" href="/service#service">KONTAKT</a>
-    <a class="nav-link" href="/anfahrt#anfahrt">STANDORT</a>
-    <a href="javascript:void(0);" class="icon">
-        <div class="navigation-mobile"></div>
-    </a>
-</div>
+<?php
+$activePage = $_SERVER['REQUEST_URI'];
+?>
+
+<nav class="navbar">
+  <div class="nav-wrapper rentafritz-container navbar__inner">
+    <a href="/" class="brand-logo"><img class="navbar__brand-logo-img" src="../img/logo-nackt.svg" alt="rentafritz brand-logo"></a>
+    <a href="#" data-target="mobile-demo" class="navbar__icon sidenav-trigger"><i class="material-icons">menu</i></a>
+
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/" class="navbar__nav-link <?= strlen($activePage) === 1 ? 'navbar__nav-link--active' : ''; ?>">PRODUKTE</a></li>
+      <li><a href="/umzug" class="navbar__nav-link <?= strpos($activePage, 'umzug') ? 'navbar__nav-link--active' : ''; ?>">ÜBERSIEDLUNG </a></li>
+      <li><a href="/reservierung" class="navbar__nav-link <?= strpos($activePage, 'reservierung') ? 'navbar__nav-link--active' : ''; ?>">RESERVIEREN</a></li>
+      <li><a href="/service" class="navbar__nav-link <?= strpos($activePage, 'service') ? 'navbar__nav-link--active' : ''; ?>">KONTAKT</a></li>
+      <li><a href="/anfahrt" class="navbar__nav-link <?= strpos($activePage, 'anfahrt') ? 'navbar__nav-link--active' : ''; ?>">STANDORT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav navbar__sidenav" id="mobile-demo">
+  <li><a href="/" class="navbar__nav-link <?= strlen($activePage) === 1 ? 'navbar__nav-link--active' : ''; ?>">PRODUKTE</a></li>
+  <li><a href="/umzug" class="navbar__nav-link <?= strpos($activePage, 'umzug') ? 'navbar__nav-link--active' : ''; ?>">ÜBERSIEDLUNG </a></li>
+  <li><a href="/reservierung" class="navbar__nav-link <?= strpos($activePage, 'reservierung') ? 'navbar__nav-link--active' : ''; ?>">RESERVIEREN</a></li>
+  <li><a href="/service" class="navbar__nav-link <?= strpos($activePage, 'service') ? 'navbar__nav-link--active' : ''; ?>">KONTAKT</a></li>
+  <li><a href="/anfahrt" class="navbar__nav-link <?= strpos($activePage, 'anfahrt') ? 'navbar__nav-link--active' : ''; ?>">STANDORT</a></li>
+</ul>
