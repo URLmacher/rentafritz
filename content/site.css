@@ -21,7 +21,7 @@
   color: var(--color-secondary);
 }
 
-.navbar__sidenav{
+.navbar__sidenav {
   border-left: 2px solid var(--color-secondary);
 }
 
@@ -56,6 +56,54 @@
   background-color: var(--color-secondary);
 }
 /* ------------------------------------------------------------------------------------------------------------------------- */
+.renta-footer {
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.renta-footer__link-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0 20px 0;
+}
+
+.renta-footer__link-wrapper--right {
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.renta-footer__link {
+  color: var(--color-secondary);
+  transition: color 0.3 ease;
+  font-weight: 500;
+}
+
+.renta-footer__link:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+
+.renta-footer__link:hover {
+  color: var(--color-secondary-200);
+}
+
+.renta-footer__icon-link {
+  width: 50px;
+}
+
+.renta-footer__icon-link:hover {
+  fill: var(--color-secondary-200);
+}
+
+.renta-footer__text{
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 .back {
   height: 90vh;
   max-width: 100%;
@@ -740,48 +788,6 @@ noscript {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1em;
-}
-.footer {
-  width: 100%;
-  height: 200px;
-  background: #494848;
-}
-.footlinks {
-  width: 50%;
-  margin-top: 2%;
-  box-sizing: border-box;
-}
-.footlinks.right {
-  float: right;
-  margin: 0;
-  margin-top: 2%;
-  right: 0;
-  text-align: right;
-}
-.footlinks.left {
-  float: left;
-}
-.footlinks ul {
-  padding: 0;
-}
-.footlinks.right li {
-  margin-bottom: 10px;
-  position: relative;
-}
-.footlinks a {
-  display: inline-block;
-  color: #f4572a;
-  font-family: 'Roboto', sans-serif;
-  padding-bottom: 5px;
-  margin-left: 10%;
-  margin-right: 10%;
-  font-weight: 900;
-}
-.footlinks a:hover {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  -ms-transform: scale(1.2);
 }
 
 @media (max-width: 1070px) {

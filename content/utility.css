@@ -31,6 +31,9 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 h1,
 h2,
@@ -86,7 +89,7 @@ ul {
   max-width: var(--breakpoint-large);
   padding: 0 24px;
   margin: auto;
-  min-height: 800px;
+  flex: 1 0 auto;
 }
 
 .hidden {
