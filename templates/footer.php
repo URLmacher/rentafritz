@@ -1,11 +1,11 @@
 <footer class="renta-footer">
   <div class="renta-footer__wrapper rentafritz-container">
     <div class="renta-footer__link-wrapper">
-      <a class="renta-footer__link" href="/anfahrt#anfahrt">Anfahrt</a>
-      <a class="renta-footer__link" href="/service#service">Service</a>
+      <a class="renta-footer__link" href="/anfahrt">Anfahrt</a>
+      <a class="renta-footer__link" href="/service">Service</a>
       <a class="renta-footer__link" href="/oeffnungszeiten">Öffnungszeiten</a>
       <a class="renta-footer__link" href="/agb">AGB</a>
-      <a class="renta-footer__link" href="/impressum#impress-link">Impressum</a>
+      <a class="renta-footer__link" href="/impressum">Impressum</a>
       <a class="renta-footer__link" href="/datenschutz">Datenschutz</a>
     </div>
     <div class="renta-footer__link-wrapper renta-footer__link-wrapper--right">
