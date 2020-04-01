@@ -23,12 +23,12 @@ include('templates/nav-top.php');
     <p class="secondary-page__text">Wir sind Mitglied der Wirtschaftskammer Österreich, Mitgliedsnummer 357886</p>
   </section>
   <section class="secondary-page__section">
-    <h3 class="secondary-page__title">Inhalte</h3>
+    <h3 class="secondary-page__title-medium">Inhalte</h3>
     <p class="secondary-page__text">Alle genannten Markennamen gehören RENTAFRITZ oder sind einlizenziert.</p>
     <p class="secondary-page__text">Die auf dieser Webseite verwendeten Bilder und Texte sind Eigentum des Medieninhabers und dürfen ohne Zustimmung nicht weiterverwendet werden.</p>
   </section>
   <section class="secondary-page__section">
-    <h3 class="secondary-page__title">Design und Entwicklung</h3>
+    <h3 class="secondary-page__title-medium">Design und Entwicklung</h3>
     <a class="secondary-page__link" href="https://urlmacher.at/">Patrick Durlacher</a>
   </section>
 </main>
