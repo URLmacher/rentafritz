@@ -22,36 +22,49 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
 ?>
 
 <?php if ($product) : ?>
-  <div class="rent-grid rentafritz-container">
-    <h1 class="product-detail__title"><?= $product['name'] ?></h1>
-    <h5 class="product-detail__description"><?= $product['description'] ?></h5>
-    <img class="product-detail__img" src="../<?= ($product['img_sub']) ? $product['img_sub'] : $product['img_main'] ?>" />
+  <div class="product-detail rentafritz-container">
+    <section class="product-detail__optics">
+      <img class="product-detail__img" src="../<?= ($product['img_sub']) ? $product['img_sub'] : $product['img_main'] ?>" />
+      <div class="product-detail__info-box">
+        <p class="product-detail__info-secondary">Preis inkl. 20% Mehrwertsteuer</p>
+        <?php if ($product['info_secondary']) : ?>
+          <?php foreach ($product["info_secondary"] as $info_secondary) : ?>
+            <p class="product-detail__info-secondary"><?= $info_secondary ?></p>
+          <?php endforeach; ?>
+        <?php endif; ?>
+        <i class="material-icons product-detail__info-box-icon">info_outline</i>
+      </div>
+    </section>
 
-    <?php if ($product["info"]) : ?>
-      <?php foreach ($product["info"] as $info) : ?>
-        <p class="product-detail__info"><?= $info ?></p>
-      <?php endforeach; ?>
-    <?php endif; ?>
+    <section class="product-detail__content">
+      <h1 class="product-detail__title"><?= $product['name'] ?></h1>
+      <h5 class="product-detail__description"><?= $product['description'] ?></h5>
 
-    <?php if ($product["info_list"]) : ?>
-      <ul class="product-detail__info-ul">
-        <?php foreach ($product["info_list"] as $list_info) : ?>
-          <li class="product-detail__info-li"><?= $list_info ?></li>
+
+      <?php if ($product["info"]) : ?>
+        <?php foreach ($product["info"] as $info) : ?>
+          <p class="product-detail__info"><?= $info ?></p>
         <?php endforeach; ?>
-      </ul>
-    <?php endif; ?>
+      <?php endif; ?>
 
-    <h3 class="product-detail__price">€ <?= $product['price'] . ',- ' . $rate ?></h3>
-    <p class="product-detail-tax__tax">inkl. 20% Mehrwertsteuer</p>
+      <?php if ($product["info_list"]) : ?>
+        <ul class="product-detail__info-ul">
+          <?php foreach ($product["info_list"] as $list_info) : ?>
+            <li class="product-detail__info-li"><?= $list_info ?></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
 
-    <?php if ($product['info_secondary']) : ?>
-      <?php foreach ($product["info_secondary"] as $info_secondary) : ?>
-        <p class="product-detail__info-secondary"><?= $info_secondary ?></p>
-      <?php endforeach; ?>
-    <?php endif; ?>
+      <h3 class="product-detail__price"><span>€ <?= $product['price'] . ',- </span>' . $rate ?></h3>
 
-    <a href="/reservierung/<?php echo $product['id']; ?>"><button class="btn waves-effect waves-light waves-secondary btn__secondary product-detail__button">Reservieren</button></a>
-    <a href="/"><button class="btn waves-effect waves-light waves-secondary btn__secondary product-detail__button">Zurück zur Startseite</button></a>
+
+      <div class="product-detail__btn-box">
+        <a href="/reservierung/<?php echo $product['id']; ?>" class="btn waves-effect waves-light waves-secondary btn__secondary product-detail__button">Reservieren</a>
+        <a href="/" class="btn-flat product-detail__button">Zurück</a>
+      </div>
+
+
+    </section>
   </div>
 
 <?php endif; ?>

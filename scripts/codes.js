@@ -1,7 +1,9 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+  //navigation
   const sideNavsDom = document.querySelectorAll('.sidenav');
   M.Sidenav.init(sideNavsDom, { edge: 'right' });
 
+  //Zitate
   const zitateContainerDom = document.querySelector('.zitate');
   const zitateDom = document.querySelectorAll('.zitate__zitat-wrapper');
   let zitateInterval;
@@ -26,6 +28,8 @@
   function pauseInterval() {
     clearInterval(zitateInterval);
   }
+
+  if (!zitateContainerDom) return;
 
   zitateContainerDom.addEventListener('mouseenter', pauseInterval);
   zitateContainerDom.addEventListener('mouseleave', startInterval);
