@@ -1,72 +1,33 @@
-﻿//     //settings for slider
-//     var animationSpeed = 1000;
-//     var pause = 3000;
-
-//     //cache DOM elements
-//     var $slider = $('.zitat');
-//     var interval;
-//     var random = Math.floor(Math.random() * $('.comment').length);
-
-//     $('.comment')
-//         .eq(random)
-//         .addClass('active-slide');
-
-//     function startSlider() {
-//         interval = setInterval(function() {
-//             $slider.animate(animationSpeed, function() {
-//                 var currentSlide = $('.active-slide');
-//                 var nextSlide = currentSlide.next();
-
-//                 if (nextSlide.length === 0) {
-//                     nextSlide = $('.comment').first();
-//                 }
-
-//                 currentSlide.removeClass('active-slide');
-//                 nextSlide.addClass('active-slide');
-//             });
-//         }, pause);
-//     }
-//     function pauseSlider() {
-//         clearInterval(interval);
-//     }
-
-//     $slider.on('mouseenter', pauseSlider).on('mouseleave', startSlider);
-
-//     startSlider();
-
-//     $('.open-box').click(function() {
-//         $(this)
-//             .parent()
-//             .find('.mehr-info')
-//             .removeClass('hide');
-//         $(this)
-//             .parent()
-//             .find('.wenig-info')
-//             .addClass('hide');
-//         $(this).addClass('hide');
-//         $(this)
-//             .parent()
-//             .find('.close-box')
-//             .removeClass('hide');
-//     });
-//     $('.close-box').click(function() {
-//         $(this)
-//             .parent()
-//             .find('.mehr-info')
-//             .addClass('hide');
-//         $(this)
-//             .parent()
-//             .find('.wenig-info')
-//             .removeClass('hide');
-//         $(this).addClass('hide');
-//         $(this)
-//             .parent()
-//             .find('.open-box')
-//             .removeClass('hide');
-//     });
-// });
-
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   const sideNavsDom = document.querySelectorAll('.sidenav');
   M.Sidenav.init(sideNavsDom, { edge: 'right' });
+
+  const zitateContainerDom = document.querySelector('.zitate');
+  const zitateDom = document.querySelectorAll('.zitate__zitat-wrapper');
+  let zitateInterval;
+  let zitatIndex = 0;
+
+  function startInterval() {
+    zitateInterval = setInterval(() => {
+      let next = zitatIndex + 1;
+      zitateDom[zitatIndex].classList.add('zitate__hidden');
+      if (next > zitateDom.length - 1) {
+        next = 0;
+      }
+      if (zitatIndex + 1 > zitateDom.length - 1) {
+        zitatIndex = 0;
+      } else {
+        zitatIndex++;
+      }
+      zitateDom[next].classList.remove('zitate__hidden');
+    }, 3000);
+  }
+
+  function pauseInterval() {
+    clearInterval(zitateInterval);
+  }
+
+  zitateContainerDom.addEventListener('mouseenter', pauseInterval);
+  zitateContainerDom.addEventListener('mouseleave', startInterval);
+  startInterval();
 });

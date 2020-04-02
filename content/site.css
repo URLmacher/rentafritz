@@ -267,3 +267,47 @@
   }
 }
 /*---------------------------------------------------------------------------------------------------------------------------*/
+.zitate {
+  width: 100%;
+  height: 250px;
+  min-height: 0;
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.zitate__inner-wrapper{
+  position: relative;
+}
+
+.zitate__zitat-wrapper {
+  position: absolute;
+  opacity: 1;
+  top:50%;
+  left:0;
+  right: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.zitate__quote {
+  text-align: center;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+.zitate__from-wrapper {
+  color: var(--color-primary);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  flex-direction: column;
+}
+
+.zitate__hidden {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
