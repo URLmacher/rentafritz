@@ -26,15 +26,4 @@
   <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/reservierung.css" />
   <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/site.css" />
 </head>
-
 <body>
-  <noscript>
-    <h3>Um diese Webseite im vollen Umfang nutzen zu können, aktivieren Sie bitte Javasript in Ihrem Browser.</h3>
-  </noscript>
-  <!-- <div class="mobile-title">
-        <a href="tel:+436644128588" class="telefonnummer"></a>
-    </div>
-    <div class="back">
-        <div class="title" alt="RENTAFRITZ - VERLEIH FÜR FAHRZEUGE UND GERÄTE ÜBERSIEDLUNGSSERVICE - SONDERTRANSPORTE 0664 41 28 588">
-        </div>
-    </div> -->

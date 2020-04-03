@@ -24,6 +24,7 @@
 
 
 
+<script src="<?= $config['BASE_URL'] ?>/scripts/fit-text.js"></script>
 <script src="<?= $config['BASE_URL'] ?>/scripts/translation.js"></script>
 <script src="<?= $config['BASE_URL'] ?>/scripts/materialize.min.js"></script>
 <script src="<?= $config['BASE_URL'] ?>/scripts/codes.js"></script>

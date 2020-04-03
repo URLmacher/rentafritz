@@ -3,6 +3,12 @@
   const sideNavsDom = document.querySelectorAll('.sidenav');
   M.Sidenav.init(sideNavsDom, { edge: 'right' });
 
+  //Header-title
+  const headerTitleDom = document.getElementById('renta-header-title');
+  if (headerTitleDom) {
+    window.fitText(headerTitleDom, 1.8);
+  }
+
   //Zitate
   const zitateContainerDom = document.querySelector('.zitate');
   const zitateDom = document.querySelectorAll('.zitate__zitat-wrapper');
@@ -22,16 +28,16 @@
         zitatIndex++;
       }
       zitateDom[next].classList.remove('zitate__hidden');
-    }, 3000);
+    }, 5000);
   }
 
   function pauseInterval() {
     clearInterval(zitateInterval);
   }
 
-  if (!zitateContainerDom) return;
-
-  zitateContainerDom.addEventListener('mouseenter', pauseInterval);
-  zitateContainerDom.addEventListener('mouseleave', startInterval);
-  startInterval();
+  if (zitateContainerDom) {
+    zitateContainerDom.addEventListener('mouseenter', pauseInterval);
+    zitateContainerDom.addEventListener('mouseleave', startInterval);
+    startInterval();
+  }
 });

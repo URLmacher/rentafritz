@@ -13,7 +13,7 @@ include('templates/nav-top.php');
     <p class="secondary-page__text">Manfred Paar</p>
     <p class="secondary-page__text">Ebersdorf 10</p>
     <p class="secondary-page__text">A-8273 Ebersdorf</p>
-    <p class="secondary-page__text">Tel.: <a href="tel:+433333/20519" class="secondary-page__link">+43(0)664/4128588</a></p>
+    <p class="secondary-page__text">Tel.: <a href="tel:+43664/4128588" class="secondary-page__link">+43(0)664/4128588</a></p>
     <p class="secondary-page__text">Fax: <a href="tel:+433333/20519" class="secondary-page__link">+43(0)3333/20519</a></p>
     <a href="mailto:office@rentafritz.com" class="secondary-page__link">office@rentafritz.com</a>
     <p class="secondary-page__text">Gerichtsstand: Fürstenfeld</p>

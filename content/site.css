@@ -47,6 +47,94 @@
 .navbar__nav-link--active:before {
   background-color: var(--color-secondary);
 }
+/*---------------------------------------------------------------------------------------------------------------------------*/
+.renta-header {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.renta-header__title-box {
+  padding: 40px;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-small);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow-medium);
+}
+
+.renta-header__title {
+  white-space: nowrap;
+  text-align: center;
+  margin: 0;
+}
+
+.renta-header__sub-title {
+  font-size: 2.5vw;
+  margin: auto;
+  margin-top: 8px;
+  color: var(--color-primary-200);
+  text-align: center;
+}
+
+.renta-header__btn-box {
+  margin: auto;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: min-content min-content;
+  column-gap: 40px;
+}
+
+.renta-header__button {
+  width: 170px;
+  justify-content: center;
+  display: flex;
+}
+
+.renta-title__phone-link-icon {
+  margin-right: 4px;
+  transform: rotate(14deg);
+}
+
+@media screen and (max-width: 700px) {
+  .renta-header__title {
+    font-size: 22.3333px !important;
+  }
+
+  .renta-header__sub-title {
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+
+  .renta-header__title-box {
+    padding: 20px;
+  }
+
+  .renta-header__button {
+    width: 134px;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .renta-header__title {
+    font-size: 22.3333px !important;
+    white-space: normal;
+  }
+
+  .renta-header__sub-title {
+    white-space: normal;
+    font-size: 1.2rem;
+  }
+
+  .renta-header__btn-box {
+    margin-top: 40px;
+    grid-template-columns: min-content;
+    row-gap: 15px;
+  }
+}
 /* ------------------------------------------------------------------------------------------------------------------------- */
 .renta-footer {
   width: 100%;
@@ -274,16 +362,16 @@
   position: relative;
 }
 
-.zitate__inner-wrapper{
+.zitate__inner-wrapper {
   position: relative;
 }
 
 .zitate__zitat-wrapper {
   position: absolute;
   opacity: 1;
-  top:50%;
-  left:0;
-  right: 0;
+  top: 50%;
+  left: 24px;
+  right: 24px;
   transform: translateY(-50%);
   transition: opacity 0.2s ease;
 }
@@ -305,5 +393,12 @@
 
 .zitate__hidden {
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.5s ease;
+}
+
+@media (min-width: 1280px) {
+  .zitate__zitat-wrapper {
+    left: 0;
+    right: 0;
+  }
 }

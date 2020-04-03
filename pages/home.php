@@ -3,6 +3,7 @@ $title_addition = '';
 $site_desc = 'Verleih für Fahrzeuge und Geräte';
 include('templates/header.php');
 include('templates/nav-top.php');
+include('templates/hero.php');
 
 include('templates/new-products.php');
 
