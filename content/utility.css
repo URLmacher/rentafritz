@@ -21,6 +21,27 @@
   --box-shadow-small: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   --box-shadow-medium: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   --box-shadow-medium-hovered: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  --font-size-h1: 3rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.6rem;
+  --font-size-h5: 1.2rem;
+  --font-size-h6: 1.1rem;
+  --font-size-p: 1rem;
+  --font-size-small: 10px;
+  --icon-size-xl: 80px;
+  --icon-size-big: 40px;
+  --icon-size-medium: 35px;
+  --icon-size-small: 30px;
+}
+@media (max-width: 700px) {
+  :root {
+    --font-size-h1: 2.2rem;
+  }
+}
+@media (max-width: 400px) {
+  :root {
+    --font-size-h1: 2rem;
+  }
 }
 /* roboto-300 - latin */
 @font-face {
@@ -120,7 +141,7 @@ h2,
 h3 {
   padding: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--font-size-p);
   font-family: var(--font-text);
   font-weight: 600;
   color: var(--color-primary);
@@ -128,7 +149,7 @@ h3 {
 p {
   padding: 0;
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--font-size-p);
 }
 a {
   text-decoration: none;
@@ -180,7 +201,7 @@ ul {
 .btn__secondary {
   background-color: var(--color-secondary);
   color: var(--color-white);
-  font-size: 1rem;
+  font-size: var(--font-size-p);
   font-weight: 500;
 }
 .btn__secondary:hover {
@@ -195,7 +216,7 @@ ul {
 .btn__primary {
   background-color: var(--color-primary);
   color: var(--color-white);
-  font-size: 1rem;
+  font-size: var(--font-size-p);
   font-weight: 500;
 }
 .btn__primary:hover {
@@ -208,13 +229,13 @@ ul {
   background-color: var(--color-primary-100);
 }
 .btn-flat {
-  font-size: 1rem;
+  font-size: var(--font-size-p);
   font-weight: 500;
 }
-.btn-flat:focus{
+.btn-flat:focus {
   background-color: transparent !important;
 }
-.btn-flat:hover{
+.btn-flat:hover {
   color: var(--color-primary-semi-transparent) !important;
 }
 
@@ -223,7 +244,7 @@ ul {
 }
 
 .dropdown-content li > span {
-  font-size: 16px;
+  font-size: var(--font-size-p);
   color: var(--color-primary);
 }
 
@@ -357,7 +378,7 @@ nav i,
 nav [class^='mdi-'],
 nav [class*='mdi-'],
 nav i.material-icons {
-  font-size: 35px;
+  font-size:var(--icon-size-medium);
 }
 
 @media only screen and (max-width: 992px) {

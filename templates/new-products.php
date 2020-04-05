@@ -1,3 +1,4 @@
+<h1 class="new-product__page-title rentafritz-container">Zu vermieten</h1>
 <section class="new-product__grid rentafritz-container">
   <?php
   include('products/products.php');

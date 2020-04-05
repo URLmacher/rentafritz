@@ -12,7 +12,7 @@
 }
 
 .rent__title {
-  font-size: 3rem;
+  font-size: var(--font-size-h1);
 }
 
 .rent__pagination {
@@ -43,7 +43,7 @@
   right: 16px;
   height: 40px;
   width: 40px;
-  font-size: 40px;
+  font-size: var(--icon-size-big);
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-primary);
@@ -89,7 +89,7 @@
   margin: 0;
   padding: 0;
   margin-bottom: 4px;
-  font-size: 1rem;
+  font-size: var(--font-size-p);
   font-weight: 700;
 }
 
@@ -115,7 +115,7 @@
 .rent__error-text {
   margin: 0;
   color: var(--color-dismiss);
-  font-size: 10px;
+  font-size: var(--font-size-small);
 }
 
 .rent__body-button {
@@ -143,7 +143,7 @@
 .rent__success-title {
   margin: 0;
   margin-bottom: 16px;
-  font-size: 2rem;
+  font-size: var(--font-size-h3);
   font-weight: 700;
   color: var(--color-primary);
 }
@@ -155,7 +155,7 @@
 .rent__success-icon {
   vertical-align: middle;
   margin-right: 16px;
-  font-size: 30px;
+  font-size: var(--icon-size-small);
   color: var(--color-secondary);
 }
 
@@ -191,5 +191,14 @@
 
   .rent__col:last-child {
     padding-right: 0;
+  }
+}
+@media (max-width: 400px) {
+  .rent__info-icon {
+    position: absolute;
+    right: 16px;
+    top: auto;
+    transform: translateY(0%); 
+    bottom: 16px;
   }
 }
