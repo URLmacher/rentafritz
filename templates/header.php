@@ -17,8 +17,6 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#f4572a">
   <!-- THIRD PARTY -->
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,900italic' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/materialize.min.css" media="screen,projection" />
   <!-- MEINS -->
   <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/utility.css" />

@@ -90,7 +90,7 @@
   padding: 0;
   margin-bottom: 4px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .rent__input {
@@ -99,6 +99,7 @@
 }
 
 .rent__link {
+  font-weight: 500;
   color: var(--color-secondary);
 }
 
@@ -143,7 +144,7 @@
   margin: 0;
   margin-bottom: 16px;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
 }
 
