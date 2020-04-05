@@ -15,21 +15,7 @@
   </div>
 </footer>
 
-
-
-
-
-
-
-
-
-
-<script src="<?= $config['BASE_URL'] ?>/scripts/fit-text.js"></script>
-<script src="<?= $config['BASE_URL'] ?>/scripts/translation.js"></script>
-<script src="<?= $config['BASE_URL'] ?>/scripts/materialize.min.js"></script>
-<script src="<?= $config['BASE_URL'] ?>/scripts/codes.js"></script>
-<script src="<?= $config['BASE_URL'] ?>/scripts/new.js"></script>
-<script src="<?= $config['BASE_URL'] ?>/scripts/reservierung.js"></script>
+<script src="<?= $config['BASE_URL'] ?>/dist/code.js"></script>
 </body>
 
 </html>

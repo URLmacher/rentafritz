@@ -16,12 +16,7 @@
   <link rel="icon" type="image/png" href="<?= $config['BASE_URL'] ?>/favicon-16x16.png" sizes="16x16">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#f4572a">
-  <!-- THIRD PARTY -->
-  <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/materialize.min.css" media="screen,projection" />
-  <!-- MEINS -->
-  <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/utility.css" />
-  <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/product.css" />
-  <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/reservierung.css" />
-  <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/content/site.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/dist/site.css" />
 </head>
 <body>
