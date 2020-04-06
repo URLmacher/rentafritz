@@ -162,13 +162,14 @@ function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $c
   $body = nl2br("$bodyHeadline \r\n$bodyRent \r\n$bodyCustomer");
 
   try {
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = $config['email-address']; //Login
-    $mail->Password = $config['email-password']; //Passwort
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+    // $mail->isSMTP();
+    // $mail->Host = $config['host'];
+    // $mail->SMTPAuth = true;
+    // $mail->Username = $config['email-address']; //Login
+    // $mail->Password = $config['email-password']; //Passwort
+    // $mail->SMTPSecure = 'tls';
+    // $mail->Port = $config['port'];
+
 
     $mail->setFrom($email, $name);
     $mail->addAddress($config['email-address']); //Empfänger

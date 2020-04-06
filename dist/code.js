@@ -124,8 +124,7 @@ productsButtons.forEach(button => {
     });
 });
 
-const baseUrl = `http://rentafritz.loc`;
-
+const baseUrl = `${window.location.protocol}//${window.location.host}`;
 document.addEventListener('DOMContentLoaded', () => {
   // get all DOMelements
   const allInputs = document.querySelectorAll('input');
@@ -185,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const timePickerEnd = M.Timepicker.getInstance(timePickerEndDom);
 
   // handle form page 1
-  rentFormPageOne.addEventListener('submit', async event => {
+  rentFormPageOne.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if (preCalcCheck(datePickerStart.date, datePickerEnd.date, timePickerStart.time, timePickerEnd.time, dropdownSelectDom.value)) {
@@ -219,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // handle form page 2
-  rentFormPageTwo.addEventListener('submit', async event => {
+  rentFormPageTwo.addEventListener('submit', async (event) => {
     event.preventDefault();
     fullLoading.classList.remove('rent__hidden');
 
@@ -253,13 +252,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `${baseUrl}`;
   });
 
-  agbLink.addEventListener('click', event => {
+  agbLink.addEventListener('click', (event) => {
     event.preventDefault();
     window.open(`${baseUrl}/agb`);
   });
 
   // handle error clearing
-  allInputs.forEach(input => input.addEventListener('focus', clearErrors));
+  allInputs.forEach((input) => input.addEventListener('focus', clearErrors));
   dropdownSelectDom.addEventListener('change', clearErrors);
 });
 
