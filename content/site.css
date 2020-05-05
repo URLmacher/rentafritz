@@ -1,6 +1,13 @@
 .navbar {
   background-color: var(--color-white);
   border-bottom: 2px solid var(--color-secondary);
+  position: fixed;
+  z-index: 9000;
+}
+
+.navbar__spacer{
+  height: 64px;
+  width: 100%;
 }
 
 .navbar__inner {

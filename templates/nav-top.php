@@ -1,6 +1,7 @@
 <?php
 $activePage = $_SERVER['REQUEST_URI'];
 ?>
+<div class="navbar__spacer"></div>
 
 <nav class="navbar">
   <div class="nav-wrapper rentafritz-container navbar__inner">
