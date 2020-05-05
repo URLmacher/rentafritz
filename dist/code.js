@@ -198,22 +198,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const hours = getDiffInHours(rentStart, rentEnd);
       const productId = parseInt(dropdownSelectDom.value, 10);
-      const data = await getPrice(hours, productId);
-      if (data.success) {
-        productName = data.product;
-        rentDuration = formatTime(data.time);
-        totalPrice = `${data.price} Euro`;
 
+      try {
+        const data = await getPrice(hours, productId);
+        if (data.success) {
+          productName = data.product;
+          rentDuration = formatTime(data.time);
+          totalPrice = `${data.price} Euro`;
+
+          infoLoading.classList.add('hide');
+          infoProduct.innerHTML = productName;
+          infoTime.innerHTML = rentDuration;
+          infoPrice.innerHTML = totalPrice;
+        } else {
+          console.error(data.error);
+        }
+      } catch (error) {
         infoLoading.classList.add('hide');
-        infoProduct.innerHTML = productName;
-        infoTime.innerHTML = rentDuration;
-        infoPrice.innerHTML = totalPrice;
-      } else {
-        console.error(data.error);
-        console.log(data);
+        console.error(error);
       }
     } else {
-      console.log('error!');
+      infoLoading.classList.add('hide');
+      console.error('data not valid');
     }
   });
 
@@ -223,20 +229,23 @@ document.addEventListener('DOMContentLoaded', () => {
     fullLoading.classList.remove('rent__hidden');
 
     if (preSendCheck(customerFirstName.value, customerLastName.value, customerPhone.value, customerEmail.value, customerStreet.value, customerHnr.value, customerPlz.value, customerCity.value, customerFile.files[0], customerAgb.checked)) {
-      const data = await handleForm(customerFirstName.value, customerLastName.value, customerPhone.value, customerEmail.value, customerStreet.value, customerHnr.value, customerPlz.value, customerCity.value, customerFile.files[0], productName, totalPrice, rentDuration, rentStart, rentEnd);
-      if (data.success) {
-        console.log(data);
+      try {
+        const data = await handleForm(customerFirstName.value, customerLastName.value, customerPhone.value, customerEmail.value, customerStreet.value, customerHnr.value, customerPlz.value, customerCity.value, customerFile.files[0], productName, totalPrice, rentDuration, rentStart, rentEnd);
+        if (data.success) {
+          fullLoading.classList.add('rent__hidden');
+          rentFormPageTwo.classList.add('rent__hidden');
+          successMsg.classList.remove('rent__hidden');
+        } else {
+          fullLoading.classList.add('rent__hidden');
+          console.error(data.error);
+        }
+      } catch (error) {
         fullLoading.classList.add('rent__hidden');
-        rentFormPageTwo.classList.add('rent__hidden');
-        successMsg.classList.remove('rent__hidden');
-      } else {
-        fullLoading.classList.add('rent__hidden');
-        console.error(data.error);
-        console.log(data);
+        console.error(error);
       }
     } else {
       fullLoading.classList.add('rent__hidden');
-      console.log('error!');
+      console.error('data not valid');
     }
   });
 
@@ -344,6 +353,7 @@ function clearErrors(event) {
  * @param {string} rentDuration
  * @param {Date} rentStart
  * @param {Date} rentEnd
+ * @throws {Error}
  * @returns {Promise}
  */
 async function handleForm(customerFirstName, customerLastName, customerPhone, customerEmail, customerStreet, customerHnr, customerPlz, customerCity, customerFile, product, price, rentDuration, rentStart, rentEnd) {
@@ -377,11 +387,18 @@ async function handleForm(customerFirstName, customerLastName, customerPhone, cu
     body: formData,
   });
 
-  return await answer.json();
+  try {
+    return answer.json();
+  } catch (e) {
+    throw new Error(e);
+  }
 }
 
 /**
  * send form data to backend to calculate price
+ * @param {number} hours
+ * @param {number} productId
+ * @returns {Promise}
  */
 async function getPrice(hours, productId) {
   let postData = {
@@ -398,7 +415,11 @@ async function getPrice(hours, productId) {
     body: JSON.stringify(postData),
   });
 
-  return await answer.json();
+  try {
+    return answer.json();
+  } catch (e) {
+    throw new Error(e);
+  }
 }
 
 /**
