@@ -1,4 +1,4 @@
-const { series, src, dest } = require('gulp');
+const { watch, series, src, dest } = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const prefix = require('gulp-autoprefixer');
@@ -15,4 +15,6 @@ function styles() {
     .pipe(dest('dist'));
 }
 
-exports.default = series(js, styles);
+exports.default = () => {
+  watch(['content/*.css', 'scripts/*.js'], series(js, styles));
+};
