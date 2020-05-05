@@ -16,6 +16,19 @@
   <link rel="icon" type="image/png" href="<?= $config['BASE_URL'] ?>/favicon-16x16.png" sizes="16x16">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#f4572a">
+  <!-- FONT -->
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-300.woff" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-regular.woff" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-700italic.woff" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>//fonts/roboto-v20-latin-500.woff" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/material.woff" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-900.woff" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-300.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-regular.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-700italic.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>//fonts/roboto-v20-latin-500.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/roboto-v20-latin-900.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/material2.woff2" type="font/woff2" crossorigin="anonymous">
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/dist/site.css" />
 </head>
