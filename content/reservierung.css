@@ -162,7 +162,7 @@
 .rent__loading-overlay {
   background-color: var(--color-white-semi-transparent);
   position: absolute;
-  z-index: 1000;
+  z-index: 10000;
   left: 0;
   top: 0;
   bottom: 0;
@@ -170,6 +170,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.rent__general-error {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white-semi-untransparent);
 }
 
 .rent__hidden {
@@ -198,7 +204,7 @@
     position: absolute;
     right: 16px;
     top: auto;
-    transform: translateY(0%); 
+    transform: translateY(0%);
     bottom: 16px;
   }
 }

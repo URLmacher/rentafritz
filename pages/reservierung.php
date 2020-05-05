@@ -161,6 +161,11 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
     <p class="rent__success-text">Sie erhalten Ihre persönliche Bestätigung in Kürze</p>
     <button id="rent-back-home-btn" class="btn waves-effect waves-light waves-secondary btn__secondary rent__button">Zurück zur Startseite</button>
   </div>
+  <div id="rent-general-error" class="rent__general-error rent__loading-overlay rent__hidden">
+    <h5 class="rent__success-title"><span><i class="material-icons rent__success-icon">sentiment_dissatisfied</i></span>Es tut uns Leid...</h5>
+    <p class="rent__success-text">Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten</p>
+    <button id="rent-reload-page-btn" class="btn waves-effect waves-light waves-secondary btn__secondary rent__button">Nochmal versuchen</button>
+  </div>
 </div>
 
 
@@ -177,6 +182,7 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
     <div></div>
   </div>
 </div>
+
 <?php
 include('templates/footer.php');
 ?>

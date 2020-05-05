@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const allInputs = document.querySelectorAll('input');
   const infoBox = document.getElementById('rent-info');
   const successMsg = document.getElementById('rent-succes');
+  const errorMsg = document.getElementById('rent-general-error');
   const infoLoading = document.getElementById('rent-info-loading');
   const fullLoading = document.getElementById('rent-full-loading');
   const infoProduct = document.getElementById('rent-info-selected-product');
@@ -139,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rentPaginationPage = document.getElementById('rent-pagination-page');
   const rentBackButton = document.getElementById('rent-back-button');
   const rentBackHomeButton = document.getElementById('rent-back-home-btn');
+  const rentReloadButton = document.getElementById('rent-reload-page-btn');
   const dropdownSelectDom = document.getElementById('rent-select');
   const rentFormPageOne = document.getElementById('rent-form-1');
   const rentFormPageTwo = document.getElementById('rent-form-2');
@@ -215,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (error) {
         infoLoading.classList.add('hide');
+        errorMsg.classList.remove('rent__hidden');
         console.error(error);
       }
     } else {
@@ -241,10 +244,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (error) {
         fullLoading.classList.add('rent__hidden');
+        errorMsg.classList.remove('rent__hidden');
+        rentFormPageTwo.classList.add('rent__hidden');
         console.error(error);
       }
     } else {
       fullLoading.classList.add('rent__hidden');
+      errorMsg.classList.remove('rent__hidden');
+      rentFormPageTwo.classList.add('rent__hidden');
       console.error('data not valid');
     }
   });
@@ -259,6 +266,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   rentBackHomeButton.addEventListener('click', () => {
     window.location.href = `${baseUrl}`;
+  });
+
+  rentReloadButton.addEventListener('click', () => {
+    window.location.href = `${baseUrl}/reservierung`;
   });
 
   agbLink.addEventListener('click', (event) => {
