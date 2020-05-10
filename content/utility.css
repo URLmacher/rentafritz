@@ -473,3 +473,7 @@ nav i.material-icons {
 select:focus {
   outline: 1px solid var(--color-white-semi-transparent);
 }
+
+.small-number-bottom{
+  font-size: var(--font-size-p);
+}

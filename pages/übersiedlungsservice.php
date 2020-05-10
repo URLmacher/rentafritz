@@ -5,7 +5,7 @@ include('templates/header.php');
 include('templates/nav-top.php');
 ?>
 
-<main class="secondary-page rentafritz-container">
+<div class="secondary-page rentafritz-container">
   <section class="siedl__section-two">
     <div class="siedl__text-wrapper">
       <h1 class="siedl__title">Übersiedlungsservice</h1>
@@ -18,21 +18,34 @@ include('templates/nav-top.php');
     <img class="siedl__img" src="img/siedlmobil.png">
   </section>
 
-  <div class="siedl__line"></div>
+</div>
+
+<section class="siedl__section-full" id="siedl-banner-nature">
+  <div class="rentafritz-container siedl__banner">
+    <div class="siedl__banner-box">
+      <h3 class="siedl__banner-title">CO<span class="small-number-bottom">2</span>-neutral</h3>
+      <p class="siedl__text">Durch den Ankauf von Humus-Zertifikaten ist unser Umzugservice CO₂-neutral.</p>
+      <p class="siedl__text">Erfahren Sie mehr bei der Ökoregion Kaindorf.</p>
+    </div>
+    <a class="siedl__banner-link" href="https://www.oekoregion-kaindorf.at/" rel="noopener noreferrer nofollow"><img src="img/logo-oeko.svg" alt="Logo Ökoregion Kaindorf"></a>
+  </div>
+</section>
+
+<div class="secondary-page rentafritz-container">
 
   <section class="siedl__section-four">
     <div class="siedl__vignette">
-    <i class="material-icons siedl__vignette-icon">security</i>
+      <i class="material-icons siedl__vignette-icon">security</i>
       <h3 class="siedl__title siedl__vignette-title">Sicherheit</h3>
       <p class="siedl__text siedl__vignette-text">Unsere Mitarbeiter behandeln Ihre Möbel und Güter mit größter Vorsicht. Beim Transport wird alles sorgfältig gepolstert und festgeschnallt.</p>
     </div>
     <div class="siedl__vignette">
-    <i class="material-icons siedl__vignette-icon">local_shipping</i>
+      <i class="material-icons siedl__vignette-icon">local_shipping</i>
       <h3 class="siedl__title siedl__vignette-title">Zuverlässigkeit</h3>
       <p class="siedl__text siedl__vignette-text">Wir erscheinen pünktlich zum vereinbarten Termin und behandeln ihre Angelegenheiten mit höchster Diskretion.</p>
     </div>
     <div class="siedl__vignette">
-    <i class="material-icons siedl__vignette-icon">build</i>
+      <i class="material-icons siedl__vignette-icon">build</i>
       <h3 class="siedl__title siedl__vignette-title">Möbel Ab- und Aufbau</h3>
       <p class="siedl__text siedl__vignette-text">Wir demontieren Ihre Möbel fachgerecht und bauen Sie am Zielort wieder auf. Das dafür benötigte Werkzeug bringen wir mit.</p>
     </div>
@@ -41,7 +54,15 @@ include('templates/nav-top.php');
       <h3 class="siedl__title siedl__vignette-title">Lagerung</h3>
       <p class="siedl__text siedl__vignette-text">Möbel können bei uns kostengünstig ein- und zwischengelagert werden.</p>
     </div>
-
   </section>
-</main>
+
+</div>
+<section class="siedl__section-full" id="siedl-banner-europe">
+  <div class="rentafritz-container siedl__banner">
+    <div class="siedl__banner-box">
+      <h3 class="siedl__banner-title">Umzugservice für ganz Europa</h3>
+      <img class="siedl__img" src="img/europe.png" alt="Logo Ökoregion Kaindorf">
+    </div>
+  </div>
+</section>
 <?php include('templates/footer.php') ?>

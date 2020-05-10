@@ -99,7 +99,6 @@ include('templates/nav-top.php');
   <section class="secondary-page__section">
     <h3 class="secondary-page__title-medium">VIII. Google Maps</h3>
     <p class="secondary-page__text">Diese Webseite verwendet Google Maps für die Darstellung von Karteninformationen. Bei der Nutzung von Google Maps werden von Google auch Daten über die Nutzung der Maps-Funktionen durch Besucher der Webseiten verarbeitet und genutzt. Weitere Informationen über die Datenverarbeitung durch Google können Sie den Hinweisen zum Datenschutz von Google auf <a class="secondary-page__link" href="https://www.google.at/intl/de/policies/privacy/" rel="noopener noreferrer nofollow">https://www.google.at/intl/de/policies/privacy/</a> entnehmen. Dort können Sie im Datenschutz-Center auch Ihre Einstellungen verändern, sodass Sie Ihre Daten verwalten und schützen können.</p>
-
   </section>
 </main>
 <?php include('templates/footer.php') ?>

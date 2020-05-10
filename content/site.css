@@ -5,7 +5,7 @@
   z-index: 9000;
 }
 
-.navbar__spacer{
+.navbar__spacer {
   height: 64px;
   width: 100%;
 }
@@ -127,7 +127,7 @@
 }
 @media screen and (max-width: 440px) {
   .renta-header__title {
-   font-size: 18px !important;
+    font-size: 18px !important;
     white-space: normal;
   }
 
@@ -275,6 +275,53 @@
   margin-bottom: 40px;
 }
 
+.siedl__section-full {
+  width: 100%;
+  background-size: cover;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  border-top: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+#siedl-banner-nature {
+  background-image: url('../img/trees.png');
+}
+
+#siedl-banner-europe {
+  background-image: url('../img/europe.png');
+}
+
+.siedl__banner {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+
+.siedl__banner-box {
+  padding: 40px;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-small);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow-medium);
+}
+
+.siedl__banner-title {
+  font-size: var(--font-size-h4);
+  color: var(--color-secondary);
+  margin-bottom: 16px;
+}
+
+.siedl__banner-link {
+  width: 150px;
+  height: 150px;
+  align-self: center;
+  justify-self: center;
+}
+
 .siedl__img {
   border: 2px solid var(--color-secondary);
   border-radius: var(--border-radius-small);
@@ -349,6 +396,10 @@
 }
 
 @media (min-width: 700px) {
+  .siedl__banner {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .siedl__section-two {
     grid-template-columns: 1fr 1fr;
   }
