@@ -61,7 +61,7 @@ include('templates/nav-top.php');
   <div class="rentafritz-container siedl__banner">
     <div class="siedl__banner-box">
       <h3 class="siedl__banner-title">Umzugservice für ganz Europa</h3>
-      <img class="siedl__img" src="img/europe.png" alt="Logo Ökoregion Kaindorf">
+      <img class="siedl__img" src="img/europe.png" alt="Karte Europa">
     </div>
   </div>
 </section>
