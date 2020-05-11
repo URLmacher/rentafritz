@@ -19,6 +19,7 @@ $activePage = $_SERVER['REQUEST_URI'];
 </nav>
 
 <ul class="sidenav navbar__sidenav" id="mobile-demo">
+  <div class="navbar__spacer"></div>
   <li><a href="/" class="navbar__nav-link <?= strlen($activePage) === 1 ? 'navbar__nav-link--active' : ''; ?>">PRODUKTE</a></li>
   <li><a href="/umzug" class="navbar__nav-link <?= strpos($activePage, 'umzug') ? 'navbar__nav-link--active' : ''; ?>">ÜBERSIEDLUNG </a></li>
   <li><a href="/reservierung" class="navbar__nav-link <?= strpos($activePage, 'reservierung') ? 'navbar__nav-link--active' : ''; ?>">RESERVIEREN</a></li>
