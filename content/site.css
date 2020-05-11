@@ -293,11 +293,13 @@
 }
 
 .siedl__banner {
-  padding: 40px;
+  padding: 40px 24px;
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 40px;
   row-gap: 40px;
+  max-width: var(--breakpoint-large);
+  margin: 0 auto;
 }
 
 .siedl__banner-box {
