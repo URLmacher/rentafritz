@@ -59,6 +59,7 @@ include('templates/nav-top.php');
 </div>
 <section class="siedl__section-full" id="siedl-banner-europe">
   <div class="rentafritz-container siedl__banner">
+    <p></p>
     <div class="siedl__banner-box">
       <h3 class="siedl__banner-title">Europaweit im Einsatz</h3>
       <img class="siedl__img" src="img/europe.png" alt="Karte Europa">
