@@ -25,15 +25,6 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
   <div class="product-detail rentafritz-container">
     <section class="product-detail__optics">
       <img class="product-detail__img" src="../<?= ($product['img_sub']) ? $product['img_sub'] : $product['img_main'] ?>" />
-      <div class="product-detail__info-box">
-        <p class="product-detail__info-secondary">Preis inkl. 20% Mehrwertsteuer</p>
-        <?php if ($product['info_secondary']) : ?>
-          <?php foreach ($product["info_secondary"] as $info_secondary) : ?>
-            <p class="product-detail__info-secondary"><?= $info_secondary ?></p>
-          <?php endforeach; ?>
-        <?php endif; ?>
-        <i class="material-icons product-detail__info-box-icon">info_outline</i>
-      </div>
     </section>
 
     <section class="product-detail__content">
@@ -63,7 +54,15 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
         <a href="/" class="btn-flat product-detail__button">Zurück</a>
       </div>
 
-
+      <div class="product-detail__info-box">
+        <p class="product-detail__info-secondary">Preis inkl. 20% Mehrwertsteuer</p>
+        <?php if ($product['info_secondary']) : ?>
+          <?php foreach ($product["info_secondary"] as $info_secondary) : ?>
+            <p class="product-detail__info-secondary"><?= $info_secondary ?></p>
+          <?php endforeach; ?>
+        <?php endif; ?>
+        <i class="material-icons product-detail__info-box-icon">info_outline</i>
+      </div>
     </section>
   </div>
 
