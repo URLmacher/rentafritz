@@ -6,7 +6,8 @@ $activePage = $_SERVER['REQUEST_URI'];
 <nav class="navbar">
   <div class="nav-wrapper rentafritz-container navbar__inner">
     <a href="/" class="brand-logo"><img class="navbar__brand-logo-img" src="../img/logo-nackt.svg" alt="rentafritz brand-logo"></a>
-    <a href="#" data-target="mobile-demo" class="navbar__icon sidenav-trigger"><i class="material-icons">menu</i></a>
+    <a href="#" id="navbar-menu-btn-open" data-target="mobile-demo" class="navbar__icon sidenav-trigger"><i class="material-icons">menu</i></a>
+    <a href="#" id="navbar-menu-btn-close" class="navbar__icon--close hide"><i class="material-icons">close</i></a>
 
     <ul class="right hide-on-med-and-down">
       <li><a href="/" class="navbar__nav-link <?= strlen($activePage) === 1 ? 'navbar__nav-link--active' : ''; ?>">PRODUKTE</a></li>

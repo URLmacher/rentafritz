@@ -1,7 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   //navigation
   const sideNavsDom = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(sideNavsDom, { edge: 'right' });
+  const menuBtnDomOpen = document.getElementById('navbar-menu-btn-open');
+  const menuBtnDomClose = document.getElementById('navbar-menu-btn-close');
+  const sideNavInstances = M.Sidenav.init(sideNavsDom, { edge: 'right' });
+
+  menuBtnDomOpen.addEventListener('click', () => {
+    menuBtnDomOpen.classList.add('hide')
+    menuBtnDomClose.classList.remove('hide')
+  });
+
+  menuBtnDomClose.addEventListener('click', () => {
+    menuBtnDomOpen.classList.remove('hide')
+    menuBtnDomClose.classList.add('hide')
+    sideNavInstances.forEach((sideNav) => {
+      if (sideNav.isOpen) {
+        sideNav.close();
+      }
+    });
+  });
+
 
   //Header-title
   const headerTitleDom = document.getElementById('renta-header-title');
