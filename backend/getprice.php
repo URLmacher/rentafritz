@@ -51,12 +51,47 @@ function getPrice($product, $hours)
 {
   $price = $product['price'];
 
-  if ($product['rate'] === 'd') {
-    $days = ceil($hours / 24);
-    $price = $days * $price;
-  } else if ($product['rate'] === 'h') {
-    $price = $hours * $price;
+  switch ($product['rate']) {
+    case 'd':
+      $price = getThresholdPrice($price, $hours, 24);
+      break;
+    case '12':
+      $price = getThresholdPrice($price, $hours, 12);
+      break;
+    case 'h':
+      $price = $hours * $price;
+      break;
   }
 
   return $price;
+}
+
+/**
+ * there is a threshold for when remainding hours are
+ * less than half of the total rate.
+ * this threshold-price is used instead of rounding to the full rate
+ *
+ * @param number $price
+ * @param number $hours
+ * @param number $totalRate
+ * @return number
+ */
+function getThresholdPrice($price, $hours, $totalRate)
+{
+  $actualPrice = 0;
+
+  $timeUnits = floor($hours / $totalRate);
+  $remainingHours = ceil($hours % $totalRate);
+
+  if ($remainingHours < ($totalRate / 2)) {
+    $hourlyRate = round(($price / $totalRate), 2);
+    $surcharge = round((($hourlyRate / 100) * 30), 2);
+    $thresholdPrice = $hourlyRate + $surcharge;
+    $actualPrice = ($timeUnits * $price) + ($remainingHours * $thresholdPrice);
+  } else {
+    $timeUnits = ceil($hours / $totalRate);
+    $actualPrice = $timeUnits * $price;
+  }
+
+  return $actualPrice;
 }

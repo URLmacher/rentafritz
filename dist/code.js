@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.success) {
           productName = data.product;
           rentDuration = formatTime(data.time);
-          totalPrice = `${data.price} Euro`;
+          totalPrice = `${formatMoney(data.price)} Euro`;
 
           infoLoading.classList.add('hide');
           infoProduct.innerHTML = productName;
@@ -316,6 +316,15 @@ function formatTime(time) {
   }
 
   return formattedTime;
+}
+
+/**
+ * formats a price in a european-decimal fashion
+ * @param {number} price
+ */
+function formatMoney(price) {
+  const decimalPrice = price.toFixed(2);
+  return decimalPrice.toString().replace('.', ',');
 }
 
 /**

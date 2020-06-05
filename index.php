@@ -51,6 +51,11 @@ $router->map('GET','/datenschutz', function () {
   require __DIR__ . '/pages/datenschutz.php';
 });
 
+//please remove this in production I beg you
+// $router->map('GET','/test', function () {
+//   require __DIR__ . '/backend/testaprice.php';
+// });
+
 
 $match = $router->match();
 
