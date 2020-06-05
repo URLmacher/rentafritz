@@ -148,6 +148,7 @@
 
 .product-detail__price span {
   color: var(--color-secondary);
+  font-size: var(--font-size-h3);
 }
 
 .product-detail__info-secondary {

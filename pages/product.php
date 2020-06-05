@@ -17,7 +17,28 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
     }
   }
 
-  $rate = ($product['rate'] == 'd') ? 'pro Tag' : 'pro Stunde';
+  /**
+   * get the text that belongs to a rate-type
+   *
+   * @param string $rateType
+   * @return string
+   */
+  function getRateText($rateType)
+  {
+    $rateText = '';
+    switch ($rateType) {
+      case 'd':
+        $rateText = 'pro Tag';
+        break;
+      case '12':
+        $rateText = 'für 12 Stunden';
+        break;
+      case 'h':
+        $rateText = 'pro Stunde';
+        break;
+    }
+    return $rateText;
+  }
 }
 ?>
 
@@ -46,7 +67,7 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
         </ul>
       <?php endif; ?>
 
-      <h3 class="product-detail__price"><span>€ <?= $product['price'] . ',- </span>' . $rate ?></h3>
+      <h3 class="product-detail__price"><span>€ <?= $product['price'] . ',- </span>' . getRateText($product['rate']) ?></h3>
 
 
       <div class="product-detail__btn-box">
