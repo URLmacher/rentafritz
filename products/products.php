@@ -106,10 +106,7 @@ $products = [
     "price" => 10,
     "rate" => "d",
     "info" => null,
-    "info_secondary" => [
-      "Preis für 4 Stunden: € 8,-",
-      "Preis pro Woche: € 30,-"
-    ],
+    "info_secondary" => null,
     "info_list" => [
       "Max. 2500kg Tragkraft",
       "PU Rollen mit 180 bzw. 80mm Durchmesser",
@@ -127,9 +124,7 @@ $products = [
     "price" => 20,
     "rate" => "d",
     "info" => null,
-    "info_secondary" => [
-      "Fragen Sie nach unseren günstigen Wochenpauschalen."
-    ],
+    "info_secondary" =>null,
     "info_list" => [
       "Anschluss eines Abflussschlauchs zur Permaentfeuchtung",
       "Heißgasabtauung",
@@ -237,10 +232,7 @@ $products = [
 						Neben ihrem typischen Einsatzgebiet in Baugruben, eignet sich diese Pumpe ideal zum Entleeren von Gartenteichen oder Swimmingpools.
                         Durch ihren stufenlos höhenverstellbaren Schwimmschalter auch unentbehrlich bei Überschwemmungen oder Wasserrohrbrüchen."
     ],
-    "info_secondary" => [
-      "Preis für 4 Stunden: € 10,-",
-      "Preis pro Woche: € 32,-"
-    ],
+    "info_secondary" => null,
     "info_list" => [
       "Netzanschluss: 230 V ~ 50 Hz",
       "Aufnahmeleistung: 1000 Watt",
@@ -254,93 +246,4 @@ $products = [
       "inkl. Spiralschlauch 1 ¼“ 6m Länge ",
     ]
   ],
-  [
-    "id" => 11,
-    "name" => "Feuchtemessgerät",
-    "description" => "Brennenstuhl MD 1298680",
-    "img_main" => "img/feuchtemessgerät.png",
-    "img_sub" => null,
-    "price" => 7,
-    "rate" => "d",
-    "info" => [
-      "Ideal für Messungen des Feuchtigkeitsgehalts von Baustoffen, wie z.B. Beton, Ziegel, Estrich, Gipskarton, Holz usw."
-    ],
-    "info_secondary" => null,
-    "info_list" => [
-      "Auswahltaste für Holz oder Baustoff",
-      "Anzeige des Feuchtigkeitsniveaus in Symbolen und Prozent",
-      "Holdfunktion",
-      "Batteriezustandsanzeige",
-      "Messbereich: 5-50% für Holz, 1,5-33 % bei Baustoffen",
-    ]
-  ],
-  [
-    "id" => 12,
-    "name" => "Helligkeitsmessgerät",
-    "description" => "Voltcraft MS 1500",
-    "img_main" => "img/Luxmeter.png",
-    "img_sub" => null,
-    "price" => 7,
-    "rate" => "d",
-    "info" => null,
-    "info_secondary" => null,
-    "info_list" => [
-      "Messbereich: 0 - 40 000 lx",
-      "Auflösung: 0.01 lx",
-      "Genauigkeit: ± 3%",
-      "Spannungsversorgung: 9V Block",
-      "Messrate: 2/s",
-    ]
-  ],
-  [
-    "id" => 13,
-    "name" => "Laserentfernungsmesser",
-    "description" => "LD300 Stabila",
-    "img_main" => "img/Entferfnungsmesser.png",
-    "img_sub" => null,
-    "price" => 7,
-    "rate" => "d",
-    "info" => [
-      "Ideal für Messungen im Innenbereich."
-    ],
-    "info_secondary" => [
-      "Mit Gürteltasche und 2 AAA Batterien"
-    ],
-    "info_list" => [
-      "Messgenauigkeit: ± 2mm",
-      "Schutzklasse IP 40",
-      "Laser Klasse 2 unter 1 mW",
-      "Messdistanz von 0,1 - 30m",
-      "Betriebsdauer der Batterien bis zu 3.000 Stunden",
-      "Längenmessung",
-      "Flächenmessung",
-      "Volumenmessung",
-      "Dauermessung (Einer linearen Bewegung)",
-      "Phythagoras-Funktion (Bestimmung einer Strecke mit 2 Hilfsmessungen in unterschiedlichem Winkel)",
-    ]
-  ],
-  [
-    "id" => 14,
-    "name" => "Temperaturmessgerät",
-    "description" => "Voltcraft K201-200",
-    "img_main" => "img/temperatur.png",
-    "img_sub" => null,
-    "price" => 7,
-    "rate" => "d",
-    "info" => [
-      "Das professionelle Temperaturmessgerät mit externem Sensor.",
-      "Ideal für Messungen im Heizungs- und Wohnungsbereich, zum Beispiel für das Aufspüren von Kältebrücken oder ähnliches."
-    ],
-    "info_secondary" => [
-      "Inkl. Temperaturfühler"
-    ],
-    "info_list" => [
-      "Temperaturbereich von -200°C - +1370°C",
-      "°C/°F Umschaltung",
-      "Holdfunktion",
-      "Min-/Max. Messfunktion",
-      "Auflösung 0,1°C",
-      "Grundgenauigkeit +/- 0,3% vom Messwert +1°C",
-    ]
-  ]
 ];
