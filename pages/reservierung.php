@@ -7,6 +7,9 @@ include('products/products.php');
 
 //get product ID from url
 $product_id = null;
+$rent_times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
+$rent_time_start = null;
+$rent_time_end = null;
 preg_match('/\/reservierung\/(\d+)$/', $_SERVER['REQUEST_URI'], $matches);
 if (!empty($matches[1]) && is_numeric($matches[1])) {
   $product_id = $matches[1];
@@ -50,8 +53,13 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
         <label for="rent-date-start" class="rent__body-title">Von wann:</label>
         <input autocomplete="off" id="rent-date-start" type="text" class="datepicker" placeholder="VON:(Datum)">
         <div class="rent__errors" id="error-date-start"></div>
-        <input autocomplete="off" id="rent-time-start" type="text" class="timepicker" placeholder="VON:(Uhrzeit)">
-        <div class="rent__errors" id="error-time-start"></div>
+        <select id="rent-select-time-start">
+          <option value="" disabled selected>VON:(Uhrzeit)</option>
+          <?php foreach ($rent_times as $rent_time) : ?>
+            <option value="<?= $rent_time ?>" <?= ($rent_time == $rent_time_start) ? 'selected' : '' ?>><?= $rent_time ?></option>
+          <?php endforeach; ?>
+        </select>
+        <div class="rent__errors" id="error-select-time-start"></div>
       </div>
     </div>
 
@@ -60,12 +68,17 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
         <label for="rent-date-end" class="rent__body-title">Bis wann:</label>
         <input autocomplete="off" id="rent-date-end" type="text" class="datepicker" placeholder="BIS:(Datum)">
         <div class="rent__errors" id="error-date-end"></div>
-        <input autocomplete="off" id="rent-time-end" type="text" class="timepicker" placeholder="BIS:(Uhrzeit)">
-        <div class="rent__errors" id="error-time-end"></div>
+        <select id="rent-select-time-end">
+          <option value="" disabled selected>VON:(Uhrzeit)</option>
+          <?php foreach ($rent_times as $rent_time) : ?>
+            <option value="<?= $rent_time ?>" <?= ($rent_time == $rent_time_end) ? 'selected' : '' ?>><?= $rent_time ?></option>
+          <?php endforeach; ?>
+        </select>
+        <div class="rent__errors" id="error-select-time-end"></div>
       </div>
     </div>
 
-    <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Weiter</button>
+    <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" id="rent-page-one-submit-button" type="submit" name="action">Weiter</button>
   </form>
 
   <form class="rent__form rent__hidden" id="rent-form-2">
@@ -151,7 +164,7 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
       </div>
     </div>
     <div class="rent__btn-box">
-      <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" type="submit" name="action">Absenden</button>
+      <button class="btn waves-effect waves-light waves-secondary btn__secondary rent__button" id="rent-page-two-submit-button" type="submit" name="action">Absenden</button>
       <button class="btn-flat rent__button rent__button--back" id="rent-back-button">Zurück</button>
     </div>
   </form>

@@ -15,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const rentBackButton = document.getElementById('rent-back-button');
   const rentBackHomeButton = document.getElementById('rent-back-home-btn');
   const rentReloadButton = document.getElementById('rent-reload-page-btn');
-  const dropdownSelectDom = document.getElementById('rent-select');
+  const dropdownProductDom = document.getElementById('rent-select');
   const rentFormPageOne = document.getElementById('rent-form-1');
+  const rentFormPageOneSubmitButton = document.getElementById('rent-page-one-submit-button');
+  const rentFormPageTwoSubmitButton = document.getElementById('rent-page-two-submit-button');
   const rentFormPageTwo = document.getElementById('rent-form-2');
   const datePickerStartDom = document.getElementById('rent-date-start');
-  const timePickerStartDom = document.getElementById('rent-time-start');
+  const dropdownTimeStartDom = document.getElementById('rent-select-time-start');
   const datePickerEndDom = document.getElementById('rent-date-end');
-  const timePickerEndDom = document.getElementById('rent-time-end');
+  const dropdownTimeEndDom = document.getElementById('rent-select-time-end');
   const customerFirstName = document.getElementById('rent-first-name');
   const customerLastName = document.getElementById('rent-last-name');
   const customerPhone = document.getElementById('rent-phone');
@@ -41,39 +43,34 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!rentFormPageOne) return;
 
   // initialize materialize selects/inputs
-  M.FormSelect.init(dropdownSelectDom, {});
+  M.FormSelect.init(dropdownProductDom, {});
+  M.FormSelect.init(dropdownTimeStartDom, {});
+  M.FormSelect.init(dropdownTimeEndDom, {});
   const datePickersDom = document.querySelectorAll('.datepicker');
   M.Datepicker.init(datePickersDom, {
     i18n: translations,
     format: 'dd.mm.yyyy',
     firstDay: 1,
   });
-  const timePickersDom = document.querySelectorAll('.timepicker');
-  M.Timepicker.init(timePickersDom, {
-    i18n: translations,
-    twelveHour: false,
-  });
   // get materialize instances
   const datePickerStart = M.Datepicker.getInstance(datePickerStartDom);
   const datePickerEnd = M.Datepicker.getInstance(datePickerEndDom);
-  const timePickerStart = M.Timepicker.getInstance(timePickerStartDom);
-  const timePickerEnd = M.Timepicker.getInstance(timePickerEndDom);
 
   // handle form page 1
-  rentFormPageOne.addEventListener('submit', async (event) => {
+  rentFormPageOneSubmitButton.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    if (preCalcCheck(datePickerStart.date, datePickerEnd.date, timePickerStart.time, timePickerEnd.time, dropdownSelectDom.value)) {
+    if (preCalcCheck(datePickerStart.date, datePickerEnd.date, dropdownTimeStartDom.value, dropdownTimeEndDom.value, dropdownProductDom.value)) {
       rentFormPageOne.classList.add('rent__hidden');
       rentFormPageTwo.classList.remove('rent__hidden');
       infoBox.classList.remove('rent__hidden');
       rentPaginationPage.innerHTML = 2;
 
-      rentStart = setTimeOfDate(datePickerStart.date, timePickerStart.time);
-      rentEnd = setTimeOfDate(datePickerEnd.date, timePickerEnd.time);
+      rentStart = setTimeOfDate(datePickerStart.date, dropdownTimeStartDom.value);
+      rentEnd = setTimeOfDate(datePickerEnd.date, dropdownTimeEndDom.value);
 
       const hours = getDiffInHours(rentStart, rentEnd);
-      const productId = parseInt(dropdownSelectDom.value, 10);
+      const productId = parseInt(dropdownProductDom.value, 10);
 
       try {
         const data = await getPrice(hours, productId);
@@ -96,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else {
       infoLoading.classList.add('hide');
-      console.error('data not valid');
+      console.error('pre-calc check failed. data not valid');
     }
   });
 
   // handle form page 2
-  rentFormPageTwo.addEventListener('submit', async (event) => {
+  rentFormPageTwoSubmitButton.addEventListener('click', async (event) => {
     event.preventDefault();
     fullLoading.classList.remove('rent__hidden');
 
@@ -126,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fullLoading.classList.add('rent__hidden');
       errorMsg.classList.remove('rent__hidden');
       rentFormPageTwo.classList.add('rent__hidden');
-      console.error('data not valid');
+      console.error('pre-send check failed. data not valid');
     }
   });
 
@@ -153,7 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // handle error clearing
   allInputs.forEach((input) => input.addEventListener('focus', clearErrors));
-  dropdownSelectDom.addEventListener('change', clearErrors);
+  dropdownProductDom.addEventListener('change', clearErrors);
+  dropdownTimeStartDom.addEventListener('change', clearErrors);
+  dropdownTimeEndDom.addEventListener('change', clearErrors);
 });
 
 /**
@@ -219,8 +218,10 @@ function printError(errorText, elementId) {
 }
 
 /**
- * clears errors from a inputs error-field
- * @param {FocusEvent} event
+ * clears errors from a input or dropdown error-field
+ * it finds the related errorfield by replacing the rent-prefix with 'error'
+ * if id of an element is 'rent-email' the error-field is 'error-email'
+ * @param {FocusEvent | Event} event
  */
 function clearErrors(event) {
   const errorId = event.target.id.replace('rent', 'error');
@@ -347,7 +348,7 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
     noError = false;
     printError('Datum ungültig', 'error-date-end');
   }
-
+console.log(timeStart, timeEnd);
   if (!timeStart) {
     noError = false;
     printError('Bitte Uhrzeit auswählen', 'error-time-start');
