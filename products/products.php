@@ -219,31 +219,4 @@ $products = [
       "Maße L380mm x B470mm x H440mm",
     ]
   ],
-  [
-    "id" => 10,
-    "name" => "Schmutzwasserpumpe",
-    "description" => "Einhell",
-    "img_main" => "img/pumpe.png",
-    "img_sub" => null,
-    "price" => 12,
-    "rate" => "d",
-    "info" => [
-      "Verunreinigungen mit einem Durchmesser bis zu 20 mm stellen für diese Pumpe keinerlei Problem dar.
-						Neben ihrem typischen Einsatzgebiet in Baugruben, eignet sich diese Pumpe ideal zum Entleeren von Gartenteichen oder Swimmingpools.
-                        Durch ihren stufenlos höhenverstellbaren Schwimmschalter auch unentbehrlich bei Überschwemmungen oder Wasserrohrbrüchen."
-    ],
-    "info_secondary" => null,
-    "info_list" => [
-      "Netzanschluss: 230 V ~ 50 Hz",
-      "Aufnahmeleistung: 1000 Watt",
-      "Fördermenge max.: 20.000 l/h",
-      "Förderhöhe max.: 8 m",
-      "Eintauchtiefe max.: 5 m",
-      "Schlauchanschluss: 1 ½“",
-      "Wassertemperatur max.: 35 °C",
-      "Netzleitungslänge: 10 m",
-      "Edelstahl-Pumpengehäuse",
-      "inkl. Spiralschlauch 1 ¼“ 6m Länge ",
-    ]
-  ],
 ];

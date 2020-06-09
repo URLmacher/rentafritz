@@ -143,6 +143,8 @@ productsButtons.forEach(button => {
 });
 
 const baseUrl = `${window.location.protocol}//${window.location.host}`;
+const showPriceCutOffTime = 48;
+
 document.addEventListener('DOMContentLoaded', () => {
   // get all DOMelements
   const allInputs = document.querySelectorAll('input');
@@ -226,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
           infoLoading.classList.add('hide');
           infoProduct.innerHTML = productName;
           infoTime.innerHTML = rentDuration;
-          infoPrice.innerHTML = totalPrice;
+          infoPrice.innerHTML = rentDuration > showPriceCutOffTime ? totalPrice : 'Sie erhalten von uns ein unverbindliches Preisangebot';
         } else {
           console.error(data.error);
         }
@@ -495,18 +497,18 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
 
   if (!timeStart) {
     noError = false;
-    printError('Bitte Uhrzeit auswählen', 'error-select-time-start');
+    printError('Bitte Uhrzeit auswählen', 'error-time-start');
   } else if (!timeRegex.test(timeStart)) {
     noError = false;
-    printError('Uhrzeit ungültig', 'error-select-time-start');
+    printError('Uhrzeit ungültig', 'error-time-start');
   }
 
   if (!timeEnd) {
     noError = false;
-    printError('Bitte Uhrzeit auswählen', 'error-select-time-end');
+    printError('Bitte Uhrzeit auswählen', 'error-time-end');
   } else if (!timeRegex.test(timeEnd)) {
     noError = false;
-    printError('Uhrzeit ungültig', 'error-select-time-end');
+    printError('Uhrzeit ungültig', 'error-time-end');
   }
 
   if (dateStart && dateStart > now && dateEnd && dateStart > dateEnd) {

@@ -1,4 +1,6 @@
 const baseUrl = `${window.location.protocol}//${window.location.host}`;
+const showPriceCutOffTime = 48;
+
 document.addEventListener('DOMContentLoaded', () => {
   // get all DOMelements
   const allInputs = document.querySelectorAll('input');
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
           infoLoading.classList.add('hide');
           infoProduct.innerHTML = productName;
           infoTime.innerHTML = rentDuration;
-          infoPrice.innerHTML = totalPrice;
+          infoPrice.innerHTML = rentDuration > showPriceCutOffTime ? totalPrice : 'Sie erhalten von uns ein unverbindliches Preisangebot';
         } else {
           console.error(data.error);
         }
@@ -348,7 +350,7 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
     noError = false;
     printError('Datum ungültig', 'error-date-end');
   }
-console.log(timeStart, timeEnd);
+
   if (!timeStart) {
     noError = false;
     printError('Bitte Uhrzeit auswählen', 'error-time-start');
