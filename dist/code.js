@@ -144,6 +144,7 @@ productsButtons.forEach(button => {
 
 const baseUrl = `${window.location.protocol}//${window.location.host}`;
 const showPriceCutOffTime = 48;
+let hours = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   // get all DOMelements
@@ -212,10 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
       infoBox.classList.remove('rent__hidden');
       rentPaginationPage.innerHTML = 2;
 
-      rentStart = setTimeOfDate(datePickerStart.date, dropdownTimeStartDom.value);
-      rentEnd = setTimeOfDate(datePickerEnd.date, dropdownTimeEndDom.value);
-
-      const hours = getDiffInHours(rentStart, rentEnd);
       const productId = parseInt(dropdownProductDom.value, 10);
 
       try {
@@ -497,23 +494,33 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
 
   if (!timeStart) {
     noError = false;
-    printError('Bitte Uhrzeit auswählen', 'error-time-start');
+    printError('Bitte Uhrzeit auswählen', 'error-select-time-start');
   } else if (!timeRegex.test(timeStart)) {
     noError = false;
-    printError('Uhrzeit ungültig', 'error-time-start');
+    printError('Uhrzeit ungültig', 'error-select-time-start');
   }
 
   if (!timeEnd) {
     noError = false;
-    printError('Bitte Uhrzeit auswählen', 'error-time-end');
+    printError('Bitte Uhrzeit auswählen', 'error-select-time-end');
   } else if (!timeRegex.test(timeEnd)) {
     noError = false;
-    printError('Uhrzeit ungültig', 'error-time-end');
+    printError('Uhrzeit ungültig', 'error-select-time-end');
   }
 
   if (dateStart && dateStart > now && dateEnd && dateStart > dateEnd) {
     noError = false;
     printError('Datum ungültig', 'error-date-end');
+  } else if (dateStart && dateEnd && timeEnd && timeStart) {
+    rentStart = setTimeOfDate(dateStart, timeStart);
+    rentEnd = setTimeOfDate(dateEnd, timeEnd);
+    hours = getDiffInHours(rentStart, rentEnd);
+
+    if (hours < 24) {
+      noError = false;
+      printError('Mindestmietzeitraum 24 Stunden', 'error-date-end');
+      printError('Mindestmietzeitraum 24 Stunden', 'error-select-time-end');
+    }
   }
 
   if (!itemId) {

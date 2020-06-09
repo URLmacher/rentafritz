@@ -77,6 +77,9 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
 
       <div class="product-detail__info-box">
         <p class="product-detail__info-secondary">Preis inkl. 20% Mehrwertsteuer</p>
+        <?php if ($product['rate'] !== 'h') : ?>
+          <p class="product-detail__info-secondary">Mindestmietzeitraum 24 Stunden</p>
+        <?php endif; ?>
         <?php if ($product['info_secondary']) : ?>
           <?php foreach ($product["info_secondary"] as $info_secondary) : ?>
             <p class="product-detail__info-secondary"><?= $info_secondary ?></p>

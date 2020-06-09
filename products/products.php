@@ -7,7 +7,7 @@ $products = [
     "img_main" => "img/transit.png",
     "img_sub" => "img/transit_ladraum.png",
     "price" => 119,
-    "rate" => "d",
+    "rate" => "h",
     "info" => ["Stehleiter für bequeme Be- und Entladung inkludiert"],
     "info_secondary" => [
       "200km frei",
@@ -32,7 +32,7 @@ $products = [
     "img_main" => "img/auto_neu_frei_klein.png",
     "img_sub" => "img/laderaum.png",
     "price" => 65,
-    "rate" => "d",
+    "rate" => "h",
     "info" => null,
     "info_secondary" => [
       "200km frei",
@@ -82,7 +82,7 @@ $products = [
     "img_main" => "img/haenger.png",
     "img_sub" => null,
     "price" => 45,
-    "rate" => "12",
+    "rate" => "h",
     "info" => null,
     "info_secondary" => [
       "Führerschein E : B"
