@@ -7,7 +7,7 @@ $products = [
     "img_main" => "img/transit.png",
     "img_sub" => "img/transit_ladraum.png",
     "price" => 119,
-    "rate" => "h",
+    "rate" => "d",
     "info" => ["Stehleiter für bequeme Be- und Entladung inkludiert"],
     "info_secondary" => [
       "200km frei",
@@ -32,7 +32,7 @@ $products = [
     "img_main" => "img/auto_neu_frei_klein.png",
     "img_sub" => "img/laderaum.png",
     "price" => 65,
-    "rate" => "h",
+    "rate" => "d",
     "info" => null,
     "info_secondary" => [
       "200km frei",
@@ -66,6 +66,7 @@ $products = [
     "info_secondary" => [
       "Preisbeispiel ohne Stockwerke oder sperrige Gegenstände",
       "Günstige Pauschalen auf Anfrage",
+      "Anfahrt bis 15km kostenlos"
     ],
     "info_list" => [
       "Komplettservice",
@@ -82,7 +83,7 @@ $products = [
     "img_main" => "img/haenger.png",
     "img_sub" => null,
     "price" => 45,
-    "rate" => "h",
+    "rate" => "d",
     "info" => null,
     "info_secondary" => [
       "Führerschein E : B"
@@ -122,7 +123,7 @@ $products = [
     "img_main" => "img/luftentfeuchter.png",
     "img_sub" => null,
     "price" => 20,
-    "rate" => "12",
+    "rate" => "d",
     "info" => null,
     "info_secondary" =>null,
     "info_list" => [

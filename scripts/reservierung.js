@@ -1,6 +1,14 @@
 const baseUrl = `${window.location.protocol}//${window.location.host}`;
 const showPriceCutOffTime = 48;
+const siedlServiceIdForExtrawurschtl = 3;
+const minRentTime = 24;
+const minRentTimeExtrawurschtl = 2;
 let hours = 0;
+let productName = '';
+let rentDuration = '';
+let totalPrice = '';
+let rentStart = '';
+let rentEnd = '';
 
 document.addEventListener('DOMContentLoaded', () => {
   // get all DOMelements
@@ -37,11 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const customerCity = document.getElementById('rent-city');
   const customerFile = document.getElementById('rent-file');
   const customerAgb = document.getElementById('rent-agb');
-  let productName = '';
-  let rentDuration = '';
-  let totalPrice = '';
-  let rentStart = '';
-  let rentEnd = '';
 
   if (!rentFormPageOne) return;
 
@@ -372,17 +375,23 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
     rentEnd = setTimeOfDate(dateEnd, timeEnd);
     hours = getDiffInHours(rentStart, rentEnd);
 
-    if (hours < 24) {
+    if (hours < minRentTime && itemId && itemId != siedlServiceIdForExtrawurschtl)   {
       noError = false;
       printError('Mindestmietzeitraum 24 Stunden', 'error-date-end');
       printError('Mindestmietzeitraum 24 Stunden', 'error-select-time-end');
+    }
+
+    if (hours < minRentTimeExtrawurschtl && itemId && itemId == siedlServiceIdForExtrawurschtl)   {
+      noError = false;
+      printError('Mindestmietzeitraum 2 Stunden', 'error-date-end');
+      printError('Mindestmietzeitraum 2 Stunden', 'error-select-time-end');
     }
   }
 
   if (!itemId) {
     noError = false;
     printError('Bitte Produkt auswählen', 'error-select');
-  }
+  } 
 
   return noError;
 }
