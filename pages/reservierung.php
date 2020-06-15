@@ -7,6 +7,7 @@ include('products/products.php');
 
 //get product ID from url
 $product_id = null;
+$product_rate = null;
 $rent_times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
 $rent_time_start = null;
 $rent_time_end = null;
@@ -35,6 +36,9 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
 
   <form class="rent__form" id="rent-form-1">
     <!-- Reservieren -->
+    <?php foreach ($products as $product) : ?>
+      <input type="hidden" id="rent-min-time-<?= $product['id'] ?>" value="<?= $product['rate'] ?>">
+    <?php endforeach; ?>
     <div class="rent__row">
       <div class="rent__col">
         <label for="rent-select" class="rent__body-title">Was?</label>

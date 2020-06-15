@@ -144,7 +144,6 @@ productsButtons.forEach(button => {
 
 const baseUrl = `${window.location.protocol}//${window.location.host}`;
 const showPriceCutOffTime = 48;
-const siedlServiceIdForExtrawurschtl = 3;
 const minRentTime = 24;
 const minRentTimeExtrawurschtl = 2;
 let hours = 0;
@@ -172,9 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const rentReloadButton = document.getElementById('rent-reload-page-btn');
   const dropdownProductDom = document.getElementById('rent-select');
   const rentFormPageOne = document.getElementById('rent-form-1');
+  const rentFormPageTwo = document.getElementById('rent-form-2');
   const rentFormPageOneSubmitButton = document.getElementById('rent-page-one-submit-button');
   const rentFormPageTwoSubmitButton = document.getElementById('rent-page-two-submit-button');
-  const rentFormPageTwo = document.getElementById('rent-form-2');
   const datePickerStartDom = document.getElementById('rent-date-start');
   const dropdownTimeStartDom = document.getElementById('rent-select-time-start');
   const datePickerEndDom = document.getElementById('rent-date-end');
@@ -477,6 +476,7 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+  const rentMinTimeDom = document.getElementById(`rent-min-time-${itemId}`);
   let noError = true;
 
   if (!dateStart) {
@@ -519,13 +519,13 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
     rentEnd = setTimeOfDate(dateEnd, timeEnd);
     hours = getDiffInHours(rentStart, rentEnd);
 
-    if (hours < minRentTime && itemId && itemId != siedlServiceIdForExtrawurschtl)   {
+    if (hours < minRentTime && rentMinTimeDom && rentMinTimeDom.value !== 'h') {
       noError = false;
       printError('Mindestmietzeitraum 24 Stunden', 'error-date-end');
       printError('Mindestmietzeitraum 24 Stunden', 'error-select-time-end');
     }
 
-    if (hours < minRentTimeExtrawurschtl && itemId && itemId == siedlServiceIdForExtrawurschtl)   {
+    if (hours < minRentTimeExtrawurschtl && rentMinTimeDom && rentMinTimeDom.value === 'h') {
       noError = false;
       printError('Mindestmietzeitraum 2 Stunden', 'error-date-end');
       printError('Mindestmietzeitraum 2 Stunden', 'error-select-time-end');
@@ -535,7 +535,7 @@ function preCalcCheck(dateStart, dateEnd, timeStart, timeEnd, itemId) {
   if (!itemId) {
     noError = false;
     printError('Bitte Produkt auswählen', 'error-select');
-  } 
+  }
 
   return noError;
 }
