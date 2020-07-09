@@ -55,6 +55,9 @@ $router->map('GET','/datenschutz', function () {
 // $router->map('GET','/test', function () {
 //   require __DIR__ . '/backend/testaprice.php';
 // });
+// $router->map('GET','/test', function () {
+//   require __DIR__ . '/backend/testamail.php';
+// });
 
 
 $match = $router->match();

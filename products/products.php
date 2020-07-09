@@ -78,6 +78,28 @@ $products = [
   ],
   [
     "id" => 4,
+    "name" => "Kofferanhänger",
+    "description" => "Kofferanhänger 750kg",
+    "img_main" => "img/haenger_neu.png",
+    "img_sub" => "img/haenger_neu_hinten.png",
+    "price" => 29,
+    "rate" => "d",
+    "info" => null,
+    "info_secondary" => [
+      "Führerschein: B"
+    ],
+    "info_list" => [
+      "Einachsanhänger",
+      "Ungebremst",
+      "Nutzlast: 375kg",
+      "Höchstzulässiges Gesamtgewicht: 750kg",
+      "Laderaumvolumen: 5m³",
+      "Laderaum Abmessungen: L/B/H 260cmx130cmx150cm",
+      "Anhängestützlast: 75kg",
+    ]
+  ],
+  [
+    "id" => 5,
     "name" => "Planen Anhänger",
     "description" => "Planen Anhänger",
     "img_main" => "img/haenger.png",
@@ -99,7 +121,7 @@ $products = [
     ]
   ],
   [
-    "id" => 5,
+    "id" => 6,
     "name" => "Palettenhubwagen",
     "description" => "2,5 Tonnen",
     "img_main" => "img/hubwagen.png",
@@ -117,7 +139,7 @@ $products = [
     ]
   ],
   [
-    "id" => 6,
+    "id" => 7,
     "name" => "Luftentfeuchter / Bautrockner",
     "description" => "TTK 170 ECO",
     "img_main" => "img/luftentfeuchter.png",
@@ -148,7 +170,7 @@ $products = [
     ]
   ],
   [
-    "id" => 7,
+    "id" => 8,
     "name" => "Holzspalter",
     "description" => "Zipper HS 8 PT",
     "img_main" => "img/spalter.png",
@@ -179,7 +201,7 @@ $products = [
     ]
   ],
   [
-    "id" => 8,
+    "id" => 9,
     "name" => "Vertikutierer",
     "description" => "Brill 4 TB 40",
     "img_main" => "img/verti.png",
@@ -197,7 +219,7 @@ $products = [
     ]
   ],
   [
-    "id" => 9,
+    "id" => 10,
     "name" => "Elektro-Heizgerät",
     "description" => "GÜDE GH9e",
     "img_main" => "img/heizgerät.png",

@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
           infoLoading.classList.add('hide');
           infoProduct.innerHTML = productName;
           infoTime.innerHTML = rentDuration;
-          infoPrice.innerHTML = rentDuration > showPriceCutOffTime ? totalPrice : 'Sie erhalten von uns ein unverbindliches Preisangebot';
+          infoPrice.innerHTML = parseInt(data.time) < showPriceCutOffTime ? totalPrice : 'Sie erhalten von uns ein unverbindliches Preisangebot';
         } else {
           console.error(data.error);
         }

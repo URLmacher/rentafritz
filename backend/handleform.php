@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] .'/vendor/autoload.php';
 $answer = new stdClass();
 $answer->success = true;
 
@@ -61,12 +61,14 @@ if (
   if (checkFile($_FILES)) {
     $answer->fileOk = true;
     if (sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $price, $duration, $rentStart, $rentEnd, $_FILES['file'])) {
-      $answer->sendMailSucces = true;
+      $answer->sendMailSuccess = true;
     } else {
-      $answer->sendMailSucces = false;
+      $answer->error = 'Mail konnte nicht verschickt werden';
+      $answer->success = false;
     }
   } else {
-    $answer->fileOk = false;
+    $answer->error = 'File schlecht';
+    $answer->success = false;
   }
 } else {
   $answer->error = 'Keine passenden Daten übermittelt';
@@ -163,15 +165,15 @@ function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $c
 
   try {
     // $mail->isSMTP();
-    // $mail->Host = $config['host'];
+    $mail->Host = $config['host'];
+    $mail->Port = $config['port'];
     // $mail->SMTPAuth = true;
     // $mail->Username = $config['email-address']; //Login
     // $mail->Password = $config['email-password']; //Passwort
     // $mail->SMTPSecure = 'tls';
-    // $mail->Port = $config['port'];
 
 
-    $mail->setFrom($email, $name);
+    $mail->setFrom($config['email-address'], $name);
     $mail->addAddress($config['email-address']); //Empfänger
     $mail->Subject = $subject;
     $mail->Body = $body;
