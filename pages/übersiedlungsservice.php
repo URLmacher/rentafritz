@@ -12,7 +12,7 @@ include('templates/nav-top.php');
       <p class="siedl__text">Unser Ziel ist es Sie mit einem stressfreien und kostengünstigen Umzugserlebnis zu versorgen.</p>
       <p class="siedl__text">Ob Sie privat oder als Unternehmen siedeln, unsere professionellen Mitarbeiter schaffen ihre Gegenstände sicher und effizient wohin Sie wollen, europaweit! </p>
       <p class="siedl__text">Wir bieten auch günstige Lagermöglichkeiten.</p>
-      <h2 class="siedl__price">ab <span>€49,-</span> pro Stunde</h2>
+      <h2 class="siedl__price">Siedeln Sie mit uns ab <span>€49,-</span> pro Stunde</h2>
       <a href="/reservierung/1" class="btn waves-effect waves-light waves-secondary btn__secondary siedl__button">Jetzt Reservieren</a>
     </div>
     <img class="siedl__img" src="img/siedlmobil.png">
