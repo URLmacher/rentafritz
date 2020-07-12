@@ -100,6 +100,26 @@ $products = [
   ],
   [
     "id" => 5,
+    "name" => "Mini Wohnwagen",
+    "description" => "Für zwei Personen",
+    "img_main" => "img/wohnwagen.png",
+    "img_sub" => null,
+    "price" => 25,
+    "rate" => "d",
+    "info" => null,
+    "info_secondary" => [
+      "Führerschein: B",
+      "Tageweise- und Wochenmieten"
+    ],
+    "info_list" => [
+      "Ultraleicht somit mit jedem PKW zu ziehen",
+      "Bett 125x 200cm",
+      "Stromanschluss 230V",
+      "Innen- und Außenbeleuchtung"
+    ]
+  ],
+  [
+    "id" => 6,
     "name" => "Planen Anhänger",
     "description" => "Planen Anhänger",
     "img_main" => "img/haenger.png",
@@ -121,7 +141,7 @@ $products = [
     ]
   ],
   [
-    "id" => 6,
+    "id" => 7,
     "name" => "Palettenhubwagen",
     "description" => "2,5 Tonnen",
     "img_main" => "img/hubwagen.png",
@@ -139,7 +159,7 @@ $products = [
     ]
   ],
   [
-    "id" => 7,
+    "id" => 8,
     "name" => "Luftentfeuchter / Bautrockner",
     "description" => "TTK 170 ECO",
     "img_main" => "img/luftentfeuchter.png",
@@ -147,7 +167,7 @@ $products = [
     "price" => 20,
     "rate" => "d",
     "info" => null,
-    "info_secondary" =>null,
+    "info_secondary" => null,
     "info_list" => [
       "Anschluss eines Abflussschlauchs zur Permaentfeuchtung",
       "Heißgasabtauung",
@@ -170,7 +190,7 @@ $products = [
     ]
   ],
   [
-    "id" => 8,
+    "id" => 9,
     "name" => "Holzspalter",
     "description" => "Zipper HS 8 PT",
     "img_main" => "img/spalter.png",
@@ -201,7 +221,7 @@ $products = [
     ]
   ],
   [
-    "id" => 9,
+    "id" => 10,
     "name" => "Vertikutierer",
     "description" => "Brill 4 TB 40",
     "img_main" => "img/verti.png",
@@ -219,7 +239,7 @@ $products = [
     ]
   ],
   [
-    "id" => 10,
+    "id" => 11,
     "name" => "Elektro-Heizgerät",
     "description" => "GÜDE GH9e",
     "img_main" => "img/heizgerät.png",
