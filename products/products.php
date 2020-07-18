@@ -2,6 +2,7 @@
 $products = [
   [
     "id" => 1,
+    "cat"=> "S",
     "name" => "Übersiedlungsservice",
     "description" => "2 Mann + Transporter",
     "img_main" => "img/umzug.png",
@@ -27,6 +28,7 @@ $products = [
   ],
   [
     "id" => 2,
+    "cat"=> "M",
     "name" => "Koffer LKW 3,5t",
     "description" => "Ford Transit",
     "img_main" => "img/transit.png",
@@ -52,6 +54,7 @@ $products = [
   ],
   [
     "id" => 3,
+    "cat"=> "M",
     "name" => "Transporter",
     "description" => "Ford Transit",
     "img_main" => "img/auto_neu_frei_klein.png",
@@ -78,6 +81,7 @@ $products = [
   ],
   [
     "id" => 4,
+    "cat"=> "M",
     "name" => "Kofferanhänger",
     "description" => "Kofferanhänger 750kg",
     "img_main" => "img/haenger_neu.png",
@@ -100,6 +104,7 @@ $products = [
   ],
   [
     "id" => 5,
+    "cat"=> "M",
     "name" => "Planen Anhänger",
     "description" => "Planen Anhänger",
     "img_main" => "img/haenger.png",
@@ -122,6 +127,7 @@ $products = [
   ],
   [
     "id" => 6,
+    "cat"=> "M",
     "name" => "Mini Wohnwagen",
     "description" => "Für zwei Personen",
     "img_main" => "img/wohnwagen.png",
@@ -143,6 +149,7 @@ $products = [
   ],
   [
     "id" => 7,
+    "cat"=> "M",
     "name" => "Palettenhubwagen",
     "description" => "2,5 Tonnen",
     "img_main" => "img/hubwagen.png",
@@ -161,6 +168,7 @@ $products = [
   ],
   [
     "id" => 8,
+    "cat"=> "M",
     "name" => "Luftentfeuchter / Bautrockner",
     "description" => "TTK 170 ECO",
     "img_main" => "img/luftentfeuchter.png",
@@ -192,6 +200,7 @@ $products = [
   ],
   [
     "id" => 9,
+    "cat"=> "M",
     "name" => "Holzspalter",
     "description" => "Zipper HS 8 PT",
     "img_main" => "img/spalter.png",
@@ -223,6 +232,7 @@ $products = [
   ],
   [
     "id" => 10,
+    "cat"=> "M",
     "name" => "Vertikutierer",
     "description" => "Brill 4 TB 40",
     "img_main" => "img/verti.png",
@@ -241,6 +251,7 @@ $products = [
   ],
   [
     "id" => 11,
+    "cat"=> "M",
     "name" => "Elektro-Heizgerät",
     "description" => "GÜDE GH9e",
     "img_main" => "img/heizgerät.png",
