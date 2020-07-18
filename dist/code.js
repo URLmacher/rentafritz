@@ -148,6 +148,7 @@ const minRentTime = 24;
 const minRentTimeExtrawurschtl = 2;
 let hours = 0;
 let productName = '';
+let optionDescription = null;
 let rentDuration = '';
 let totalPrice = '';
 let rentStart = '';
@@ -162,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const infoLoading = document.getElementById('rent-info-loading');
   const fullLoading = document.getElementById('rent-full-loading');
   const infoProduct = document.getElementById('rent-info-selected-product');
+  const infoOption = document.getElementById('rent-info-option');
   const infoTime = document.getElementById('rent-info-time');
   const infoPrice = document.getElementById('rent-info-price');
   const agbLink = document.getElementById('rent-agb-link');
@@ -169,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rentBackButton = document.getElementById('rent-back-button');
   const rentBackHomeButton = document.getElementById('rent-back-home-btn');
   const rentReloadButton = document.getElementById('rent-reload-page-btn');
+  const optionCheckbox1 = document.getElementById('rent-option-1');
   const dropdownProductDom = document.getElementById('rent-select');
   const rentFormPageOne = document.getElementById('rent-form-1');
   const rentFormPageTwo = document.getElementById('rent-form-2');
@@ -216,16 +219,19 @@ document.addEventListener('DOMContentLoaded', () => {
       rentPaginationPage.innerHTML = 2;
 
       const productId = parseInt(dropdownProductDom.value, 10);
+      const optionId = optionCheckbox1 && optionCheckbox1.checked ? 1 : null;
 
       try {
-        const data = await getPrice(hours, productId);
+        const data = await getPrice(hours, productId, optionId);
         if (data.success) {
           productName = data.product;
+          optionDescription = data.option;
           rentDuration = formatTime(data.time);
           totalPrice = `${formatMoney(data.price)} Euro`;
 
           infoLoading.classList.add('hide');
           infoProduct.innerHTML = productName;
+          infoOption.innerHTML = optionDescription ? optionDescription : '-';
           infoTime.innerHTML = rentDuration;
           infoPrice.innerHTML = parseInt(data.time) < showPriceCutOffTime ? totalPrice : 'Sie erhalten von uns ein unverbindliches Preisangebot';
         } else {
@@ -249,7 +255,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (preSendCheck(customerFirstName.value, customerLastName.value, customerPhone.value, customerEmail.value, customerStreet.value, customerHnr.value, customerPlz.value, customerCity.value, customerFile.files[0], customerAgb.checked)) {
       try {
-        const data = await handleForm(customerFirstName.value, customerLastName.value, customerPhone.value, customerEmail.value, customerStreet.value, customerHnr.value, customerPlz.value, customerCity.value, customerFile.files[0], productName, totalPrice, rentDuration, rentStart, rentEnd);
+        const data = await handleForm(
+          customerFirstName.value,
+          customerLastName.value,
+          customerPhone.value,
+          customerEmail.value,
+          customerStreet.value,
+          customerHnr.value,
+          customerPlz.value,
+          customerCity.value,
+          customerFile.files[0],
+          productName,
+          optionDescription,
+          totalPrice,
+          rentDuration,
+          rentStart,
+          rentEnd
+        );
         if (data.success) {
           fullLoading.classList.add('rent__hidden');
           rentFormPageTwo.classList.add('rent__hidden');
@@ -273,11 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   //handle back button
-  rentBackButton.addEventListener('click', () => {
-    rentFormPageOne.classList.remove('rent__hidden');
-    rentFormPageTwo.classList.add('rent__hidden');
-    infoBox.classList.add('rent__hidden');
-    rentPaginationPage.innerHTML = 1;
+  rentBackButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = `${baseUrl}/reservierung`;
   });
 
   rentBackHomeButton.addEventListener('click', () => {
@@ -295,7 +315,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // handle error clearing
   allInputs.forEach((input) => input.addEventListener('focus', clearErrors));
-  dropdownProductDom.addEventListener('change', clearErrors);
+  dropdownProductDom.addEventListener('change', (e) => {
+    window.location.href = `${baseUrl}/reservierung/${e.target.value}`;
+  });
   dropdownTimeStartDom.addEventListener('change', clearErrors);
   dropdownTimeEndDom.addEventListener('change', clearErrors);
 });
@@ -389,6 +411,7 @@ function clearErrors(event) {
  * @param {string} customerCity
  * @param {File} customerFile
  * @param {string} product
+ * @param {string | null} optionDescription
  * @param {string} price
  * @param {string} rentDuration
  * @param {Date} rentStart
@@ -396,7 +419,7 @@ function clearErrors(event) {
  * @throws {Error}
  * @returns {Promise}
  */
-async function handleForm(customerFirstName, customerLastName, customerPhone, customerEmail, customerStreet, customerHnr, customerPlz, customerCity, customerFile, product, price, rentDuration, rentStart, rentEnd) {
+async function handleForm(customerFirstName, customerLastName, customerPhone, customerEmail, customerStreet, customerHnr, customerPlz, customerCity, customerFile, product, option, price, rentDuration, rentStart, rentEnd) {
   const dateFormatOptions = {
     weekday: 'long',
     year: 'numeric',
@@ -417,6 +440,7 @@ async function handleForm(customerFirstName, customerLastName, customerPhone, cu
   formData.append('city', customerCity);
   formData.append('file', customerFile);
   formData.append('product', product);
+  formData.append('option', option);
   formData.append('price', price);
   formData.append('duration', rentDuration);
   formData.append('rentStart', rentStart.toLocaleDateString('de-DE', dateFormatOptions));
@@ -438,12 +462,14 @@ async function handleForm(customerFirstName, customerLastName, customerPhone, cu
  * send form data to backend to calculate price
  * @param {number} hours
  * @param {number} productId
+ * @param {number | null} optionId
  * @returns {Promise}
  */
-async function getPrice(hours, productId) {
+async function getPrice(hours, productId, optionId) {
   let postData = {
     hours: hours,
     productId: productId,
+    optionId: optionId,
   };
 
   const answer = await fetch(`${baseUrl}/backend/getprice.php`, {

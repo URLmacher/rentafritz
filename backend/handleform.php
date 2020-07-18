@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require $_SERVER['DOCUMENT_ROOT'] .'/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 $answer = new stdClass();
 $answer->success = true;
 
@@ -20,6 +20,7 @@ if (
   && isset($_POST['plz'])
   && isset($_POST['city'])
   && isset($_POST['product'])
+  && isset($_POST['option'])
   && isset($_POST['price'])
   && isset($_POST['duration'])
   && isset($_POST['rentStart'])
@@ -35,6 +36,7 @@ if (
   $plz = filter_var($_POST['plz'], FILTER_SANITIZE_STRING);
   $city = filter_var($_POST['city'], FILTER_SANITIZE_STRING);
   $product = filter_var($_POST['product'], FILTER_SANITIZE_STRING);
+  $option = $_POST['option'] !== 'null' ? filter_var($_POST['option'], FILTER_SANITIZE_STRING) : null;
   $price = filter_var($_POST['price'], FILTER_SANITIZE_STRING);
   $duration = filter_var($_POST['duration'], FILTER_SANITIZE_STRING);
   $rentEnd = filter_var($_POST['rentEnd'], FILTER_SANITIZE_STRING);
@@ -42,25 +44,27 @@ if (
 
   // DEBUG
   // $answer->sentData = [
-  //     'firstName' => $firstName,
-  //     'lastName' => $lastName,
-  //     'phone' => $phone,
-  //     'email' => $email,
-  //     'street' => $street,
-  //     'hnr' => $hnr,
-  //     'plz' => $plz,
-  //     'city' => $city,
-  //     'product' => $product,
-  //     'price' => $price,
-  //     'duration' => $duration,
-  //     'rentStart' => $rentStart,
-  //     'rentEnd' => $rentEnd,
-  //     'file' => $_FILES['file'],
+  //   'firstName' => $firstName,
+  //   'lastName' => $lastName,
+  //   'phone' => $phone,
+  //   'email' => $email,
+  //   'street' => $street,
+  //   'hnr' => $hnr,
+  //   'plz' => $plz,
+  //   'city' => $city,
+  //   'product' => $product,
+  //   'option' => $option,
+  //   'optionU' => $_POST['option'],
+  //   'price' => $price,
+  //   'duration' => $duration,
+  //   'rentStart' => $rentStart,
+  //   'rentEnd' => $rentEnd,
+  //   'file' => $_FILES['file'],
   // ];
 
   if (checkFile($_FILES)) {
     $answer->fileOk = true;
-    if (sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $price, $duration, $rentStart, $rentEnd, $_FILES['file'])) {
+    if (sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $option, $price, $duration, $rentStart, $rentEnd, $_FILES['file'])) {
       $answer->sendMailSuccess = true;
     } else {
       $answer->error = 'Mail konnte nicht verschickt werden';
@@ -143,6 +147,7 @@ function checkFile($file)
  * @param string $plz
  * @param string $city
  * @param string $product
+ * @param string|null $option
  * @param string $price
  * @param string $duration
  * @param string $rentStart
@@ -150,7 +155,7 @@ function checkFile($file)
  * @param File $file
  * @return boolean
  */
-function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $price, $duration, $rentStart, $rentEnd, $file)
+function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $city, $product, $option, $price, $duration, $rentStart, $rentEnd, $file)
 {
 
   $sendSuccess = true;
@@ -160,6 +165,7 @@ function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $c
   $subject = 'Reservierungsanfrage von ' . $name;
   $bodyHeadline = "<b>Mietanfrage für $product</b>\r\n";
   $bodyRent = "<b>Von: </b>$rentStart\r\n<b>Bis: </b>$rentEnd\r\n<b>Dauer: </b>$duration\r\n<b>Preis: </b>$price\r\n";
+  $option ? $bodyRent .= "<b>Zusatzoption: </b>$option\r\n" : "";
   $bodyCustomer = "<b>Anfrage von: </b>\r\n$firstName $lastName\r\nTel: $phone\r\nEmail: $email\r\n$street $hnr\r\n$plz $city";
   $body = nl2br("$bodyHeadline \r\n$bodyRent \r\n$bodyCustomer");
 

@@ -2,7 +2,7 @@
 $products = [
   [
     "id" => 1,
-    "cat"=> "S",
+    "cat" => "S",
     "name" => "Übersiedlungsservice",
     "description" => "2 Mann + Transporter",
     "img_main" => "img/umzug.png",
@@ -13,6 +13,7 @@ $products = [
       "Sowohl für Privat als auch für Betriebe",
       "Umzugsservice Europaweit"
     ],
+    "options" => null,
     "info_secondary" => [
       "Preisbeispiel ohne Stockwerke oder sperrige Gegenstände",
       "Günstige Pauschalen auf Anfrage",
@@ -28,7 +29,7 @@ $products = [
   ],
   [
     "id" => 2,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Koffer LKW 3,5t",
     "description" => "Ford Transit",
     "img_main" => "img/transit.png",
@@ -36,6 +37,7 @@ $products = [
     "price" => 119,
     "rate" => "d",
     "info" => ["Stehleiter für bequeme Be- und Entladung inkludiert"],
+    "options" => null,
     "info_secondary" => [
       "200km frei",
       "Führerschein B",
@@ -54,7 +56,7 @@ $products = [
   ],
   [
     "id" => 3,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Transporter",
     "description" => "Ford Transit",
     "img_main" => "img/auto_neu_frei_klein.png",
@@ -62,6 +64,7 @@ $products = [
     "price" => 65,
     "rate" => "d",
     "info" => null,
+    "options" => null,
     "info_secondary" => [
       "200km frei",
       "Führerschein B"
@@ -81,7 +84,7 @@ $products = [
   ],
   [
     "id" => 4,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Kofferanhänger",
     "description" => "Kofferanhänger 750kg",
     "img_main" => "img/haenger_neu.png",
@@ -89,6 +92,7 @@ $products = [
     "price" => 29,
     "rate" => "d",
     "info" => null,
+    "options" => null,
     "info_secondary" => [
       "Führerschein: B"
     ],
@@ -104,7 +108,7 @@ $products = [
   ],
   [
     "id" => 5,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Planen Anhänger",
     "description" => "Planen Anhänger",
     "img_main" => "img/haenger.png",
@@ -112,6 +116,7 @@ $products = [
     "price" => 45,
     "rate" => "d",
     "info" => null,
+    "options" => null,
     "info_secondary" => [
       "Führerschein E : B"
     ],
@@ -127,7 +132,7 @@ $products = [
   ],
   [
     "id" => 6,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Mini Wohnwagen",
     "description" => "Für zwei Personen",
     "img_main" => "img/wohnwagen.png",
@@ -135,6 +140,7 @@ $products = [
     "price" => 25,
     "rate" => "d",
     "info" => null,
+    "options" => [1],
     "info_secondary" => [
       "Führerschein: B",
       "Tageweise- und Wochenmieten"
@@ -149,7 +155,7 @@ $products = [
   ],
   [
     "id" => 7,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Palettenhubwagen",
     "description" => "2,5 Tonnen",
     "img_main" => "img/hubwagen.png",
@@ -157,6 +163,7 @@ $products = [
     "price" => 10,
     "rate" => "12",
     "info" => null,
+    "options" => null,
     "info_secondary" => null,
     "info_list" => [
       "Max. 2500kg Tragkraft",
@@ -168,7 +175,7 @@ $products = [
   ],
   [
     "id" => 8,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Luftentfeuchter / Bautrockner",
     "description" => "TTK 170 ECO",
     "img_main" => "img/luftentfeuchter.png",
@@ -176,6 +183,7 @@ $products = [
     "price" => 20,
     "rate" => "d",
     "info" => null,
+    "options" => null,
     "info_secondary" => null,
     "info_list" => [
       "Anschluss eines Abflussschlauchs zur Permaentfeuchtung",
@@ -200,7 +208,7 @@ $products = [
   ],
   [
     "id" => 9,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Holzspalter",
     "description" => "Zipper HS 8 PT",
     "img_main" => "img/spalter.png",
@@ -208,6 +216,7 @@ $products = [
     "price" => 28,
     "rate" => "12",
     "info" => null,
+    "options" => null,
     "info_secondary" => null,
     "info_list" => [
       "Betriebsspannung: 400V / 50 Hz",
@@ -232,7 +241,7 @@ $products = [
   ],
   [
     "id" => 10,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Vertikutierer",
     "description" => "Brill 4 TB 40",
     "img_main" => "img/verti.png",
@@ -240,6 +249,7 @@ $products = [
     "price" => 32,
     "rate" => "12",
     "info" => null,
+    "options" => null,
     "info_secondary" => null,
     "info_list" => [
       "Benzinantrieb",
@@ -251,7 +261,7 @@ $products = [
   ],
   [
     "id" => 11,
-    "cat"=> "M",
+    "cat" => "M",
     "name" => "Elektro-Heizgerät",
     "description" => "GÜDE GH9e",
     "img_main" => "img/heizgerät.png",
@@ -261,6 +271,7 @@ $products = [
     "info" => [
       "Robustes Elektro-Heizgerät mit 2 Heizstufen (4,5 kw + 9 kw), Ventilator und Raumthermostat."
     ],
+    "options" => null,
     "info_secondary" => null,
     "info_list" => [
       "Anschluss 400 Volt",

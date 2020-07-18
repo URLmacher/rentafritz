@@ -4,6 +4,7 @@ $site_desc = 'Reservierung';
 include('templates/header.php');
 include('templates/nav-top.php');
 include('products/products.php');
+include('products/options.php');
 
 //get product ID from url
 $product_id = null;
@@ -27,6 +28,7 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
       </div>
       <p class="rent__info-text">Ausgewählt: <span id="rent-info-selected-product" class="rent__info-text-selection">-</span></p>
       <p class="rent__info-text">Leihdauer: <span id="rent-info-time" class="rent__info-text-selection">-</span></p>
+      <p class="rent__info-text">Zusatzoption: <span id="rent-info-option" class="rent__info-text-selection">-</span></p>
       <p class="rent__info-text">Vorraussichtliche Kosten: <span id="rent-info-price" class="rent__info-text-selection">-</span></p>
       <p class="rent__info-text">Zahlbar in bar vor Ort</p>
       <p class="rent__info-text">Alle Preise inkl. 20% Mehrwertsteuer</p>
@@ -35,10 +37,12 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
   </header>
 
   <form class="rent__form" id="rent-form-1">
-    <!-- Reservieren -->
+    <!-- Mindest Mietzeit-->
     <?php foreach ($products as $product) : ?>
       <input type="hidden" id="rent-min-time-<?= $product['id'] ?>" value="<?= $product['rate'] ?>">
     <?php endforeach; ?>
+
+    <!-- Produktauswahl -->
     <div class="rent__row">
       <div class="rent__col">
         <label for="rent-select" class="rent__body-title">Was?</label>
@@ -52,6 +56,23 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
       </div>
     </div>
 
+    <!-- Produktoptionen -->
+    <?php foreach ($products as $product) : ?>
+      <?php if ($product['id'] == $product_id && $product['options']) : ?>
+        <?php foreach ($options as $option) : ?>
+        <div class="rent__row">
+          <div class="rent__col">
+            <label for="rent-option-<?= $option['id'] ?>" class="rent__body-title">
+              <input type="checkbox" id="rent-option-<?= $option['id'] ?>" />
+              <span><?= $option['description'] ?></span>
+            </label>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    <?php endforeach; ?>
+
+    <!-- Startzeit -->
     <div class="rent__row">
       <div class="rent__col">
         <label for="rent-date-start" class="rent__body-title">Von wann:</label>
@@ -67,6 +88,7 @@ if (!empty($matches[1]) && is_numeric($matches[1])) {
       </div>
     </div>
 
+    <!-- Endzeit -->
     <div class="rent__row">
       <div class="rent__col">
         <label for="rent-date-end" class="rent__body-title">Bis wann:</label>
