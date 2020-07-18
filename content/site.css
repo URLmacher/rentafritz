@@ -266,6 +266,12 @@
   color: var(--color-primary);
 }
 
+.secondary-page__text--flex-between{
+  display: flex;
+  justify-content: space-between;
+  max-width: 170px;
+}
+
 .secondary-page__link {
   color: var(--color-secondary);
   transition: color 0.3 ease;

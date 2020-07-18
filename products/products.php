@@ -2,6 +2,31 @@
 $products = [
   [
     "id" => 1,
+    "name" => "Übersiedlungsservice",
+    "description" => "2 Mann + Transporter",
+    "img_main" => "img/umzug.png",
+    "img_sub" => null,
+    "price" => 49,
+    "rate" => "h",
+    "info" => [
+      "Sowohl für Privat als auch für Betriebe",
+      "Umzugsservice Europaweit"
+    ],
+    "info_secondary" => [
+      "Preisbeispiel ohne Stockwerke oder sperrige Gegenstände",
+      "Günstige Pauschalen auf Anfrage",
+      "Anfahrt bis 15km kostenlos"
+    ],
+    "info_list" => [
+      "Komplettservice",
+      "Schnell, flexibel und diskret",
+      "Klaviertransport",
+      "Möbeleinlagerung",
+      "Möbel Ab- und Aufbau",
+    ]
+  ],
+  [
+    "id" => 2,
     "name" => "Koffer LKW 3,5t",
     "description" => "Ford Transit",
     "img_main" => "img/transit.png",
@@ -26,7 +51,7 @@ $products = [
     ]
   ],
   [
-    "id" => 2,
+    "id" => 3,
     "name" => "Transporter",
     "description" => "Ford Transit",
     "img_main" => "img/auto_neu_frei_klein.png",
@@ -49,31 +74,6 @@ $products = [
       "Inkl. Anhängerkupplung",
       "Anhängelast gebremst: 2800kg",
       "Anhängelast ungebremst: 750kg",
-    ]
-  ],
-  [
-    "id" => 3,
-    "name" => "Übersiedlungsservice",
-    "description" => "2 Mann + Transporter",
-    "img_main" => "img/umzug.png",
-    "img_sub" => null,
-    "price" => 49,
-    "rate" => "h",
-    "info" => [
-      "Sowohl für Privat als auch für Betriebe",
-      "Umzugsservice Europaweit"
-    ],
-    "info_secondary" => [
-      "Preisbeispiel ohne Stockwerke oder sperrige Gegenstände",
-      "Günstige Pauschalen auf Anfrage",
-      "Anfahrt bis 15km kostenlos"
-    ],
-    "info_list" => [
-      "Komplettservice",
-      "Schnell, flexibel und diskret",
-      "Klaviertransport",
-      "Möbeleinlagerung",
-      "Möbel Ab- und Aufbau",
     ]
   ],
   [
@@ -100,26 +100,6 @@ $products = [
   ],
   [
     "id" => 5,
-    "name" => "Mini Wohnwagen",
-    "description" => "Für zwei Personen",
-    "img_main" => "img/wohnwagen.png",
-    "img_sub" => null,
-    "price" => 25,
-    "rate" => "d",
-    "info" => null,
-    "info_secondary" => [
-      "Führerschein: B",
-      "Tageweise- und Wochenmieten"
-    ],
-    "info_list" => [
-      "Ultraleicht somit mit jedem PKW zu ziehen",
-      "Bett 125x 200cm",
-      "Stromanschluss 230V",
-      "Innen- und Außenbeleuchtung"
-    ]
-  ],
-  [
-    "id" => 6,
     "name" => "Planen Anhänger",
     "description" => "Planen Anhänger",
     "img_main" => "img/haenger.png",
@@ -138,6 +118,27 @@ $products = [
       "Laderaumvolumen: ca. 9,6m³",
       "Laderaumgröße: L/B/H 330cmx171cmx171cm",
       "Anhängestützlast: 100kg",
+    ]
+  ],
+  [
+    "id" => 6,
+    "name" => "Mini Wohnwagen",
+    "description" => "Für zwei Personen",
+    "img_main" => "img/wohnwagen.png",
+    "img_sub" => "img/wohnwagen_innen.png",
+    "price" => 25,
+    "rate" => "d",
+    "info" => null,
+    "info_secondary" => [
+      "Führerschein: B",
+      "Tageweise- und Wochenmieten"
+    ],
+    "info_list" => [
+      "Ultraleicht somit mit jedem PKW zu ziehen",
+      "Bett 125x 200cm",
+      "Stromanschluss 230V",
+      "Innen- und Außenbeleuchtung",
+      "Wahlweise mit Sitzgruppe und Vorzelt anzumieten"
     ]
   ],
   [
