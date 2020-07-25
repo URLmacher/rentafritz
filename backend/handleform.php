@@ -171,8 +171,8 @@ function sendMail($firstName, $lastName, $phone, $email, $street, $hnr, $plz, $c
 
   try {
     // $mail->isSMTP();
-    $mail->Host = $config['host'];
-    $mail->Port = $config['port'];
+    // $mail->Host = $config['host'];
+    // $mail->Port = $config['port'];
     // $mail->SMTPAuth = true;
     // $mail->Username = $config['email-address']; //Login
     // $mail->Password = $config['email-password']; //Passwort

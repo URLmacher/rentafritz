@@ -29,5 +29,43 @@
   <link rel="preload" as="font" href="<?= $config['BASE_URL'] ?>/fonts/material2.woff2" type="font/woff2" crossorigin="anonymous">
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="<?= $config['BASE_URL'] ?>/dist/site.css" />
+  <script>
+    //bad browser
+    document.addEventListener('DOMContentLoaded', function() {
+      var badBrowserErrorDom = document.getElementById('bad-browser-error');
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf('MSIE ');
+
+      if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+        badBrowserErrorDom.classList.remove('rent__hidden');
+      }
+    })
+  </script>
+  <style>
+    .ie__error-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      z-index: 99999;
+    }
+
+    .ie__error-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Error Overlay -->
+  <div id="bad-browser-error" class="ie__error-overlay rent__hidden">
+    <div class="ie__error-text">
+      <h1 class="rent__success-title">Es tut uns Leid</h1>
+      <h5 class="rent__success-text">Ihr Internet-Browser wird von uns nicht unterstützt</h5>
+    </div>
+  </div>
